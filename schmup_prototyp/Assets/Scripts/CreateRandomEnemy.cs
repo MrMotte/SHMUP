@@ -14,7 +14,7 @@ public class CreateRandomEnemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        GameObject newParent = GameObject.Find("3 - Background Elements (1)");
+        GameObject newParent = GameObject.Find("3 - Middleground - Land");
 
         for(int i = 0; i< numEnemies; i++)
         {

@@ -431,22 +431,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &596503240 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1583919656944212, guid: 2b27a544b7991c849ad82ac6ad802346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1910248794}
---- !u!114 &596503241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 596503240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94caa6941dedeb4e86b0d785dd11990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &649361123
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1583919656944212, guid: 2b27a544b7991c849ad82ac6ad802346,
     type: 2}
-  numEnemies: 25
+  numEnemies: 0
   xMin: 20
   xMax: 160
   yMin: 3.5
@@ -1510,7 +1494,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4661021733270758, guid: 2b27a544b7991c849ad82ac6ad802346, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.11
+      value: 24.77
       objectReference: {fileID: 0}
     - target: {fileID: 4661021733270758, guid: 2b27a544b7991c849ad82ac6ad802346, type: 2}
       propertyPath: m_LocalPosition.y

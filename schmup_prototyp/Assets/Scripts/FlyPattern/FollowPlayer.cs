@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FacesPlayer : MonoBehaviour {
+public class FollowPlayer : MonoBehaviour {
 
-    public Transform player;
+	Transform player;
 
 	// Use this for initialization
 	void Start () {
@@ -12,9 +12,9 @@ public class FacesPlayer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
-    {
-        if (player == null)
+	void Update () {
+		
+		        if (player == null)
         {
             GameObject go = GameObject.Find("Player");
 
@@ -33,5 +33,5 @@ public class FacesPlayer : MonoBehaviour {
         float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -180;
 
         transform.rotation = Quaternion.Euler(0, 0, zAngle);
-    }
+	}
 }

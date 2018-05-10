@@ -34,3 +34,11 @@ sysinfo.txt
 *.unitypackage
 schmup_prototyp/Library/
 schmup_prototyp/Temp/
+
+
+*/[Ll]ibrary/
+*/[Tt]emp/
+*/[Oo]bj/
+*/[Bb]uild/
+*/[Bb]uilds/
+*/Assets/AssetStoreTools*

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class GameOverScript : MonoBehaviour
                 )
             )
         {
-            Application.LoadLevel("Stage1");
+            SceneManager.LoadScene("Stage1");
 
         }
 
@@ -50,7 +51,7 @@ public class GameOverScript : MonoBehaviour
                 )
             )
             {
-                Application.LoadLevel("Menu");
+                SceneManager.LoadScene("Menu");
             }
     }
 }

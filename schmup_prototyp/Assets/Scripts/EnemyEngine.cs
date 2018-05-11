@@ -78,21 +78,33 @@ public class EnemyEngine : MonoBehaviour {
 
 
     // simple function to Mirror Formation if required
+    // executed after spawn, cause Instatiate does not have an scale option
     void fMirrorFormation() {
         SpawnRotation.x = SpawnRotation.x * -1;
         newObject.transform.localScale = new Vector3(-1, 1, 1);
     }
 
+    // function to spawn formation
+    // executes fSpawnEnemy afterwards
     void fSPawnFormation() {
         newObject = Instantiate(FormationData[iFormationCounter].FormationPattern, SpawnPosition, SpawnRotation) as GameObject; 
         fSpawnEnemy();  
     }
 
+    // function to edit spawn position with an offset
+    // will be reseted after spawn
     void fSpawnOffset() {
         SpawnPosition = SpawnPosition + FormationData[iFormationCounter].SpawnOffset;
     }
 
+    // spawn enemys at array locations stored inside Formation SCript
+    // Formation  Script ist Stored in every Formation
     void fSpawnEnemy() {
-        FormationScript = newObject.GetComponent("EnemyFormation") as EnemyFormation;
+        FormationScript = newObject.GetComponent<EnemyFormation>();
+        
+        foreach(GameObject mEnemy in FormationScript.SpawnOrder)
+        {
+            //TODO Instantiate Enemy Class here
+        }
     }
 }

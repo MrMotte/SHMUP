@@ -1,0 +1,39 @@
+Überlegen was der player braucht
+- Sprite
+- Weapon Slots 3x
+- Engine Slot
+- Shield Slot
+- Health 100HP (Prozent)
+- Damage Sound get hitted
+- Death Sound
+- Shoot Sound 3x
+- Speed (manipluatable)
+
+- Game Over Condition
+
+
+überlegen was der enemy braucht
+- Sprite
+- Weapon Slot 1x
+- Engine Slot
+- Shield Slot
+- Health
+- Damage Sound get hitted
+- Death Sound
+- Shoot Sound 1x
+- Speed (manipulatable)
+
+- Fly Pattern
+- Bullet Pattern
+
+
+
+
+ein framework für beides aufsetzen
+unterschieder ausarbeiten
+
+enemy spawn vervollständigen
+
+Weapons
+Engines
+Shield

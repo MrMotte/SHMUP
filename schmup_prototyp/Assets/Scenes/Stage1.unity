@@ -860,8 +860,29 @@ MonoBehaviour:
   FormationData:
   - FormationPattern: {fileID: 1257930941988814, guid: 1a7fb574e893df149b917eff23e9e8a1,
       type: 2}
+    EnemyClass: {fileID: 1289014855025236, guid: 75dddd6732bc9054aa40d419ab387348,
+      type: 2}
     DelayToNextSpawn: 2
-  InitialDelay: 5
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1257930941988814, guid: 1a7fb574e893df149b917eff23e9e8a1,
+      type: 2}
+    EnemyClass: {fileID: 1289014855025236, guid: 75dddd6732bc9054aa40d419ab387348,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1257930941988814, guid: 1a7fb574e893df149b917eff23e9e8a1,
+      type: 2}
+    EnemyClass: {fileID: 1289014855025236, guid: 75dddd6732bc9054aa40d419ab387348,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  InitialDelay: 3
 --- !u!1 &990236808
 GameObject:
   m_ObjectHideFlags: 0

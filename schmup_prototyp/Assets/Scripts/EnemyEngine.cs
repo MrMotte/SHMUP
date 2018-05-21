@@ -11,6 +11,9 @@ public struct FormationData
     // slot to place formation prefab
     [SerializeField]
     public GameObject FormationPattern;
+
+    // Enemy Class that shoul spawn inside Formation
+    public GameObject EnemyClass;
     
     // Delay after wave till next one is spawned
     [SerializeField]
@@ -24,6 +27,7 @@ public struct FormationData
 
     // adds an vec3 to our normal spawn position
     public Vector3 SpawnOffset;
+
  } 
 
 public class EnemyEngine : MonoBehaviour {
@@ -43,7 +47,8 @@ public class EnemyEngine : MonoBehaviour {
     private Quaternion SpawnRotation;
     private Vector3 SpawnPosition;
 
-    private GameObject newObject;
+    private GameObject newFormation;
+    private GameObject newEnemy;
 
     private EnemyFormation FormationScript;
 
@@ -51,14 +56,25 @@ public class EnemyEngine : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        StartCoroutine(fInitial(InitialDelay));
         // Start Routine that run timer for proper delay between waves
         StartCoroutine(fSpawnTimer(InitialDelay));
     }
 
+    IEnumerator fInitial(float mInitialDelay) {
+            yield return new WaitForSeconds(mInitialDelay);
+    }
 
     IEnumerator fSpawnTimer(float mInitialDelay) {
+        
+        yield return new WaitForSeconds(mInitialDelay);
+
+
         for (int i = 0; i <= FormationData.Length; i++)
         {
+            SpawnPosition = this.transform.position;
+            SpawnRotation = this.transform.rotation;
+
             //decides which spaw method is used
             if(FormationData[i].UsePositionOffset)
                 fSpawnOffset();
@@ -81,13 +97,13 @@ public class EnemyEngine : MonoBehaviour {
     // executed after spawn, cause Instatiate does not have an scale option
     void fMirrorFormation() {
         SpawnRotation.x = SpawnRotation.x * -1;
-        newObject.transform.localScale = new Vector3(-1, 1, 1);
+        newFormation.transform.localScale = new Vector3(-1, 1, 1);
     }
 
     // function to spawn formation
     // executes fSpawnEnemy afterwards
     void fSPawnFormation() {
-        newObject = Instantiate(FormationData[iFormationCounter].FormationPattern, SpawnPosition, SpawnRotation) as GameObject; 
+        newFormation = Instantiate(FormationData[iFormationCounter].FormationPattern, SpawnPosition, SpawnRotation) as GameObject; 
         fSpawnEnemy();  
     }
 
@@ -100,11 +116,14 @@ public class EnemyEngine : MonoBehaviour {
     // spawn enemys at array locations stored inside Formation SCript
     // Formation  Script ist Stored in every Formation
     void fSpawnEnemy() {
-        FormationScript = newObject.GetComponent<EnemyFormation>();
+        FormationScript = newFormation.GetComponent<EnemyFormation>();
         
-        foreach(GameObject mEnemy in FormationScript.SpawnOrder)
+        foreach(GameObject SpawnOrder in FormationScript.SpawnOrder)
         {
-            //TODO Instantiate Enemy Class here
+            Debug.Log("Enemy Spawned");
+            newEnemy = Instantiate(FormationData[iFormationCounter].EnemyClass, SpawnOrder.transform.position, SpawnOrder.transform.rotation)  as GameObject;
         }
+
+        Destroy(newFormation);
     }
 }

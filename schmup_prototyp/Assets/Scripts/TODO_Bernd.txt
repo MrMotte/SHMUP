@@ -4,11 +4,11 @@ Was ist zum Gate wichtig?
     - Enemys in Formation spawnen
         - braucht nur ne Class und Instantiate
 - WIP
-- TODO
     - Player Properties
         - Lebensbalken
         - Leben 100 %
         - Immunität nach Hit
+- TODO
     - Enemy Properties (1x Standard Class)
         - Attack Pattern
             - Attack Behavior

@@ -34,6 +34,7 @@ Was ist zum Gate wichtig?
         - Lebensbalken
         - Leben 100 %
 
+
 Überlegen was der player braucht
 - Sprite
 - Weapon Slots 3x

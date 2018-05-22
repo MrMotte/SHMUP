@@ -55,20 +55,17 @@ public class HealthScript : MonoBehaviour
 
     }
 
+    // If we just got hitted enable/disable spriterenderer and prevent to get hitted again
     IEnumerator fSpriteImmunityBlink()
     {
-        
-        for(int i = 1; i <= BlinkTimes; i++)
+        for (int i = 1; i <= BlinkTimes; i++)
         {
-        yield return new WaitForSeconds(BlinkTime);
-        spriteRenderer.enabled = false;
-        yield return new WaitForSeconds(BlinkTime);
-        spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(BlinkTime);
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(BlinkTime);
+            spriteRenderer.enabled = true;
         }
-
-        
         Immunity = false;
-
     }
 
     // Use this for initialization

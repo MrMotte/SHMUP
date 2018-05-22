@@ -47,43 +47,54 @@ public class EnemyEngine : MonoBehaviour {
     private Quaternion SpawnRotation;
     private Vector3 SpawnPosition;
 
+    // GemeObjects to store new Instantiated objects
     private GameObject newFormation;
     private GameObject newEnemy;
 
+    // store Script from Instantiated Formation to Get Sort Array
     private EnemyFormation FormationScript;
 
 
     // Use this for initialization
     void Start () {
 
-        StartCoroutine(fInitial(InitialDelay));
         // Start Routine that run timer for proper delay between waves
         StartCoroutine(fSpawnTimer(InitialDelay));
     }
 
-    IEnumerator fInitial(float mInitialDelay) {
-            yield return new WaitForSeconds(mInitialDelay);
-    }
+
 
     IEnumerator fSpawnTimer(float mInitialDelay) {
         
+        // first delay to prevent instant spawn of first wave
         yield return new WaitForSeconds(mInitialDelay);
 
 
+        // for each wave, spawn Formation
         for (int i = 0; i <= FormationData.Length; i++)
         {
+            // resets Spawn Transform to position of Enemy Engine
             SpawnPosition = this.transform.position;
             SpawnRotation = this.transform.rotation;
 
-            //decides which spaw method is used
+            // if Offset is used start function to adjust
             if(FormationData[i].UsePositionOffset)
                 fSpawnOffset();
             
-                fSPawnFormation();
-                if(FormationData[i].MirrorFormation)
-                    fMirrorFormation();
+            // spawn Formation
+            fSPawnFormation();
+                
+            // MIrror formation if required
+            if(FormationData[i].MirrorFormation)
+                 fMirrorFormation();
+
+            // finaly spawn Enemys    
+            fSpawnEnemy();  
             
+            // iFormationCounter is used to use "i" in other functions
             iFormationCounter = i;
+
+            // wait for next Wave
             yield return new WaitForSeconds(FormationData[i].DelayToNextSpawn);
 
             // reset spawn position
@@ -104,7 +115,6 @@ public class EnemyEngine : MonoBehaviour {
     // executes fSpawnEnemy afterwards
     void fSPawnFormation() {
         newFormation = Instantiate(FormationData[iFormationCounter].FormationPattern, SpawnPosition, SpawnRotation) as GameObject; 
-        fSpawnEnemy();  
     }
 
     // function to edit spawn position with an offset

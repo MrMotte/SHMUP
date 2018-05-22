@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour {
+public class HealthScript : MonoBehaviour
+{
 
     public int hp = 2;
 
@@ -13,10 +14,14 @@ public class HealthScript : MonoBehaviour {
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
 
-    float delay = 0.32f; 
+    float delay = 0.32f;
 
 
     public BoxCollider2D EnemyBox;
+
+    private bool Immunity = false;
+    public int BlinkTimes = 10;
+    public float BlinkTime;
 
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -25,28 +30,50 @@ public class HealthScript : MonoBehaviour {
         ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
 
 
-
-        if (shot != null)
+        if (!Immunity)
         {
-            if (shot.isEnemyShot != isEnemy)
+            if (shot != null)
             {
-                hp -= shot.damage;
-
-                Destroy(shot.gameObject);
-
-                if(hp <= 0)
+                if (shot.isEnemyShot != isEnemy)
                 {
-                    Destroy(EnemyBox);
-                    ChangeTheDamnSprite(); // call method to change sprite
-                    Destroy(gameObject, delay);
+                    Immunity = true;
+                    hp -= shot.damage;
+
+                    StartCoroutine(fSpriteImmunityBlink());
+
+                    Destroy(shot.gameObject);
+
+                    if (hp <= 0)
+                    {
+                        Destroy(EnemyBox);
+                        ChangeTheDamnSprite(); // call method to change sprite
+                        Destroy(gameObject, delay);
+                    }
                 }
             }
         }
 
     }
 
+    IEnumerator fSpriteImmunityBlink()
+    {
+        
+        for(int i = 1; i <= BlinkTimes; i++)
+        {
+        yield return new WaitForSeconds(BlinkTime);
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(BlinkTime);
+        spriteRenderer.enabled = true;
+        }
+
+        
+        Immunity = false;
+
+    }
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
@@ -56,7 +83,8 @@ public class HealthScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
     }
 

@@ -6,6 +6,9 @@ public class PlayerScript : MonoBehaviour {
 
     public Vector2 speed = new Vector2(50, 50);
 
+    [Header("Max 3 Elements!")]
+    public GameObject[] Weapons; 
+
 
     // Update is called once per frame
     void Update () {
@@ -29,6 +32,20 @@ public class PlayerScript : MonoBehaviour {
             {
                 weapon.Attack(false);
             }
+        }
+
+        int CurrentWeapon = 1;
+
+        switch (CurrentWeapon)
+        {
+            case 1:
+            break;
+            case 2:
+            break;
+            case 3:
+            break;
+            default:
+            break;
         }
 
         // ...

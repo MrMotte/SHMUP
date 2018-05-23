@@ -8,6 +8,17 @@ public class MoveScript : MonoBehaviour {
 
     public Vector2 direction = new Vector2(-1, 0);
 
+    GameObject player;
+
+    GameObject startTrans;
+
+    //public GameObject shotTyp;
+
+    void Start (){
+        player = GameObject.Find("Player");
+
+    }
+
     // Update is called once per frame
     void Update () {
 
@@ -17,6 +28,22 @@ public class MoveScript : MonoBehaviour {
 
         transform.Translate(movement);
 
+        if (transform.position.x <= player.transform.position.x){
 
+            Quaternion rot = player.transform.rotation;
+            
+            transform.rotation = new Quaternion (0,200,0,0);
+
+            direction.x = 1;
+
+        }else{
+
+            Quaternion rot2 = player.transform.rotation;
+
+            transform.rotation = new Quaternion (0,0,0,0);
+
+            direction.x = -1;
+        }
+            
     }
 }

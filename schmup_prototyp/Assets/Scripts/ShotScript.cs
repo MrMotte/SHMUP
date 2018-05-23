@@ -6,6 +6,7 @@ public class ShotScript : MonoBehaviour {
 
     public int damage = 1;
 
+    [HideInInspector]
     public bool isEnemyShot = false;
 
 	// Use this for initialization

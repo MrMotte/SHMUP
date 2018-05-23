@@ -176,7 +176,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1565356633
+  randomSeed: 797458324
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1223,7 +1223,7 @@ ParticleSystem:
     tilesY: 4
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 1.5
     uvChannelMask: -1
     flipU: 0
     flipV: 0

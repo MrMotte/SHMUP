@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114566842176240970, guid: 9591b01336f68c14f8ab9dbc62847ea9,
-        type: 2}
-      propertyPath: shootingRate
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
   m_IsPrefabParent: 0
@@ -843,9 +838,65 @@ MonoBehaviour:
     MirrorFormation: 0
     UsePositionOffset: 0
     SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 1257930941988814, guid: 1a7fb574e893df149b917eff23e9e8a1,
+  - FormationPattern: {fileID: 1250421459732858, guid: 3c7f5da6ab2004e49827b41c91b874f0,
       type: 2}
     EnemyClass: {fileID: 1327420895093372, guid: d2100b3d8009cfa4e8f672cd819240c8,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1706919071888082, guid: 7e5a16885dc56554ca0a38b751cbc229,
+      type: 2}
+    EnemyClass: {fileID: 1322879500010852, guid: fb08b6b520b859f43b417f1a0c40eae0,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1220121188401860, guid: 72a072ac09bfd9148866bdb8616ede91,
+      type: 2}
+    EnemyClass: {fileID: 1327420895093372, guid: d2100b3d8009cfa4e8f672cd819240c8,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1474588078340768, guid: f7f1e906c7331914f892a95f06ca648a,
+      type: 2}
+    EnemyClass: {fileID: 1081429491229540, guid: 963621f3769d6834483cf1d1dc5e9baa,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1089407524709376, guid: 5fe6f222b8ac45a40b211ef4437b8a3c,
+      type: 2}
+    EnemyClass: {fileID: 1327420895093372, guid: d2100b3d8009cfa4e8f672cd819240c8,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1054538097316318, guid: 8de20324c9b6aa34f9362da75612d81f,
+      type: 2}
+    EnemyClass: {fileID: 1322879500010852, guid: fb08b6b520b859f43b417f1a0c40eae0,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1352767619271242, guid: c5c81c6bdeb99904290b0a6fd8c8200f,
+      type: 2}
+    EnemyClass: {fileID: 1327420895093372, guid: d2100b3d8009cfa4e8f672cd819240c8,
+      type: 2}
+    DelayToNextSpawn: 2
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 1220121188401860, guid: 72a072ac09bfd9148866bdb8616ede91,
+      type: 2}
+    EnemyClass: {fileID: 1081429491229540, guid: 963621f3769d6834483cf1d1dc5e9baa,
       type: 2}
     DelayToNextSpawn: 2
     MirrorFormation: 0

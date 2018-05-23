@@ -36,11 +36,13 @@ public class HealthScript : MonoBehaviour
             {
                 if (shot.isEnemyShot != isEnemy)
                 {
-                    Immunity = true;
                     hp -= shot.damage;
 
                     if (!isEnemy)
-                    StartCoroutine(fSpriteImmunityBlink());
+                    {
+                        Immunity = true;
+                        StartCoroutine(fSpriteImmunityBlink());
+                    }
 
                     Destroy(shot.gameObject);
 

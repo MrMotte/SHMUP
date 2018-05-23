@@ -33,7 +33,7 @@ public class GameOverScript : MonoBehaviour
                 )
             )
         {
-            SceneManager.LoadScene("Stage1");
+            SceneManager.LoadScene("1_Level");
 
         }
 

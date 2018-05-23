@@ -73,6 +73,9 @@ public class EnemyEngine : MonoBehaviour {
         // for each wave, spawn Formation
         for (int i = 0; i <= FormationData.Length; i++)
         {
+            // iFormationCounter is used to use "i" in other functions
+            iFormationCounter = i;
+
             // resets Spawn Transform to position of Enemy Engine
             SpawnPosition = this.transform.position;
             SpawnRotation = this.transform.rotation;
@@ -90,9 +93,6 @@ public class EnemyEngine : MonoBehaviour {
 
             // finaly spawn Enemys    
             fSpawnEnemy();  
-            
-            // iFormationCounter is used to use "i" in other functions
-            iFormationCounter = i;
 
             // wait for next Wave
             yield return new WaitForSeconds(FormationData[i].DelayToNextSpawn);

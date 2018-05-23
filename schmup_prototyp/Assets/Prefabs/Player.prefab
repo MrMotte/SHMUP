@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114566842176240970}
   - component: {fileID: 114443695116257408}
   - component: {fileID: 114464384772236356}
-  - component: {fileID: 50773414737691340}
+  - component: {fileID: 50599132219933708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -46,7 +46,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50773414737691340
+--- !u!50 &50599132219933708
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 12, y: 12}
+  Weapons: []
 --- !u!114 &114443695116257408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bb47aa0d5759e438de9aada87a1302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 4022751824857432, guid: 93caae6d230bf2846b9067092c575d2e, type: 2}
+  shotPrefab: {fileID: 4606449047834640, guid: 501110a2279844a4685c88a76cd4373a, type: 2}
   shootingRate: 0.5
 --- !u!212 &212934382756758316
 SpriteRenderer:

@@ -190,6 +190,8 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 0c3ef587a1192344db2ec3fda53d68d0, type: 3}
   sprite2: {fileID: 21300000, guid: 720d5c28594d7014d834c068135310f4, type: 3}
   EnemyBox: {fileID: 61963305820071018}
+  BlinkTimes: 10
+  BlinkTime: 0
 --- !u!114 &114862648778050362
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -87,7 +87,6 @@ public class HealthScript : MonoBehaviour
     }
 
 
-
     void ChangeTheDamnSprite()
     {
         if (spriteRenderer.sprite == sprite1) // if the spriteRenderer sprite = sprite1 then change to sprite2

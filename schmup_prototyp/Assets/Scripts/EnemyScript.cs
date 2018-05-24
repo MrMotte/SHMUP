@@ -30,25 +30,32 @@ public class EnemyScript : MonoBehaviour {
 
         // Disable everything
         // -- collider
-        coliderComponent.enabled = false;
+        //coliderComponent.enabled = false;
         // -- Moving
-        moveScript.enabled = false;
+        //moveScript.enabled = false;
         // -- Shooting
         foreach (WeaponScript weapon in weapons)
         {
             weapon.enabled = false;
         }
+                // -- Collider
+        coliderComponent.enabled = true;
+        // -- Moving
+        moveScript.enabled = true;
     }
 
     void Update()
     {
         // 2 - Check if the enemy has spawned.
+        
+        
         if (hasSpawn == false)
         {
             if (rendererComponent.IsVisibleFrom(Camera.main))
             {
                 Spawn();
             }
+            
         }
         else
         {
@@ -64,7 +71,7 @@ public class EnemyScript : MonoBehaviour {
             // 4 - Out of the camera ? Destroy the game object.
             if (rendererComponent.IsVisibleFrom(Camera.main) == false)
             {
-                Destroy(gameObject);
+             Destroy(gameObject, 50);
             }
         }
     }
@@ -75,10 +82,7 @@ public class EnemyScript : MonoBehaviour {
         hasSpawn = true;
 
         // Enable everything
-        // -- Collider
-        coliderComponent.enabled = true;
-        // -- Moving
-        moveScript.enabled = true;
+
         // -- Shooting
         foreach (WeaponScript weapon in weapons)
         {

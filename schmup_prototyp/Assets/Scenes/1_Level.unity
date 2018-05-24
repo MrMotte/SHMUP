@@ -1327,7 +1327,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1865517854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 175, y: 0, z: 0}
+  m_LocalPosition: {x: 180, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1188682067}
@@ -1912,6 +1912,22 @@ Prefab:
         type: 2}
       propertyPath: shootingRate
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552216261020366, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476844121374884, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861468750181940, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650168246854410, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}

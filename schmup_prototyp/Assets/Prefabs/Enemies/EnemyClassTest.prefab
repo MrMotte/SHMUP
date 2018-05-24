@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289014855025236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.75, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children:
   - {fileID: 4246822180618320}
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
   direction: {x: -1, y: 0}
+  shotTyp: {fileID: 1845873561022724, guid: 22f7b8c6c13dc88488d655e06677c6a4, type: 2}
 --- !u!114 &114571412320178824
 MonoBehaviour:
   m_ObjectHideFlags: 1

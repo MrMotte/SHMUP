@@ -12,6 +12,7 @@ public class MoveOnPathScript : MonoBehaviour {
     private float reachDistance = 1.0f;
     public float rotationSpeed = 5.0f;
     public string pathName;
+    private SpriteRenderer rendererComponent;
 
     Vector3 last_postion;
     Vector3 current_position;
@@ -19,10 +20,14 @@ public class MoveOnPathScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        //PathToFollow = GameObject.Find(pathName).GetComponent<EditorPathScript>();
+        PathToFollow = GameObject.Find(pathName).GetComponent<EditorPathScript>();
         last_postion = transform.position;
 		
 	}
+
+    void Awake(){
+        rendererComponent = GetComponent<SpriteRenderer>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,8 +35,8 @@ public class MoveOnPathScript : MonoBehaviour {
         float distance = Vector3.Distance(PathToFollow.path_objs[CurrentWayPointID].position, transform.position);
         transform.position = Vector3.MoveTowards(transform.position, PathToFollow.path_objs[CurrentWayPointID].position, Time.deltaTime * speed);
 
-        var rotaion = Quaternion.LookRotation(PathToFollow.path_objs[CurrentWayPointID].position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotaion, Time.deltaTime * rotationSpeed);
+        //var rotaion = Quaternion.LookRotation(PathToFollow.path_objs[CurrentWayPointID].position - transform.position);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, rotaion, Time.deltaTime * rotationSpeed);
 
         if(distance <= reachDistance)
         {
@@ -42,6 +47,11 @@ public class MoveOnPathScript : MonoBehaviour {
         {
             CurrentWayPointID = 0;
         }
+
+        if (rendererComponent.IsVisibleFrom(Camera.main) == false)
+            {
+                Destroy(gameObject);
+            }
 		
 	}
 }

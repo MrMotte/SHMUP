@@ -30,7 +30,7 @@ public class FollowPlayer : MonoBehaviour {
         Vector3 dir = player.position - transform.position;
         dir.Normalize();
 
-        float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -180;
+        float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 180;
 
         transform.rotation = Quaternion.Euler(0, 0, zAngle);
 	}

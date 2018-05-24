@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_Level.unity
     guid: 62b121f672b72694ca3c3abf291ce021
+  - enabled: 1
+    path: Assets/Scenes/FlyPatternTest.unity
+    guid: 60c147b532f5f174daa817a056d1d19e

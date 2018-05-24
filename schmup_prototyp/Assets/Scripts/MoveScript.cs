@@ -48,6 +48,10 @@ public class MoveScript : MonoBehaviour {
 
             direction.x = 1;
             
+        }else if (transform.name == "EnemyShotBomb(Clone)"){
+
+            direction.x = -1;
+            direction.y = 0;
         }else{
 
             Quaternion rot2 = player.transform.rotation;

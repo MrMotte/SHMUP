@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     //for engine animation
     private Animator animatorEngine;
+    private Animator animatorWeapon;
 
     public Vector2 speed = new Vector2(50, 50);
 
@@ -25,7 +26,10 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        animatorEngine = GetComponentInChildren<Animator>();
+        animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
+        animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
+
+        //GetComponentInChildren<Animator>();
 
     }
 
@@ -56,10 +60,22 @@ public class PlayerScript : MonoBehaviour
 
         if (shoot && !WeaponIsChanging)
         {
+            if(CurrentWeapon == 1)
+            {
+                Debug.Log("Weapon 1 is shooting");
+                //Animation Weapon 1 start
+                animatorWeapon.SetBool("IsWeaponShooting", true);
+            }
+           
             fShoot(CurrentWeapon);
         }
+        else
+        {
+            //Animation Weapon 1 stops
+            animatorWeapon.SetBool("IsWeaponShooting", false);
+        }
 
-        if (Input.GetButton("Weapon 1"))
+        if (Input.GetButtonDown("Weapon 1"))
         {
             Debug.Log("BAAAAAAM");
             RequestedWeapon = 1;

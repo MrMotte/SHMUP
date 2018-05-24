@@ -78,14 +78,14 @@ public class HealthScript : MonoBehaviour
             yield return new WaitForSeconds(BlinkTime);
             spriteRenderer.enabled = false;
 
-            foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
-                mSpriteRenderer.enabled = false;
+            //foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
+              //  mSpriteRenderer.enabled = false;
 
             yield return new WaitForSeconds(BlinkTime);
             spriteRenderer.enabled = true;
 
-            foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
-                mSpriteRenderer.enabled = true;
+            //foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
+              //  mSpriteRenderer.enabled = true;
         }
         Immunity = false;
     }

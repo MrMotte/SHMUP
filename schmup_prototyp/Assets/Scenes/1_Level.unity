@@ -628,6 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891701381}
   - component: {fileID: 891701382}
+  - component: {fileID: 891701383}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -666,6 +667,17 @@ MonoBehaviour:
   xMax: 160
   yMin: 3.5
   yMax: -4.5
+--- !u!114 &891701383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891701380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8613054c9702b498e15c084700a4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &933484374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1019,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1001399547 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1029990476552622, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2135841695}
+--- !u!95 &1001399550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001399547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecb22b6aa5eda714ea336e7e740bcbc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1102891913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,11 +1912,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4411407920783522, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.64
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4411407920783522, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4411407920783522, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1923,11 +1957,49 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4861468750181940, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 4650168246854410, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.05
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029990476552622, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650168246854410, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 212934382756758316, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212619059951666694, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f32d242e1b1f784dba69dcf0bbe7d90,
+        type: 3}
+    - target: {fileID: 4861468750181940, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212934382756758316, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212619059951666694, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 212619059951666694, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}

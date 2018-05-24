@@ -28,7 +28,7 @@ public class MoveScript : MonoBehaviour {
 
         transform.Translate(movement);
 
-        if (transform.position.x <= player.transform.position.x){
+        if (transform.position.x <= player.transform.position.x && transform.name == "EnemyShootAtPlayer"){
 
             Quaternion rot = player.transform.rotation;
             
@@ -36,6 +36,14 @@ public class MoveScript : MonoBehaviour {
 
             direction.x = 1;
 
+        }else if (transform.name == "Shot(Clone)"){
+            
+            Quaternion rot = player.transform.rotation;
+            
+            transform.rotation = new Quaternion (0,0,0,0);
+
+            direction.x = 1;
+            
         }else{
 
             Quaternion rot2 = player.transform.rotation;

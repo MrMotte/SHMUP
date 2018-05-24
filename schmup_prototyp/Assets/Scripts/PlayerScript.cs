@@ -2,16 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour
+{
 
     public Vector2 speed = new Vector2(50, 50);
 
+    [Header("Max 3 Elements!")]
+    public GameObject[] Weapons;
+
+    int CurrentWeapon = 1;
+    bool WeaponIsChanging = false;
+
+    [Header("Delay for changing weapon")]
+    public float WeaponChangingDelay = 0;
+
+    int RequestedWeapon = 1;
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
+
+
 
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
@@ -22,13 +36,29 @@ public class PlayerScript : MonoBehaviour {
 
         bool shoot = Input.GetButton("Fire4");
 
-        if (shoot)
+        if (shoot && !WeaponIsChanging)
         {
-            WeaponScript weapon = GetComponent<WeaponScript>();
-            if (weapon != null)
-            {
-                weapon.Attack(false);
-            }
+            fShoot(CurrentWeapon);
+        }
+
+        if (Input.GetButton("Weapon 1"))
+        {
+            Debug.Log("BAAAAAAM");
+            RequestedWeapon = 1;
+            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
+        }
+        if (Input.GetButton("Weapon 2"))
+        {
+            RequestedWeapon = 2;
+            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
+        }
+        if (Input.GetButton("Weapon 3"))
+        {
+            RequestedWeapon = 3;
+            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
 
         // ...
@@ -65,5 +95,36 @@ public class PlayerScript : MonoBehaviour {
     void OnDestroy()
     {
         transform.parent.gameObject.AddComponent<GameOverScript>();
+    }
+
+    void fShoot(int mCurrentWeapon)
+    {
+        WeaponScript weapon = Weapons[mCurrentWeapon - 1].GetComponent<WeaponScript>();
+        if (weapon != null)
+        {
+            weapon.Attack(false);
+        }
+    }
+
+    IEnumerator fChangeWeapon(float mWeaponChangingDelay)
+    {
+        if (CurrentWeapon != RequestedWeapon)
+        {
+            WeaponIsChanging = true;
+            yield return new WaitForSeconds(mWeaponChangingDelay);
+
+            if (RequestedWeapon == 1)
+                CurrentWeapon = 1;
+
+            if (RequestedWeapon == 2)
+                CurrentWeapon = 2;
+
+            if (RequestedWeapon == 3)
+                CurrentWeapon = 3;
+
+            Debug.Log("Changed Weapon to: " + CurrentWeapon);
+            WeaponIsChanging = false;
+        }
+        
     }
 }

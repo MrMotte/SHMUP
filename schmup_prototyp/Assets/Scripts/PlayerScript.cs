@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float WeaponChangingDelay = 0;
 
     int RequestedWeapon = 1;
+    SpriteRenderer WeaponSpriteRenderer;
 
     // Update is called once per frame
     void Update()
@@ -113,18 +114,32 @@ public class PlayerScript : MonoBehaviour
             WeaponIsChanging = true;
             yield return new WaitForSeconds(mWeaponChangingDelay);
 
+            WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+            WeaponSpriteRenderer.enabled = false;
             if (RequestedWeapon == 1)
+            {
                 CurrentWeapon = 1;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
+            }
 
             if (RequestedWeapon == 2)
+            {
                 CurrentWeapon = 2;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
+            }
 
             if (RequestedWeapon == 3)
+            {
                 CurrentWeapon = 3;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
+            }
 
             Debug.Log("Changed Weapon to: " + CurrentWeapon);
             WeaponIsChanging = false;
         }
-        
+
     }
 }

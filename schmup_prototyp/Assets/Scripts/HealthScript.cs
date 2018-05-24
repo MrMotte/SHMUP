@@ -13,6 +13,7 @@ public class HealthScript : MonoBehaviour
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer[] spriteRendererChildren;
 
     float delay = 0.32f;
 
@@ -55,18 +56,36 @@ public class HealthScript : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (shot != null)
+            {
+                if (shot.isEnemyShot != isEnemy)
+                {
+                    Destroy(shot.gameObject);
+                }
+            }
+        }
 
     }
 
     // If we just got hitted enable/disable spriterenderer and prevent to get hitted again
     IEnumerator fSpriteImmunityBlink()
     {
+
         for (int i = 1; i <= BlinkTimes; i++)
         {
             yield return new WaitForSeconds(BlinkTime);
             spriteRenderer.enabled = false;
+
+            foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
+                mSpriteRenderer.enabled = false;
+
             yield return new WaitForSeconds(BlinkTime);
             spriteRenderer.enabled = true;
+
+            foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
+                mSpriteRenderer.enabled = true;
         }
         Immunity = false;
     }
@@ -79,7 +98,7 @@ public class HealthScript : MonoBehaviour
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = sprite1; // set the sprite to sprite1
 
-
+        spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame

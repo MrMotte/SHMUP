@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043774161195796}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.46, y: -0.19, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4785834672948918}
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75ecb3d24db5d149abf640efcd30e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: -0.05
   height: 2.5
+  xSpeed: -0.035
 --- !u!114 &114557943837009164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4891132511878230, guid: 58c3ec9e7d7b68a4dad0fc26988fc822, type: 2}
-  shootingRate: 2
+  shootingRate: 3
 --- !u!114 &114910273484723624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 4
   isEnemy: 1
-  sprite1: {fileID: 21300000, guid: 0c3ef587a1192344db2ec3fda53d68d0, type: 3}
-  sprite2: {fileID: 21300000, guid: 720d5c28594d7014d834c068135310f4, type: 3}
+  sprite1: {fileID: 21300000, guid: 11ff0520185c465488401f261a48283b, type: 3}
+  sprite2: {fileID: 21300000, guid: e0fa422cd99b9974c9dfb79b80775475, type: 3}
   EnemyBox: {fileID: 61665600217267698}
   BlinkTimes: 10
   BlinkTime: 0

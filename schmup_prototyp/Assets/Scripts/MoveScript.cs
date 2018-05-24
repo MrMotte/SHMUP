@@ -36,7 +36,7 @@ public class MoveScript : MonoBehaviour {
 
             direction.x = 1;
 
-        }else if (transform.name == "Shot(Clone)"){
+        }else if (transform.name == "PS_ElectricBall_4x4(Clone)" || transform.name == "PS_ElectricBall_4x4_otherColor(Clone)" || transform.name == "LightningPistol(Clone)"){
             
             Quaternion rot = player.transform.rotation;
             

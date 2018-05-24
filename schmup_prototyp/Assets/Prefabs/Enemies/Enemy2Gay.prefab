@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114500110985339558}
   - component: {fileID: 114910273484723624}
   - component: {fileID: 114255450687638742}
+  - component: {fileID: 114113153615263672}
   m_Layer: 0
   m_Name: Enemy2Gay
   m_TagString: Untagged
@@ -120,6 +121,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.536148, y: 0.93269557}
   m_EdgeRadius: 0
+--- !u!114 &114113153615263672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081429491229540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535f176a214cc6745932a47cf101d8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
+  direction: {x: -1, y: 0}
 --- !u!114 &114255450687638742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75ecb3d24db5d149abf640efcd30e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  height: 3
+  xSpeed: -0.05
+  height: 2.5
 --- !u!114 &114557943837009164
 MonoBehaviour:
   m_ObjectHideFlags: 1

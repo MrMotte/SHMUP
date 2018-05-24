@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    //bool for engine animation
+    public bool IsMovingUp;
 
     public Vector2 speed = new Vector2(50, 50);
 
@@ -24,9 +26,16 @@ public class PlayerScript : MonoBehaviour
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-
-
-
+        //checks if moving up, for animation
+        if (inputY > 0)
+        {
+            IsMovingUp = true;
+        }
+        else
+        {
+            IsMovingUp = false;
+        }
+        
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 

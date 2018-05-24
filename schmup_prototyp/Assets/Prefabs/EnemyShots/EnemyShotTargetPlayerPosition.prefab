@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50112122519836004}
   - component: {fileID: 61312459956597090}
   - component: {fileID: 114698039227570178}
-  - component: {fileID: 114817379246347230}
+  - component: {fileID: 114176084558835860}
   - component: {fileID: 114372436970783366}
   m_Layer: 0
   m_Name: EnemyShotTargetPlayerPosition
@@ -90,6 +90,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &114176084558835860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117617884378428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445c1daefd3dde749b9279aecd4323fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!114 &114372436970783366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,17 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   isEnemyShot: 0
---- !u!114 &114817379246347230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1117617884378428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6498778539b330d48bfe7ddb702a906d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212764178769364702
 SpriteRenderer:
   m_ObjectHideFlags: 1

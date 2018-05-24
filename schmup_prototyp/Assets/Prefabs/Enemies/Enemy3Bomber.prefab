@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1322879500010852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.5, y: 6.2, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 10}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 10}
   m_Children:
   - {fileID: 4584176886414088}
   m_Father: {fileID: 0}
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463408584398194}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.32, y: 0, z: 0}
+  m_LocalPosition: {x: 0.32, y: -0.64, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4430563200864908}
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 6
   isEnemy: 1
-  sprite1: {fileID: 21300000, guid: 0c3ef587a1192344db2ec3fda53d68d0, type: 3}
-  sprite2: {fileID: 21300000, guid: 720d5c28594d7014d834c068135310f4, type: 3}
+  sprite1: {fileID: 21300000, guid: a8ab32f002759394d91d391bd3265fbf, type: 3}
+  sprite2: {fileID: 21300000, guid: ae94a77141b9da34d9adc778062e30cf, type: 3}
   EnemyBox: {fileID: 61875813286512354}
   BlinkTimes: 10
   BlinkTime: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4323335447133796, guid: 0c0f15eb72ffb0e4689f5f80caef2190, type: 2}
-  shootingRate: 2
+  shootingRate: 2.5
 --- !u!114 &114460799112043712
 MonoBehaviour:
   m_ObjectHideFlags: 1

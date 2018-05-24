@@ -28,7 +28,9 @@ public class MoveScript : MonoBehaviour {
 
         transform.Translate(movement);
 
-        if (transform.position.x <= player.transform.position.x && transform.name == "EnemyShootAtPlayer"){
+
+                    
+        if (transform.position.x <= player.transform.position.x && transform.name == "EnemyShootAtPlayer"){ //Zwischen dem " " muss der name des Enemys drinne stehen, der die Gezielten schüsse auf den player macht.
 
             Quaternion rot = player.transform.rotation;
             
@@ -36,6 +38,8 @@ public class MoveScript : MonoBehaviour {
 
             direction.x = 1;
 
+
+        //Die namen der verschiedenen Player schüsse müssen hier richtig geschrieben drinne stehen und dahinter ein"(clone)" sein wie unten gezeigt.
         }else if (transform.name == "PS_ElectricBall_4x4(Clone)" || transform.name == "PS_ElectricBall_4x4_otherColor(Clone)" || transform.name == "LightningPistol(Clone)"){
             
             Quaternion rot = player.transform.rotation;

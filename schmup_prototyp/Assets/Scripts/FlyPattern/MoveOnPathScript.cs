@@ -8,11 +8,14 @@ public class MoveOnPathScript : MonoBehaviour {
     public EditorPathScript PathToFollow;
 
     public int CurrentWayPointID = 0;
-    public float speed;
+
     private float reachDistance = 1.0f;
-    public float rotationSpeed = 5.0f;
+    //public float rotationSpeed = 5.0f;
     public string pathName;
     private SpriteRenderer rendererComponent;
+
+    [Header("Wie schnell soll er den Path abfliegen?")]
+    public float speed;
 
     Vector3 last_postion;
     Vector3 current_position;

@@ -5,8 +5,12 @@ using UnityEngine;
 public class UpAndDown : MonoBehaviour {
 	
 		private Vector3 startPosition;
-		public float xSpeed;
+
+		[Header("Wie hoch.(kleine zahl bei vielen schiffen")]
 		public float height = 2.5f;
+
+		[Header("Speed(werte zwischen -0.1 und -0.01")]
+		public float xSpeed;
 
 
 	// Use this for initialization
@@ -19,9 +23,6 @@ public class UpAndDown : MonoBehaviour {
 		float x = startPosition.x += xSpeed;
 		float y = height*Mathf.Sin (Time.timeSinceLevelLoad)+startPosition.y;
 		float z = startPosition.z;
-
-
-
 		transform.position = new Vector3 (x,y,z);
 	}
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    //bool for engine animation
-    public bool IsMovingUp;
+    //for engine animation
+    private Animator animatorEngine;
 
     public Vector2 speed = new Vector2(50, 50);
 
@@ -22,21 +22,29 @@ public class PlayerScript : MonoBehaviour
     SpriteRenderer WeaponSpriteRenderer;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        animatorEngine = GetComponentInChildren<Animator>();
+
+    }
+
     void Update()
     {
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-        //checks if moving up, for animation
+
+        //checks if moving up, for animation, sets bool
         if (inputY > 0)
         {
-            IsMovingUp = true;
+            //Debug.Log("über 0")
+            animatorEngine.SetBool("IsMovingUp", true);
         }
         else
         {
-            IsMovingUp = false;
+            animatorEngine.SetBool("IsMovingUp", false);
         }
-        
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 

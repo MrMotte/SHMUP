@@ -30,7 +30,8 @@ public class MoveScript : MonoBehaviour {
 
 
                     
-        if (transform.position.x <= player.transform.position.x && transform.name == "EnemyShootAtPlayer"){ //Zwischen dem " " muss der name des Enemys drinne stehen, der die Gezielten schüsse auf den player macht.
+        if (transform.position.x <= player.transform.position.x && transform.name == "Enemy2Gay" || transform.position.x <= player.transform.position.x && transform.name == "EnemyShotTargetPlayerPosition")
+        { //Zwischen dem " " muss der name des Enemys drinne stehen, der die Gezielten schüsse auf den player macht.
 
             Quaternion rot = player.transform.rotation;
             

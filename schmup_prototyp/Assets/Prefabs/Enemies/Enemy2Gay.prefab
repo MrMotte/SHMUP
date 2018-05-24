@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4891132511878230, guid: 58c3ec9e7d7b68a4dad0fc26988fc822, type: 2}
-  shootingRate: 3
+  shootingRate: 1.5
 --- !u!114 &114910273484723624
 MonoBehaviour:
   m_ObjectHideFlags: 1

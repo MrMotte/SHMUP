@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fa2aaa3aa9f84b9399a4921457bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 6
+  hp: 8
   isEnemy: 1
   sprite1: {fileID: 21300000, guid: a8ab32f002759394d91d391bd3265fbf, type: 3}
   sprite2: {fileID: 21300000, guid: ae94a77141b9da34d9adc778062e30cf, type: 3}

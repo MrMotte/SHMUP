@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
 
-    public int hp = 2;
+    public float hp = 2;
+    public float maxHP;
 
     public bool isEnemy = true;
 
@@ -14,6 +16,7 @@ public class HealthScript : MonoBehaviour
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
+    public Image Healthbar;
 
     float delay = 0.32f;
 
@@ -38,6 +41,11 @@ public class HealthScript : MonoBehaviour
                 if (shot.isEnemyShot != isEnemy)
                 {
                     hp -= shot.damage;
+                    if(Healthbar)
+                    {
+                        Healthbar.fillAmount = (hp / maxHP);
+                    }
+
 
                     if (!isEnemy)
                     {
@@ -99,6 +107,8 @@ public class HealthScript : MonoBehaviour
             spriteRenderer.sprite = sprite1; // set the sprite to sprite1
 
         spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
+        maxHP = hp;
+
     }
 
     // Update is called once per frame

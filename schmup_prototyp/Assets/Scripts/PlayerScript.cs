@@ -58,15 +58,16 @@ public class PlayerScript : MonoBehaviour
 
         bool shoot = Input.GetButton("Fire4");
 
+        #region Weapon change
         if (shoot && !WeaponIsChanging)
         {
-            if(CurrentWeapon == 1)
+            if (CurrentWeapon == 1)
             {
                 Debug.Log("Weapon 1 is shooting");
                 //Animation Weapon 1 start
                 animatorWeapon.SetBool("IsWeaponShooting", true);
             }
-           
+
             fShoot(CurrentWeapon);
         }
         else
@@ -77,7 +78,6 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetButtonDown("Weapon 1"))
         {
-            Debug.Log("BAAAAAAM");
             RequestedWeapon = 1;
             //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
@@ -94,10 +94,11 @@ public class PlayerScript : MonoBehaviour
             //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
-
+        #endregion
         // ...
 
         // 6 - Make sure we are not outside the camera bounds
+        #region camera bounds
         var dist = (transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -121,6 +122,8 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
+
+        #endregion
 
         // End of the update method
 

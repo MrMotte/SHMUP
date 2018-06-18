@@ -94,6 +94,12 @@ public class PlayerScript : MonoBehaviour
             //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
+        if (Input.GetButton("Weapon 4"))
+        {
+            RequestedWeapon = 4;
+            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
+        }
         #endregion
         // ...
 
@@ -169,6 +175,12 @@ public class PlayerScript : MonoBehaviour
             if (RequestedWeapon == 3)
             {
                 CurrentWeapon = 3;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
+            }
+            if (RequestedWeapon == 4)
+            {
+                CurrentWeapon = 4;
                 WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
                 WeaponSpriteRenderer.enabled = true;
             }

@@ -129,4 +129,15 @@ public class HealthScript : MonoBehaviour
             spriteRenderer.sprite = sprite1; // otherwise change it back to sprite1
         }
     }
+
+    public void Damage(float damageAmount)
+    {
+        hp -= damageAmount;
+        if (hp <= 0)
+        {
+            Destroy(EnemyBox);
+            ChangeTheDamnSprite(); // call method to change sprite
+            Destroy(gameObject, delay);
+        }
+    }
 }

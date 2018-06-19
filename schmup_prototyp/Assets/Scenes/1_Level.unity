@@ -322,7 +322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1834086156}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532548814
 GameObject:
@@ -856,6 +856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946239823}
   - component: {fileID: 946239824}
+  - component: {fileID: 946239825}
   m_Layer: 0
   m_Name: EnemyEngine
   m_TagString: Untagged
@@ -869,12 +870,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 946239822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.84, y: 0, z: 9.37}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.84, y: 0, z: -0.6300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1834086156}
-  m_RootOrder: 0
+  m_Father: {fileID: 1134777269}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &946239824
 MonoBehaviour:
@@ -969,6 +970,21 @@ MonoBehaviour:
     UsePositionOffset: 0
     SpawnOffset: {x: 0, y: 0, z: 0}
   InitialDelay: 3
+--- !u!114 &946239825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946239822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34caf3a8c42aced459372ead783b30c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 2, y: 1}
+  direction: {x: 1, y: 0}
+  isLinkedToCamera: 0
+  isLooping: 0
 --- !u!1 &990236808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1240,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1834086156}
+  - {fileID: 946239823}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1342,6 +1359,7 @@ GameObject:
   - component: {fileID: 1834086159}
   - component: {fileID: 1834086158}
   - component: {fileID: 1834086157}
+  - component: {fileID: 1834086160}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1359,7 +1377,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 946239823}
   - {fileID: 474535293}
   m_Father: {fileID: 1134777269}
   m_RootOrder: 0
@@ -1414,6 +1431,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1834086160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834086155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391b440d254ac2640843c68a2a579825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 2135841696}
+  YMax: 10
+  YMin: -10
+  CamSpeed: 3
 --- !u!1 &1865517854
 GameObject:
   m_ObjectHideFlags: 0

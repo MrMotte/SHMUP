@@ -8,19 +8,22 @@ public class PlayerScript : MonoBehaviour
     private Animator animatorEngine;
     private Animator animatorWeapon;
 
+    // Movement
     public Vector2 speed = new Vector2(50, 50);
 
-    [Header("Max 3 Elements!")]
+    // Weapons
+    [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
     public GameObject[] Weapons;
-
     int CurrentWeapon = 1;
     bool WeaponIsChanging = false;
-
     [Header("Delay for changing weapon")]
     public float WeaponChangingDelay = 0;
-
     int RequestedWeapon = 1;
     SpriteRenderer WeaponSpriteRenderer;
+
+    // Air - Water Switch
+    public float Y_WaterBorder = 0;
+    private bool IsPlayerUnderwater = false;
 
     // Update is called once per frame
 
@@ -50,6 +53,26 @@ public class PlayerScript : MonoBehaviour
             animatorEngine.SetBool("IsMovingUp", false);
         }
 
+        // detect if player is currently underwater
+        if (this.transform.position.y > Y_WaterBorder)
+        {
+            if (!IsPlayerUnderwater)
+            {
+                CurrentWeapon = CurrentWeapon + Weapons.Length / 2;
+                // Call VFX, GUI and Sound
+            }
+            IsPlayerUnderwater = true;  
+        }
+        else
+        {
+            if (IsPlayerUnderwater)
+            {
+                CurrentWeapon = CurrentWeapon - Weapons.Length / 2;
+                // Call VFX, GUI and Sound
+            }
+            IsPlayerUnderwater = false;
+        }
+
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 
         movement *= Time.deltaTime;
@@ -76,35 +99,44 @@ public class PlayerScript : MonoBehaviour
             animatorWeapon.SetBool("IsWeaponShooting", false);
         }
 
-        if (Input.GetButtonDown("Weapon 1"))
+        if (Input.GetButton("Weapon 1"))
         {
-            RequestedWeapon = 1;
-            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            if (IsPlayerUnderwater)
+            { RequestedWeapon = 1 + Weapons.Length / 2; }
+            else
+                RequestedWeapon = 1;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 2"))
         {
-            RequestedWeapon = 2;
-            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            if (IsPlayerUnderwater)
+            { RequestedWeapon = 2 + Weapons.Length / 2; }
+            else
+                RequestedWeapon = 2;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 3"))
         {
-            RequestedWeapon = 3;
-            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            if (IsPlayerUnderwater)
+            { RequestedWeapon = 3 + Weapons.Length / 2; }
+            else
+                RequestedWeapon = 3;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 4"))
         {
-            RequestedWeapon = 4;
-            //StopCoroutine(fChangeWeapon(WeaponChangingDelay));
+            if (IsPlayerUnderwater)
+            { RequestedWeapon = 4 + Weapons.Length / 2; }
+            else
+                RequestedWeapon = 4;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         #endregion
         // ...
 
         // 6 - Make sure we are not outside the camera bounds
-        #region camera bounds
+        #region camera bounds 
+        
         var dist = (transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -128,6 +160,7 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
+        
 
         #endregion
 

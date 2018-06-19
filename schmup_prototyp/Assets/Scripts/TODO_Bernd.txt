@@ -8,6 +8,14 @@ Was ist zum Gate wichtig?
         - horizontal/vertical seperatet speed
         - Firerate
 - WIP
+
+
+- TODO
+    - Air - Water Switch
+        - Change Dynamic Weapon
+    - Camera Follow only Y
+
+- Far TODO
     - Player
         - Weapon Slots
             - Sprites
@@ -16,9 +24,6 @@ Was ist zum Gate wichtig?
         - Shield Slot
         - 2 Weapons
             - effekte
-
-- TODO
-
 - Obsolet
     - Enemy Properties (1x Standard Class)
         - Attack Pattern

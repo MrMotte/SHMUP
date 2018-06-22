@@ -10,7 +10,12 @@ public class GameQuit : MonoBehaviour {
         if (Input.GetKey("escape"))
         {
             Debug.Log("Game quit.");
-            Application.Quit();
+			
+			#if UNITY_EDITOR
+				UnityEditor.EditorApplication.isPlaying = false;
+			#else
+				Application.Quit();
+			#endif
         }
     }
 }

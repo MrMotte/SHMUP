@@ -6,26 +6,35 @@ using UnityEngine.UI;
 public class HealthScript : MonoBehaviour
 {
 
+    // HP and determine if Script is attached to player or enemy
     public float hp = 2;
     public float maxHP;
-
     public bool isEnemy = true;
 
 
+    // Sprites for Alive and Death states
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
+    
+    // Image for Healthbar
     public Image Healthbar;
 
+    // delay till object is destroyed
     float delay = 0.32f;
 
-
+    // obvious collider for getting hits
     public BoxCollider2D EnemyBox;
 
+    // Variables for Immunity and sprite flashing
     private bool Immunity = false;
     public int BlinkTimes = 10;
     public float BlinkTime;
+
+    // Variables for Score and Currency to give player after death
+    public float Currency = 0;
+    public float Score = 0;
 
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -57,6 +66,8 @@ public class HealthScript : MonoBehaviour
 
                     if (hp <= 0)
                     {
+                        PlayerScript.playerInstance.UpdateCurrency(Currency, Score);
+                        
                         Destroy(EnemyBox);
                         ChangeTheDamnSprite(); // call method to change sprite
                         Destroy(gameObject, delay);
@@ -108,6 +119,7 @@ public class HealthScript : MonoBehaviour
 
         spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
         maxHP = hp;
+        //PlayerScriptInstance = Player.GetComponent<PlayerScript>();
 
     }
 

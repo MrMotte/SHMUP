@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    public static PlayerScript playerInstance = null;
+
     //for engine animation
     private Animator animatorEngine;
     private Animator animatorWeapon;
@@ -25,12 +29,30 @@ public class PlayerScript : MonoBehaviour
     public float Y_WaterBorder = 0;
     private bool IsPlayerUnderwater = false;
 
+    //Save and Show Currency and Score
+    public float Score = 0;
+    public float Currency = 0;
+    public Text text;
+
     // Update is called once per frame
 
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        if (!playerInstance)
+            playerInstance = this;
+
+        if (playerInstance != this)
+            Destroy(gameObject);
+    }
     private void Start()
     {
         animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
         animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
+        Score = 0;
+        Currency = 0;
 
         //GetComponentInChildren<Animator>();
 
@@ -41,6 +63,8 @@ public class PlayerScript : MonoBehaviour
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
+        //text.text = Currency.ToString();
+        print(Currency);
 
         //checks if moving up, for animation, sets bool
         if (inputY > 0)
@@ -61,7 +85,7 @@ public class PlayerScript : MonoBehaviour
                 CurrentWeapon = CurrentWeapon + Weapons.Length / 2;
                 // Call VFX, GUI and Sound
             }
-            IsPlayerUnderwater = true;  
+            IsPlayerUnderwater = true;
         }
         else
         {
@@ -136,7 +160,7 @@ public class PlayerScript : MonoBehaviour
 
         // 6 - Make sure we are not outside the camera bounds
         #region camera bounds 
-        
+
         var dist = (transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -160,7 +184,7 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
-        
+
 
         #endregion
 
@@ -222,5 +246,12 @@ public class PlayerScript : MonoBehaviour
             WeaponIsChanging = false;
         }
 
+    }
+
+    public void UpdateCurrency(float m_Currency, float m_Score)
+    {
+        Currency = Currency + m_Currency;
+        Score = Score + m_Score;
+        text.text = Currency.ToString();
     }
 }

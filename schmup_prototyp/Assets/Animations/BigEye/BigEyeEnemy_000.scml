@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="BigEyeEnemyImages">
+        <file id="0" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_Entire.png" width="512" height="512" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_0000s_0000_Ebene-6.png" width="128" height="107" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_0000s_0004_Ebene-2.png" width="340" height="237" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_0000s_0002_Ebene-4.png" width="150" height="284" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_0000s_0003_Ebene-3.png" width="216" height="257" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="BigEyeEnemyImages/Steampunk_Enemy_Ship_Normal_ship_0000s_0001_Ebene-5.png" width="341" height="264" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="BigEyeEnemy">
+        <animation id="0" name="Move" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="2" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="0" z_index="5"/>
+                </key>
+                <key id="1" time="250">
+                    <object_ref id="0" timeline="2" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="1" z_index="5"/>
+                </key>
+                <key id="2" time="292">
+                    <object_ref id="0" timeline="2" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="1" z_index="5"/>
+                </key>
+                <key id="3" time="500">
+                    <object_ref id="0" timeline="2" key="3" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="2" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="2" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="2" z_index="5"/>
+                </key>
+                <key id="4" time="750">
+                    <object_ref id="0" timeline="2" key="3" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="3" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="3" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="3" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="3" z_index="5"/>
+                </key>
+                <key id="5" time="1000">
+                    <object_ref id="0" timeline="2" key="4" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="4" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="4" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="4" z_index="3"/>
+                    <object_ref id="4" timeline="5" key="4" z_index="4"/>
+                    <object_ref id="5" timeline="0" key="4" z_index="5"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Steampunk_Enemy_Ship_Normal_ship_Entire">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-255" y="256" angle="0" a="0"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="0" x="-255" y="256" angle="0" a="0"/>
+                </key>
+                <key id="2" time="500" spin="0">
+                    <object folder="0" file="0" x="-255" y="256" angle="0" a="0"/>
+                </key>
+                <key id="3" time="750" spin="0">
+                    <object folder="0" file="0" x="-255" y="256" angle="0" a="0"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="0" x="-255" y="256" angle="0" a="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="Steampunk_Enemy_Ship_Normal_ship_0000s_0000_Ebene-6">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-188" y="56" angle="0"/>
+                </key>
+                <key id="1" time="292" spin="0">
+                    <object folder="0" file="1" x="-188" y="56" angle="0"/>
+                </key>
+                <key id="2" time="500" spin="0">
+                    <object folder="0" file="1" x="-188" y="56" angle="0"/>
+                </key>
+                <key id="3" time="750" spin="0">
+                    <object folder="0" file="1" x="-188" y="56" angle="0"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="1" x="-188" y="56" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="Steampunk_Enemy_Ship_Normal_ship_0000s_0004_Ebene-2">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-235" y="79" angle="0"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="2" x="-235" y="79" angle="0"/>
+                </key>
+                <key id="2" time="292" spin="0">
+                    <object folder="0" file="2" x="-235" y="79" angle="0"/>
+                </key>
+                <key id="3" time="500" spin="0">
+                    <object folder="0" file="2" x="-235" y="79" angle="0"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="2" x="-235" y="79" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="Steampunk_Enemy_Ship_Normal_ship_0000s_0002_Ebene-4">
+                <key id="0" spin="0">
+                    <object folder="0" file="3" x="100" y="146" angle="0"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="3" x="100" y="146" angle="0" scale_x="0.8" scale_y="0.98"/>
+                </key>
+                <key id="2" time="500" spin="0">
+                    <object folder="0" file="3" x="100" y="146" angle="0"/>
+                </key>
+                <key id="3" time="750" spin="0">
+                    <object folder="0" file="3" x="100" y="146" angle="0" scale_x="0.8" scale_y="0.98"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="3" x="100" y="146" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="Steampunk_Enemy_Ship_Normal_ship_0000s_0003_Ebene-3">
+                <key id="0" spin="0">
+                    <object folder="0" file="4" x="-135" y="98" angle="0"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="4" x="-133" y="98" angle="0"/>
+                </key>
+                <key id="2" time="500" spin="0">
+                    <object folder="0" file="4" x="-135" y="98" angle="0"/>
+                </key>
+                <key id="3" time="750" spin="0">
+                    <object folder="0" file="4" x="-133" y="98" angle="0"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="4" x="-135" y="98" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="Steampunk_Enemy_Ship_Normal_ship_0000s_0001_Ebene-5">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="-163" y="170" angle="0"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="5" x="-163" y="172" angle="0"/>
+                </key>
+                <key id="2" time="500" spin="0">
+                    <object folder="0" file="5" x="-163" y="170" angle="0"/>
+                </key>
+                <key id="3" time="750" spin="0">
+                    <object folder="0" file="5" x="-163" y="172" angle="0"/>
+                </key>
+                <key id="4" time="1000" spin="0">
+                    <object folder="0" file="5" x="-163" y="170" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

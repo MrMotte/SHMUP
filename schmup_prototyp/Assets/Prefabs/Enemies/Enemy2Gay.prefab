@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081429491229540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.97, y: 0.85, z: 0}
+  m_LocalPosition: {x: 4.2227354, y: 1.1665573, z: -14.109278}
   m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children:
   - {fileID: 4809888571399630}
@@ -192,6 +192,10 @@ MonoBehaviour:
   EnemyBox: {fileID: 61665600217267698}
   BlinkTimes: 10
   BlinkTime: 0
+  hitPosition: {fileID: 0}
+  hitParticle: {fileID: 0}
+  destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
+    type: 2}
 --- !u!212 &212035315441198334
 SpriteRenderer:
   m_ObjectHideFlags: 1

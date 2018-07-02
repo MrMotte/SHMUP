@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75ecb3d24db5d149abf640efcd30e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: -0.05
   height: 2
+  xSpeed: -0.05
 --- !u!114 &114557608626072760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856de3ac8c9701e4c8cc15bd2d009bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasSpawn: 0
 --- !u!114 &114689348030405338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,12 +214,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  maxHP: 0
   isEnemy: 1
   sprite1: {fileID: 21300000, guid: 0c3ef587a1192344db2ec3fda53d68d0, type: 3}
   sprite2: {fileID: 21300000, guid: 720d5c28594d7014d834c068135310f4, type: 3}
+  Healthbar: {fileID: 0}
   EnemyBox: {fileID: 61858497128353920}
   BlinkTimes: 10
   BlinkTime: 0
+  hitPosition: {fileID: 0}
+  hitParticle: {fileID: 0}
+  destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
+    type: 2}
 --- !u!114 &114977808235747366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +252,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

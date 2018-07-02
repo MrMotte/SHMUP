@@ -11,14 +11,14 @@ public class HealthScript : MonoBehaviour
 
     public bool isEnemy = true;
 
-
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
     public Image Healthbar;
 
-    float delay = 0.32f;
+    float delay = 1.0f;
+	//= 0.32f;
 
 
     public BoxCollider2D EnemyBox;
@@ -26,6 +26,10 @@ public class HealthScript : MonoBehaviour
     private bool Immunity = false;
     public int BlinkTimes = 10;
     public float BlinkTime;
+	
+	public Transform hitPosition;
+	public GameObject hitParticle;
+	public GameObject destroyParticle;
 
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -49,7 +53,13 @@ public class HealthScript : MonoBehaviour
 
                     if (!isEnemy)
                     {
-                        Immunity = true;
+						//CHRISTIAN:
+						//	PLAY Damage FX
+						//		BEGIN
+						if(hitParticle != null || hitPosition != null)
+							Instantiate(hitParticle, hitPosition);
+                        //		END
+						Immunity = true;
                         StartCoroutine(fSpriteImmunityBlink());
                     }
 
@@ -57,9 +67,7 @@ public class HealthScript : MonoBehaviour
 
                     if (hp <= 0)
                     {
-                        Destroy(EnemyBox);
-                        ChangeTheDamnSprite(); // call method to change sprite
-                        Destroy(gameObject, delay);
+						DyingGO();
                     }
                 }
             }
@@ -111,13 +119,6 @@ public class HealthScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     void ChangeTheDamnSprite()
     {
         if (spriteRenderer.sprite == sprite1) // if the spriteRenderer sprite = sprite1 then change to sprite2
@@ -135,9 +136,27 @@ public class HealthScript : MonoBehaviour
         hp -= damageAmount;
         if (hp <= 0)
         {
-            Destroy(EnemyBox);
-            ChangeTheDamnSprite(); // call method to change sprite
-            Destroy(gameObject, delay);
+			DyingGO();
         }
     }
+	
+	public void DyingGO()
+	{
+		Debug.Log("Dead");
+		if(destroyParticle != null)
+		{
+			if(hitPosition != null){
+				Instantiate(destroyParticle, hitPosition, true);
+			}
+			Instantiate(destroyParticle, this.transform, true);
+		}
+		
+		Destroy(EnemyBox);
+        ChangeTheDamnSprite(); // call method to change sprite
+        Destroy(gameObject, delay);
+	}
+	
+	void OnDestroy(){
+	
+	}
 }

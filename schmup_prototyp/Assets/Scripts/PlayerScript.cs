@@ -86,7 +86,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (CurrentWeapon == 1)
             {
-                Debug.Log("Weapon 1 is shooting");
+                //Debug.Log("Weapon 1 is shooting");
                 //Animation Weapon 1 start
                 animatorWeapon.SetBool("IsWeaponShooting", true);
             }

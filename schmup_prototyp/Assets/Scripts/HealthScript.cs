@@ -140,4 +140,9 @@ public class HealthScript : MonoBehaviour
             Destroy(gameObject, delay);
         }
     }
+
+    public void DOT(float mTime, float mTick, float Damage)
+    {
+        
+    }
 }

@@ -12,9 +12,9 @@ public class PlayerScript : MonoBehaviour
     public Vector2 speed = new Vector2(50, 50);
 
     // Weapons
-    [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
+    [Header("Immer abwechselnd Air und Water Mode einer Waffe")]
     public GameObject[] Weapons;
-    int CurrentWeapon = 1;
+    public int CurrentWeapon = 1;
     bool WeaponIsChanging = false;
     [Header("Delay for changing weapon")]
     public float WeaponChangingDelay = 0;
@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
-        animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
+        animatorWeapon = gameObject.transform.Find("Weapon 1 - Air").GetComponentInChildren<Animator>();
 
         //GetComponentInChildren<Animator>();
 
@@ -54,11 +54,11 @@ public class PlayerScript : MonoBehaviour
         }
 
         // detect if player is currently underwater
-        if (this.transform.position.y > Y_WaterBorder)
+        if (this.transform.position.y < Y_WaterBorder)
         {
             if (!IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon + Weapons.Length / 2;
+                CurrentWeapon++;
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = true;  
@@ -67,7 +67,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon - Weapons.Length / 2;
+                CurrentWeapon--;
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = false;
@@ -90,7 +90,7 @@ public class PlayerScript : MonoBehaviour
                 //Animation Weapon 1 start
                 animatorWeapon.SetBool("IsWeaponShooting", true);
             }
-
+            Debug.Log("Shooooot!");
             fShoot(CurrentWeapon);
         }
         else
@@ -102,7 +102,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButton("Weapon 1"))
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 1 + Weapons.Length / 2; }
+            { RequestedWeapon = 2; }
             else
                 RequestedWeapon = 1;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
@@ -110,25 +110,25 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButton("Weapon 2"))
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 2 + Weapons.Length / 2; }
+            { RequestedWeapon = 4; }
             else
-                RequestedWeapon = 2;
+                RequestedWeapon = 3;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 3"))
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 3 + Weapons.Length / 2; }
+            { RequestedWeapon = 6; }
             else
-                RequestedWeapon = 3;
+                RequestedWeapon = 5;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 4"))
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 4 + Weapons.Length / 2; }
+            { RequestedWeapon = 8; }
             else
-                RequestedWeapon = 4;
+                RequestedWeapon = 7;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         #endregion

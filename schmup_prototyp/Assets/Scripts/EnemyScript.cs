@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-    private bool hasSpawn;
+    public bool hasSpawn;
     private MoveScript moveScript;
     private WeaponScript[] weapons;
     private Collider2D coliderComponent;
@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour {
             // 4 - Out of the camera ? Destroy the game object.
             if (rendererComponent.IsVisibleFrom(Camera.main) == false)
             {
-             Destroy(gameObject, 1);
+                Destroy(gameObject, 10);
             }
         }
     }

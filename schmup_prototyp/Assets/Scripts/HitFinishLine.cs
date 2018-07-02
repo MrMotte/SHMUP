@@ -10,7 +10,8 @@ public class HitFinishLine : MonoBehaviour {
 
         if ( hitObj.tag == "Player")
         {
-            transform.parent.gameObject.AddComponent<GameOverScript>();
+            this.gameObject.AddComponent<GameOverScript>();
+            Debug.Log("Hitted Playeer");
         }
     }
 }

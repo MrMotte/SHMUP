@@ -14,7 +14,12 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject air_GUI;
 	public GameObject water_GUI;
 
-	void Update () 
+	void Start()
+	{
+		player = GameObject.Find("Player");
+	}
+
+		void Update () 
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{

@@ -17,8 +17,7 @@ public class HealthScript : MonoBehaviour
     private SpriteRenderer[] spriteRendererChildren;
     public Image Healthbar;
 
-    float delay = 1.0f;
-	//= 0.32f;
+    float delay = 0.32f;
 
 
     public BoxCollider2D EnemyBox;
@@ -56,16 +55,18 @@ public class HealthScript : MonoBehaviour
 						//CHRISTIAN:
 						//	PLAY Damage FX
 						//		BEGIN
+						
 						if(hitParticle != null || hitPosition != null)
 							Instantiate(hitParticle, hitPosition);
-                        //		END
+						//		END
+						
 						Immunity = true;
                         StartCoroutine(fSpriteImmunityBlink());
                     }
 
                     Destroy(shot.gameObject);
 
-                    if (hp <= 0)
+                    if (hp < 1)
                     {
 						DyingGO();
                     }
@@ -140,21 +141,26 @@ public class HealthScript : MonoBehaviour
         }
     }
 	
+	//CHRISTIAN
+	//	Defining the procedure of Death for player and enemies 
+	//		BEGIN
 	public void DyingGO()
 	{
-		Debug.Log("Dead");
+		
 		if(destroyParticle != null)
 		{
-			if(hitPosition != null){
-				Instantiate(destroyParticle, hitPosition, true);
-			}
-			Instantiate(destroyParticle, this.transform, true);
+				Instantiate(destroyParticle, transform.position, transform.rotation);
+		}
+		
+		if(isEnemy)
+		{
+			ChangeTheDamnSprite(); // call method to change sprite
 		}
 		
 		Destroy(EnemyBox);
-        ChangeTheDamnSprite(); // call method to change sprite
-        Destroy(gameObject, delay);
+		Destroy(gameObject, delay);
 	}
+	//		END
 	
 	void OnDestroy(){
 	

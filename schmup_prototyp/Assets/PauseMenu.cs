@@ -8,7 +8,12 @@ public class PauseMenu : MonoBehaviour {
 	public static bool GameIsPaused = false;
 
 	public GameObject pauseMenuUI;
-	
+
+	public GameObject player;
+
+	public GameObject air_GUI;
+	public GameObject water_GUI;
+
 	void Update () 
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -21,6 +26,16 @@ public class PauseMenu : MonoBehaviour {
 			{
 				Pause();
 			}
+		}
+
+		if (player.transform.position.y >= player.GetComponent<PlayerScript>().Y_WaterBorder)
+		{
+			air_GUI.SetActive(true);
+			water_GUI.SetActive(false);
+		}else if (player.transform.position.y <= player.GetComponent<PlayerScript>().Y_WaterBorder)
+		{
+			air_GUI.SetActive(false);
+			water_GUI.SetActive(true);
 		}
 	}
 

@@ -18,6 +18,8 @@ public class WeaponScript : MonoBehaviour {
     /// </summary>
     public float shootingRate = 0.25f;
 
+    public AudioSource ShootSound;
+
     //--------------------------------
     // 2 - Cooldown
     //--------------------------------
@@ -52,6 +54,8 @@ public class WeaponScript : MonoBehaviour {
 
             // Create a new shot
             var shotTransform = Instantiate(shotPrefab) as Transform;
+            if(ShootSound != null)
+                ShootSound.Play();
 
             // Assign position
             if (isEnemy)

@@ -240,7 +240,7 @@ public class PlayerScript : MonoBehaviour
 
     void fShoot(int mCurrentWeapon)
     {
-        WeaponScript weapon = Weapons[mCurrentWeapon - 1].GetComponent<WeaponScript>();
+        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponent<WeaponScript>();
         if (weapon != null)
         {
             weapon.Attack(false);

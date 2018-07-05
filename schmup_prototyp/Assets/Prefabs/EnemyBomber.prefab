@@ -178,12 +178,17 @@ MonoBehaviour:
   hp: 1
   maxHP: 0
   isEnemy: 1
+  currencyPickup: {fileID: 1887086968211948, guid: a04d83a9e64d8984fbf130f885ca020f,
+    type: 2}
   sprite1: {fileID: 21300000, guid: 0c3ef587a1192344db2ec3fda53d68d0, type: 3}
   sprite2: {fileID: 21300000, guid: 720d5c28594d7014d834c068135310f4, type: 3}
   Healthbar: {fileID: 0}
   EnemyBox: {fileID: 61713996412576990}
   BlinkTimes: 10
   BlinkTime: 0
+  hitPosition: {fileID: 0}
+  hitParticle: {fileID: 0}
+  destroyParticle: {fileID: 0}
 --- !u!114 &114424652737422146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856de3ac8c9701e4c8cc15bd2d009bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasSpawn: 0
 --- !u!114 &114794827676071384
 MonoBehaviour:
   m_ObjectHideFlags: 1

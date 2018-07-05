@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     // Weapons
     [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
     public GameObject[] Weapons;
-    int CurrentWeapon = 1;
+    public int CurrentWeapon = 1;
     bool WeaponIsChanging = false;
     [Header("Delay for changing weapon")]
     public float WeaponChangingDelay = 0;

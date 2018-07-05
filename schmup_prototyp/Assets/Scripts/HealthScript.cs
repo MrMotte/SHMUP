@@ -9,15 +9,17 @@ public class HealthScript : MonoBehaviour
     public float hp = 2;
     public float maxHP;
 
-    public bool isEnemy = true;
+	public bool isEnemy = true;
+	public GameObject currencyPickup;
 
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
     public Image Healthbar;
+	
 
-    float delay = 1.0f;
+	float delay = 1.0f;
 	//= 0.32f;
 
 
@@ -45,7 +47,7 @@ public class HealthScript : MonoBehaviour
                 if (shot.isEnemyShot != isEnemy)
                 {
                     hp -= shot.damage;
-                    if(Healthbar)
+					if(Healthbar)
                     {
                         Healthbar.fillAmount = (hp / maxHP);
                     }
@@ -69,6 +71,8 @@ public class HealthScript : MonoBehaviour
                     {
 						DyingGO();
                     }
+
+
                 }
             }
         }
@@ -116,8 +120,7 @@ public class HealthScript : MonoBehaviour
 
         spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
         maxHP = hp;
-
-    }
+	}
 
     void ChangeTheDamnSprite()
     {
@@ -149,6 +152,12 @@ public class HealthScript : MonoBehaviour
 				Instantiate(destroyParticle, hitPosition, true);
 			}
 			Instantiate(destroyParticle, this.transform, true);
+		}
+
+		if (isEnemy)
+		{
+			Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
+			Score.scoreValue += 100;
 		}
 		
 		Destroy(EnemyBox);

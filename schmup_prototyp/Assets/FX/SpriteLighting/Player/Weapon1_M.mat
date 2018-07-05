@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Player_M
+  m_Name: Weapon1_M
   m_Shader: {fileID: 4800000, guid: 5dd6d3542ac40f342af49c61ec2f6eb9, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -19,11 +19,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture_33559B6D:
-        m_Texture: {fileID: 2800000, guid: 63e2f091d7812e04e885e2e6522d02bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f32d242e1b1f784dba69dcf0bbe7d90, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture_98F7E5B0:
-        m_Texture: {fileID: 2800000, guid: 4c504e0477a11e74cbf70f826a4bc360, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f3c6471063459b4186d8bc0e2d4d33b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:

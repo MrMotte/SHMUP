@@ -45,7 +45,8 @@ public class PlayerScript : MonoBehaviour
     bool toogleBoolTwo = false;
     public bool toogleBoolThree = true;
 
-
+    public AudioSource WeaponSwitch;
+    public AudioSource EngineDash;
 
     float dmgRatePlayer = 0;
 
@@ -108,6 +109,8 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("EngineDasher") && toogleBoolThree)
         {
             StartCoroutine(boostON(0));
+            if(EngineDash != null)
+                EngineDash.Play();
         }
         if (boost == false)
         {
@@ -240,7 +243,7 @@ public class PlayerScript : MonoBehaviour
 
     void fShoot(int mCurrentWeapon)
     {
-        WeaponScript weapon = Weapons[mCurrentWeapon - 1].GetComponent<WeaponScript>();
+        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponent<WeaponScript>();
         if (weapon != null)
         {
             weapon.Attack(false);
@@ -263,6 +266,9 @@ public class PlayerScript : MonoBehaviour
     {
         if (CurrentWeapon != RequestedWeapon)
         {
+            if(WeaponSwitch != null)
+                WeaponSwitch.Play();
+
             WeaponIsChanging = true;
             yield return new WaitForSeconds(mWeaponChangingDelay);
 

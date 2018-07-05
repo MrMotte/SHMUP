@@ -23,6 +23,9 @@ public class HealthScript : MonoBehaviour
 	float delay = 1.0f;
 	//= 0.32f;
 
+    public AudioSource GotHitted;
+    public AudioSource Dead;
+
 
     public BoxCollider2D EnemyBox;
 
@@ -68,6 +71,8 @@ public class HealthScript : MonoBehaviour
             {
                 if (shot.isEnemyShot != isEnemy)
                 {
+                    if(GotHitted != null)
+                        GotHitted.Play();
                     hp -= shot.damage;
 					if(Healthbar)
                     {
@@ -174,7 +179,9 @@ public class HealthScript : MonoBehaviour
 	//		BEGIN
 	public void DyingGO()
 	{
-		
+        if(Dead != null)
+		    Dead.Play();
+            
 		if(destroyParticle != null)
 		{
 				Instantiate(destroyParticle, transform.position, transform.rotation);

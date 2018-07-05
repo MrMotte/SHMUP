@@ -50,6 +50,8 @@ public class PlayerScript : MonoBehaviour
 
     float dmgRatePlayer = 0;
 
+	//Splash Prefab
+	public GameObject splashGO;
 
     // Update is called once per frame
 
@@ -64,7 +66,7 @@ public class PlayerScript : MonoBehaviour
         oldSpeed.y = speed.y;
 
         //GetComponentInChildren<Animator>();
-
+		
     }
 
     void Update()
@@ -92,7 +94,13 @@ public class PlayerScript : MonoBehaviour
                 CurrentWeapon++;
                 // Call VFX, GUI and Sound
             }
-            IsPlayerUnderwater = true;
+			//CHRISTIAN
+			//Instantiate Splash FX on WaterSurface
+			//	BEGIN
+			StopCoroutine("Splash");
+			StartCoroutine("Splash");
+			//	END	
+			IsPlayerUnderwater = true;
         }
         else
         {
@@ -102,6 +110,11 @@ public class PlayerScript : MonoBehaviour
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = false;
+			
+			//CHRISTIAN
+			//Instantiate Surface FX on WaterSurface (none yet)
+			//	BEGIN
+			//	END	
         }
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
@@ -284,4 +297,18 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
+	
+	//Plays FX if player moves below Y_WaterBorder
+	IEnumerator Splash()
+	{	//is started once in Update before bool is set to true
+		// ---> only played once after change to water
+		if(!IsPlayerUnderwater)
+		{
+			if(splashGO!=null)
+			{
+				Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
+			}
+		}
+		yield return null;
+	}
 }

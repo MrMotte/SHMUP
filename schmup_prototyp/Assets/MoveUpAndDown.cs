@@ -18,6 +18,8 @@ public class MoveUpAndDown : MonoBehaviour
     void Start()
     {
         rendererComponent = GetComponent<SpriteRenderer>();
+        TopBound = GameObject.Find("TopBoundary").transform;
+        BottomBound = GameObject.Find("BottomBoundary").transform;
 
         if (TopBound.position.x < this.transform.position.x)
         {

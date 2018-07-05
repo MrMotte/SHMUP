@@ -29,11 +29,11 @@ public class PlayerScript : MonoBehaviour
     // Weapons
     [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
     public GameObject[] Weapons;
-    public int CurrentWeapon = 1;
+    public int CurrentWeapon = 0;
     bool WeaponIsChanging = false;
     [Header("Delay for changing weapon")]
     public float WeaponChangingDelay = 0;
-    int RequestedWeapon = 1;
+    int RequestedWeapon = 0;
     SpriteRenderer WeaponSpriteRenderer;
 
     // Air - Water Switch
@@ -84,20 +84,20 @@ public class PlayerScript : MonoBehaviour
         }
 
         // detect if player is currently underwater
-        if (this.transform.position.y > Y_WaterBorder)
+        if (this.transform.position.y < Y_WaterBorder)
         {
             if (!IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon + Weapons.Length / 2;
+                CurrentWeapon++;
                 // Call VFX, GUI and Sound
             }
-            IsPlayerUnderwater = true;  
+            IsPlayerUnderwater = true;
         }
         else
         {
             if (IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon - Weapons.Length / 2;
+                CurrentWeapon--;
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = false;
@@ -105,18 +105,22 @@ public class PlayerScript : MonoBehaviour
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 
-        if(Input.GetButtonDown("EngineDasher") && toogleBoolThree){
+        if (Input.GetButtonDown("EngineDasher") && toogleBoolThree)
+        {
             StartCoroutine(boostON(0));
         }
-        if(boost == false){
-                speed.x = oldSpeed.x;
-                speed.y = oldSpeed.y;
-            }else if (boost == true && toogleBoolTwo == true){
-                speed.x += dashSpeed;
-                speed.y += dashSpeed;
-                toogleBoolTwo = false;
-            }
-        
+        if (boost == false)
+        {
+            speed.x = oldSpeed.x;
+            speed.y = oldSpeed.y;
+        }
+        else if (boost == true && toogleBoolTwo == true)
+        {
+            speed.x += dashSpeed;
+            speed.y += dashSpeed;
+            toogleBoolTwo = false;
+        }
+
 
         movement *= Time.deltaTime;
 
@@ -127,7 +131,7 @@ public class PlayerScript : MonoBehaviour
         #region Weapon change
         if (shoot && !WeaponIsChanging)
         {
-            if (CurrentWeapon == 1)
+            if (CurrentWeapon == 0)
             {
                 //Debug.Log("Weapon 1 is shooting");
                 //Animation Weapon 1 start
@@ -144,34 +148,30 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetButton("Weapon 1"))
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 1 + Weapons.Length / 2; }
+            if (IsPlayerUnderwater) { RequestedWeapon = 1; }
             else
-                RequestedWeapon = 1;
+                RequestedWeapon = 0;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 2"))
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 2 + Weapons.Length / 2; }
+            if (IsPlayerUnderwater) { RequestedWeapon = 3; }
             else
                 RequestedWeapon = 2;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 3"))
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 3 + Weapons.Length / 2; }
+            if (IsPlayerUnderwater) { RequestedWeapon = 5; }
             else
-                RequestedWeapon = 3;
+                RequestedWeapon = 4;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         if (Input.GetButton("Weapon 4"))
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 4 + Weapons.Length / 2; }
+            if (IsPlayerUnderwater) { RequestedWeapon = 6; }
             else
-                RequestedWeapon = 4;
+                RequestedWeapon = 5;
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         #endregion
@@ -179,7 +179,7 @@ public class PlayerScript : MonoBehaviour
 
         // 6 - Make sure we are not outside the camera bounds
         #region camera bounds 
-        
+
         var dist = (transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -205,13 +205,13 @@ public class PlayerScript : MonoBehaviour
         );
 
 
-        if(Input.GetButtonDown("ShildBatteringRam"))
+        if (Input.GetButtonDown("ShildBatteringRam"))
         {
             toogleBool = !toogleBool;
             shild.GetComponent<Image>().enabled = toogleBool;
             shild.GetComponent<EdgeCollider2D>().enabled = toogleBool;
         }
-        
+
 
         #endregion
 
@@ -221,13 +221,15 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Enemy"){
+        if (collider.gameObject.tag == "Enemy")
+        {
 
-            if(boost == true && Time.time > nextDMGPlayer){
+            if (boost == true && Time.time > nextDMGPlayer)
+            {
                 collider.gameObject.GetComponent<HealthScript>().hp -= dashDamage;
                 nextDMGPlayer = Time.time + dmgRatePlayer;
                 Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
-                }
+            }
         }
     }
 
@@ -245,7 +247,8 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    IEnumerator boostON(float duration){
+    IEnumerator boostON(float duration)
+    {
         duration = dashDuration;
         toogleBoolThree = false;
         boost = true;
@@ -263,34 +266,12 @@ public class PlayerScript : MonoBehaviour
             WeaponIsChanging = true;
             yield return new WaitForSeconds(mWeaponChangingDelay);
 
-            WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
             WeaponSpriteRenderer.enabled = false;
-            if (RequestedWeapon == 1)
-            {
-                CurrentWeapon = 1;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
 
-            if (RequestedWeapon == 2)
-            {
-                CurrentWeapon = 2;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+                CurrentWeapon = RequestedWeapon;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
                 WeaponSpriteRenderer.enabled = true;
-            }
-
-            if (RequestedWeapon == 3)
-            {
-                CurrentWeapon = 3;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
-            if (RequestedWeapon == 4)
-            {
-                CurrentWeapon = 4;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
 
             Debug.Log("Changed Weapon to: " + CurrentWeapon);
             WeaponIsChanging = false;

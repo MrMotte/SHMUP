@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour {
             // 4 - Out of the camera ? Destroy the game object.
             if (rendererComponent.IsVisibleFrom(Camera.main) == false)
             {
-                Destroy(gameObject, 10);
+                Destroy(gameObject, 200);
             }
         }
     }

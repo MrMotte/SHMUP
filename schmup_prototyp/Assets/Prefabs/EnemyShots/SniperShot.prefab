@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 114698039227570178}
   - component: {fileID: 114176084558835860}
   - component: {fileID: 114389894006360480}
+  - component: {fileID: 114473370772278248}
   m_Layer: 0
-  m_Name: EnemyShotTargetPlayerPosition
+  m_Name: SniperShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1117617884378428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8585453, y: -3.29635, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +61,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.48, y: 20.48}
+    oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -87,12 +88,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1117617884378428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59ae6e87c76443d49b84ed51e49eb3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &114473370772278248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117617884378428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384c82c4783570144a95653e913ab892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  OffsetX: 7
 --- !u!114 &114698039227570178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cf88ec4434b7ca048879bb6344fdb4fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d09381df26fcbc43b0a8ebc83307d6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

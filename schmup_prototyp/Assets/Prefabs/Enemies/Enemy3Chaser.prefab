@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114255450687638742}
   - component: {fileID: 114113153615263672}
   m_Layer: 0
-  m_Name: Enemy2Gay
+  m_Name: Enemy3Chaser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081429491229540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 10}
+  m_LocalPosition: {x: -36.286034, y: 8.472099, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 10}
   m_Children:
   - {fileID: 4809888571399630}
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 20.48, y: 20.48}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fa2aaa3aa9f84b9399a4921457bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashBackDamage: 2
   hp: 4
   maxHP: 0
   isEnemy: 1
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ddbea91e3c601ce42bda26482d0799ec, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,7 +234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 11ff0520185c465488401f261a48283b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a41c874b3b564f4cbb7fa38da98de3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

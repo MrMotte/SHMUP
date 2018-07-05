@@ -690,18 +690,20 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1565390442584868}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.5
+  m_EdgeRadius: 0.74
   m_Points:
-  - {x: -0.029448707, y: 0.94110286}
-  - {x: 1.3195808, y: -0.09109384}
-  - {x: 0.87786645, y: -0.6060138}
+  - {x: -0.74021167, y: 0.7267455}
+  - {x: 0.29148558, y: 0.5178577}
+  - {x: 0.7562988, y: 0.01999104}
+  - {x: 1.063524, y: -0.16855621}
+  - {x: 0.6070993, y: -0.49319428}
 --- !u!95 &95142628367375028
 Animator:
   serializedVersion: 3
@@ -789,7 +791,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d4da05f7273584c8e0728846acd580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boost: 0
+  nextDMGPlayer: 0.1
+  dashSpeed: 10
+  dashDuration: 5
+  cooldownTime: 5
+  dashDamage: 2
   speed: {x: 10, y: 10}
+  oldSpeed: {x: 50, y: 50}
   Weapons:
   - {fileID: 1623950365406294}
   - {fileID: 1552216261020366}
@@ -798,6 +807,7 @@ MonoBehaviour:
   CurrentWeapon: 1
   WeaponChangingDelay: 0
   Y_WaterBorder: 0
+  toogleBoolThree: 1
 --- !u!114 &114243704006734168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,6 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fa2aaa3aa9f84b9399a4921457bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashBackDamage: 2
   hp: 20
   maxHP: 0
   isEnemy: 0
@@ -1023,7 +1034,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1565390442584868}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1071,7 +1082,10 @@ MonoBehaviour:
   shildHP: 10
   maxShildHP: 0
   dmgRate: 0.5
-  nextDMG: 0
+  shiftON: {fileID: 21300000, guid: d5a3e7238ad2dc84b940a21b331491f3, type: 3}
+  shiftOFF: {fileID: 21300000, guid: d60bc8a8bbc5c984d97c94b2155144e1, type: 3}
+  shiftAir: {fileID: 0}
+  shiftWater: {fileID: 0}
   Shildbar: {fileID: 114698585314204242}
 --- !u!114 &114880484739224596
 MonoBehaviour:
@@ -15339,7 +15353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 1.31}
+  m_AnchoredPosition: {x: -0, y: 1.602}
   m_SizeDelta: {x: 1.5, y: 0.2417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224652891784726700

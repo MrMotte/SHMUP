@@ -10,6 +10,11 @@ public class Shild : MonoBehaviour {
 	public float dmgRate = 0.1f;
 	float nextDMG = 0f;
 
+	public Sprite shiftON;
+	public Sprite shiftOFF;
+	public Image shiftAir;
+	public Image shiftWater;
+
 	public Image Shildbar;
 
 	void Start () 
@@ -21,7 +26,12 @@ public class Shild : MonoBehaviour {
 	{
 		if (shildHP <= 0)
 		{
+			shiftAir.sprite = shiftOFF;
+			shiftWater.sprite = shiftOFF;
 			Destroy(this.gameObject);
+		}else {
+			shiftAir.sprite = shiftON;
+			shiftWater.sprite = shiftON;
 		}
 	}
 

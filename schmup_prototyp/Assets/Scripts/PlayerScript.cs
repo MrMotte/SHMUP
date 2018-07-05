@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     private Animator animatorEngine;
     private Animator animatorWeapon;
 
-    bool boost = false;
+    public bool boost = false;
 
     public float nextDMGPlayer = 0.1f;
     public float dashSpeed = 10f;
@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
     GameObject shild;
     bool toogleBool = false;
     bool toogleBoolTwo = false;
-    bool toogleBoolThree = true;
+    public bool toogleBoolThree = true;
 
 
 

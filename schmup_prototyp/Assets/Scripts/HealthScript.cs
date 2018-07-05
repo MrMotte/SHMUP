@@ -33,6 +33,9 @@ public class HealthScript : MonoBehaviour
 	public GameObject hitParticle;
 	public GameObject destroyParticle;
 
+    GameObject shild;
+
+
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -49,6 +52,17 @@ public class HealthScript : MonoBehaviour
 
         if (!Immunity)
         {
+            if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
+                this.GetComponentInParent<HealthScript>().hp -= 2;
+                Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
+                Immunity = true;
+                StartCoroutine(fSpriteImmunityBlink());
+                if(Healthbar)
+                    {
+                        Healthbar.fillAmount = (hp / maxHP);
+                    }
+        }
+
             if (shot != null)
             {
                 if (shot.isEnemyShot != isEnemy)
@@ -127,6 +141,8 @@ public class HealthScript : MonoBehaviour
 
         spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
         maxHP = hp;
+
+        shild = GameObject.Find("Shild");
 	}
 
     void ChangeTheDamnSprite()

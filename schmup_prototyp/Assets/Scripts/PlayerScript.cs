@@ -9,8 +9,13 @@ public class PlayerScript : MonoBehaviour
     private Animator animatorEngine;
     private Animator animatorWeapon;
 
+    public bool boost = false;
+    public float boostSpeed = 10f;
+
     // Movement
     public Vector2 speed = new Vector2(50, 50);
+    public Vector2 oldSpeed = new Vector2(50, 50);
+
 
     // Weapons
     [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
@@ -28,6 +33,13 @@ public class PlayerScript : MonoBehaviour
 
     GameObject shild;
     bool toogleBool = false;
+    bool toogleBoolTwo = false;
+    bool toogleBoolThree = true;
+
+    public float nextDMGPlayer = 0.1f;
+
+    float dmgRatePlayer = 0;
+
 
     // Update is called once per frame
 
@@ -37,6 +49,9 @@ public class PlayerScript : MonoBehaviour
         animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
 
         shild = GameObject.Find("Shild");
+
+        oldSpeed.x = speed.x;
+        oldSpeed.y = speed.y;
 
         //GetComponentInChildren<Animator>();
 
@@ -80,6 +95,19 @@ public class PlayerScript : MonoBehaviour
         }
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
+
+        if(Input.GetButtonDown("EngineDasher") && toogleBoolThree){
+            StartCoroutine(boostON(5));
+        }
+        if(boost == false){
+                speed.x = oldSpeed.x;
+                speed.y = oldSpeed.y;
+            }else if (boost == true && toogleBoolTwo == true){
+                speed.x += boostSpeed;
+                speed.y += boostSpeed;
+                toogleBoolTwo = false;
+            }
+        
 
         movement *= Time.deltaTime;
 
@@ -168,7 +196,7 @@ public class PlayerScript : MonoBehaviour
         );
 
 
-        if(Input.GetButtonDown("Shild"))
+        if(Input.GetButtonDown("ShildBatteringRam"))
         {
             toogleBool = !toogleBool;
             shild.GetComponent<Image>().enabled = toogleBool;
@@ -180,6 +208,18 @@ public class PlayerScript : MonoBehaviour
 
         // End of the update method
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag == "Enemy"){
+
+            if(boost == true && Time.time > nextDMGPlayer){
+                collider.gameObject.GetComponent<HealthScript>().hp -= 2;
+                nextDMGPlayer = Time.time + dmgRatePlayer;
+                Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
+                }
+        }
     }
 
     void OnDestroy()
@@ -194,6 +234,16 @@ public class PlayerScript : MonoBehaviour
         {
             weapon.Attack(false);
         }
+    }
+
+    IEnumerator boostON(float duration){
+        toogleBoolThree = false;
+        boost = true;
+        toogleBoolTwo = true;
+        yield return new WaitForSeconds(duration);
+        boost = false;
+        yield return new WaitForSeconds(5);
+        toogleBoolThree = true;
     }
 
     IEnumerator fChangeWeapon(float mWeaponChangingDelay)

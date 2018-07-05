@@ -140,6 +140,8 @@ public class EnemyEngine : MonoBehaviour
                 SpawnPosition = this.transform.position;
                 SpawnRotation = this.transform.rotation;
 
+                SpawnPosition = FormationData[iFormationCounter].FormationPattern.transform.position;
+
                 // if Offset is used start function to adjust
                 if (FormationData[i].UsePositionOffset)
                 {

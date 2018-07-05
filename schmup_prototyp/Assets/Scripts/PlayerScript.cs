@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -25,12 +26,17 @@ public class PlayerScript : MonoBehaviour
     public float Y_WaterBorder = 0;
     private bool IsPlayerUnderwater = false;
 
+    GameObject shild;
+    bool toogleBool = false;
+
     // Update is called once per frame
 
     private void Start()
     {
         animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
         animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
+
+        shild = GameObject.Find("Shild");
 
         //GetComponentInChildren<Animator>();
 
@@ -160,6 +166,14 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
+
+
+        if(Input.GetButtonDown("Shild"))
+        {
+            toogleBool = !toogleBool;
+            shild.GetComponent<Image>().enabled = toogleBool;
+            shild.GetComponent<EdgeCollider2D>().enabled = toogleBool;
+        }
         
 
         #endregion

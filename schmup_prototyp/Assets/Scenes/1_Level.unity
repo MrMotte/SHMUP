@@ -157,6 +157,30 @@ Prefab:
       propertyPath: EndPoint
       value: 
       objectReference: {fileID: 474535293}
+    - target: {fileID: 224476485920341868, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 114806628485985752, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565390442584868, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 68799472147063722, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 68799472147063722, guid: 9591b01336f68c14f8ab9dbc62847ea9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9591b01336f68c14f8ab9dbc62847ea9, type: 2}
   m_IsPrefabParent: 0

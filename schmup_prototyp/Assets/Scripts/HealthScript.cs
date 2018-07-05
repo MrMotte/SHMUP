@@ -37,7 +37,14 @@ public class HealthScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
 
+        
+
         ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
+
+        if (hp <= 0)
+            {
+				DyingGO();
+            }
 
 
         if (!Immunity)

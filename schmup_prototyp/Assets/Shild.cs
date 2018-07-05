@@ -7,7 +7,7 @@ public class Shild : MonoBehaviour {
 
 	public float shildHP = 10;
 	public float maxShildHP;
-	public float dmgRate = 0.5f;
+	public float dmgRate = 0.1f;
 	public float nextDMG = 0f;
 
 	public Image Shildbar;
@@ -34,6 +34,8 @@ public class Shild : MonoBehaviour {
 			Debug.Log("?????????????????");
 			Shildbar.fillAmount = (shildHP / maxShildHP);
 			nextDMG = Time.time + dmgRate;
+			if(collider.gameObject.GetComponent<HealthScript>().isEnemy == true);
+			collider.gameObject.GetComponent<HealthScript>().hp -= 10;
 		}
 	}
 	

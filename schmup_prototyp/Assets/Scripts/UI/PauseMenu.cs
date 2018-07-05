@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -13,6 +14,11 @@ public class PauseMenu : MonoBehaviour {
 
 	public GameObject air_GUI;
 	public GameObject water_GUI;
+
+	public Sprite spaceON;
+	public Sprite spaceOFF;
+	public Image spaceAir;
+	public Image spaceWater;
 
 	void Start()
 	{
@@ -41,6 +47,14 @@ public class PauseMenu : MonoBehaviour {
 		{
 			air_GUI.SetActive(false);
 			water_GUI.SetActive(true);
+		}
+
+		if(player.GetComponent<PlayerScript>().toogleBoolThree == true){
+			spaceAir.sprite = spaceON;
+			spaceWater.sprite = spaceON;
+		}else if(player.GetComponent<PlayerScript>().toogleBoolThree == false){
+			spaceAir.sprite = spaceOFF;
+			spaceWater.sprite = spaceOFF;
 		}
 	}
 

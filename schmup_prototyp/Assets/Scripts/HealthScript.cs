@@ -6,18 +6,22 @@ using UnityEngine.UI;
 public class HealthScript : MonoBehaviour
 {
 
+    public float dashBackDamage = 2; 
     public float hp = 2;
     public float maxHP;
 
-    public bool isEnemy = true;
+	public bool isEnemy = true;
+	public GameObject currencyPickup;
 
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
     public Image Healthbar;
+	
 
-    float delay = 0.32f;
+	float delay = 1.0f;
+	//= 0.32f;
 
 
     public BoxCollider2D EnemyBox;
@@ -30,21 +34,42 @@ public class HealthScript : MonoBehaviour
 	public GameObject hitParticle;
 	public GameObject destroyParticle;
 
+    GameObject shild;
+
+
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
 
+        
+
         ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
+
+        if (hp <= 0)
+            {
+				DyingGO();
+            }
 
 
         if (!Immunity)
         {
+            if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
+                this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
+                Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
+                Immunity = true;
+                StartCoroutine(fSpriteImmunityBlink());
+                if(Healthbar)
+                    {
+                        Healthbar.fillAmount = (hp / maxHP);
+                    }
+        }
+
             if (shot != null)
             {
                 if (shot.isEnemyShot != isEnemy)
                 {
                     hp -= shot.damage;
-                    if(Healthbar)
+					if(Healthbar)
                     {
                         Healthbar.fillAmount = (hp / maxHP);
                     }
@@ -70,6 +95,8 @@ public class HealthScript : MonoBehaviour
                     {
 						DyingGO();
                     }
+
+
                 }
             }
         }
@@ -118,7 +145,8 @@ public class HealthScript : MonoBehaviour
         spriteRendererChildren = GetComponentsInChildren<SpriteRenderer>();
         maxHP = hp;
 
-    }
+        shild = GameObject.Find("Shild");
+	}
 
     void ChangeTheDamnSprite()
     {
@@ -150,6 +178,12 @@ public class HealthScript : MonoBehaviour
 		if(destroyParticle != null)
 		{
 				Instantiate(destroyParticle, transform.position, transform.rotation);
+		}
+
+		if (isEnemy)
+		{
+			Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
+			Score.scoreValue += 100;
 		}
 		
 		if(isEnemy)

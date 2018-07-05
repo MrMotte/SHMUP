@@ -418,6 +418,8 @@ MonoBehaviour:
   hp: 1
   maxHP: 0
   isEnemy: 1
+  currencyPickup: {fileID: 1887086968211948, guid: a04d83a9e64d8984fbf130f885ca020f,
+    type: 2}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   Healthbar: {fileID: 0}

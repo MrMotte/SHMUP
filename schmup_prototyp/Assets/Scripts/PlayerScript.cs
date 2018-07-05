@@ -14,16 +14,17 @@ public class PlayerScript : MonoBehaviour
     // Weapons
     [Header("First Half Air, second Water Weapons. Array should always be divisible by 2!")]
     public GameObject[] Weapons;
-    int CurrentWeapon = 1;
+    int CurrentWeapon = VariableSaver.WeaponIDs[0];
     bool WeaponIsChanging = false;
     [Header("Delay for changing weapon")]
     public float WeaponChangingDelay = 0;
-    int RequestedWeapon = 1;
+    int RequestedWeapon = VariableSaver.WeaponIDs[0];
     SpriteRenderer WeaponSpriteRenderer;
 
     // Air - Water Switch
     public float Y_WaterBorder = 0;
     private bool IsPlayerUnderwater = false;
+
 
     // Update is called once per frame
 
@@ -31,14 +32,14 @@ public class PlayerScript : MonoBehaviour
     {
         animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
         animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
-
+        if (this.transform.position.y < Y_WaterBorder) { IsPlayerUnderwater = true; }
         //GetComponentInChildren<Animator>();
 
     }
 
     void Update()
     {
-
+        #region MOvement
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
 
@@ -52,32 +53,36 @@ public class PlayerScript : MonoBehaviour
         {
             animatorEngine.SetBool("IsMovingUp", false);
         }
+        #endregion
 
         // detect if player is currently underwater
-        if (this.transform.position.y > Y_WaterBorder)
+        if (this.transform.position.y < Y_WaterBorder)
         {
             if (!IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon + Weapons.Length / 2;
+                CurrentWeapon = CurrentWeapon + 1;
+                print(CurrentWeapon);
                 // Call VFX, GUI and Sound
             }
-            IsPlayerUnderwater = true;  
+            IsPlayerUnderwater = true;
         }
         else
         {
             if (IsPlayerUnderwater)
             {
-                CurrentWeapon = CurrentWeapon - Weapons.Length / 2;
+                CurrentWeapon = CurrentWeapon - 1;
+                print(CurrentWeapon);
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = false;
         }
-
+        #region Movement&Shoot
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 
         movement *= Time.deltaTime;
 
         transform.Translate(movement);
+        #endregion
 
         bool shoot = Input.GetButton("Fire4");
 
@@ -99,36 +104,30 @@ public class PlayerScript : MonoBehaviour
             animatorWeapon.SetBool("IsWeaponShooting", false);
         }
 
-        if (Input.GetButton("Weapon 1"))
+        if (Input.GetButton("Weapon 1") && !WeaponIsChanging)
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 1 + Weapons.Length / 2; }
-            else
-                RequestedWeapon = 1;
+            if (IsPlayerUnderwater) { RequestedWeapon = VariableSaver.WeaponIDs[0] + 1; }
+            else { RequestedWeapon = VariableSaver.WeaponIDs[1]; }
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
-        if (Input.GetButton("Weapon 2"))
+        if (Input.GetButton("Weapon 2") && !WeaponIsChanging)
         {
-            if (IsPlayerUnderwater)
-            { RequestedWeapon = 2 + Weapons.Length / 2; }
-            else
-                RequestedWeapon = 2;
+            if (IsPlayerUnderwater) { RequestedWeapon = VariableSaver.WeaponIDs[1] + 1; }
+            else { RequestedWeapon = VariableSaver.WeaponIDs[2]; }
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
-        if (Input.GetButton("Weapon 3"))
+        if (Input.GetButton("Weapon 3") && !WeaponIsChanging)
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 3 + Weapons.Length / 2; }
-            else
-                RequestedWeapon = 3;
+            { RequestedWeapon = VariableSaver.WeaponIDs[2] + 1; }
+            else { RequestedWeapon = VariableSaver.WeaponIDs[3];}
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
-        if (Input.GetButton("Weapon 4"))
+        if (Input.GetButton("Weapon 4") && !WeaponIsChanging)
         {
             if (IsPlayerUnderwater)
-            { RequestedWeapon = 4 + Weapons.Length / 2; }
-            else
-                RequestedWeapon = 4;
+            { RequestedWeapon = 4 + 1; }
+            else { RequestedWeapon = 4; }
             StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
         #endregion
@@ -136,7 +135,7 @@ public class PlayerScript : MonoBehaviour
 
         // 6 - Make sure we are not outside the camera bounds
         #region camera bounds 
-        
+
         var dist = (transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -160,7 +159,7 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
-        
+
 
         #endregion
 
@@ -175,7 +174,7 @@ public class PlayerScript : MonoBehaviour
 
     void fShoot(int mCurrentWeapon)
     {
-        WeaponScript weapon = Weapons[mCurrentWeapon - 1].GetComponent<WeaponScript>();
+        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponent<WeaponScript>();
         if (weapon != null)
         {
             weapon.Attack(false);
@@ -189,34 +188,34 @@ public class PlayerScript : MonoBehaviour
             WeaponIsChanging = true;
             yield return new WaitForSeconds(mWeaponChangingDelay);
 
-            WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
+            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
             WeaponSpriteRenderer.enabled = false;
-            if (RequestedWeapon == 1)
-            {
-                CurrentWeapon = 1;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
+            //if (RequestedWeapon == 1)
+            //{
+            CurrentWeapon = RequestedWeapon;
+            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+            WeaponSpriteRenderer.enabled = true;
+            //}
 
-            if (RequestedWeapon == 2)
-            {
-                CurrentWeapon = 2;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
-
-            if (RequestedWeapon == 3)
-            {
-                CurrentWeapon = 3;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
-            if (RequestedWeapon == 4)
-            {
-                CurrentWeapon = 4;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon - 1].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
-            }
+            //if (RequestedWeapon == 2)
+            //{
+            //    CurrentWeapon = 2;
+            //    WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+            //    WeaponSpriteRenderer.enabled = true;
+            //}
+            //
+            //if (RequestedWeapon == 3)
+            //{
+            //    CurrentWeapon = 3;
+            //    WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+            //    WeaponSpriteRenderer.enabled = true;
+            //}
+            //if (RequestedWeapon == 4)
+            //{
+            //    CurrentWeapon = 4;
+            //    WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+            //    WeaponSpriteRenderer.enabled = true;
+            //}
 
             Debug.Log("Changed Weapon to: " + CurrentWeapon);
             WeaponIsChanging = false;

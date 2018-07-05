@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HealthScript : MonoBehaviour
 {
 
+    public float dashBackDamage = 2; 
     public float hp = 2;
     public float maxHP;
 
@@ -53,7 +54,7 @@ public class HealthScript : MonoBehaviour
         if (!Immunity)
         {
             if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
-                this.GetComponentInParent<HealthScript>().hp -= 2;
+                this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
                 Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
                 Immunity = true;
                 StartCoroutine(fSpriteImmunityBlink());

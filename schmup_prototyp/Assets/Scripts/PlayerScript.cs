@@ -9,8 +9,17 @@ public class PlayerScript : MonoBehaviour
     private Animator animatorEngine;
     private Animator animatorWeapon;
 
-    public bool boost = false;
-    public float boostSpeed = 10f;
+    bool boost = false;
+
+    public float nextDMGPlayer = 0.1f;
+    public float dashSpeed = 10f;
+
+    public float dashDuration = 5;
+
+
+    public float cooldownTime = 5;
+
+    public float dashDamage = 2;
 
     // Movement
     public Vector2 speed = new Vector2(50, 50);
@@ -36,7 +45,7 @@ public class PlayerScript : MonoBehaviour
     bool toogleBoolTwo = false;
     bool toogleBoolThree = true;
 
-    public float nextDMGPlayer = 0.1f;
+
 
     float dmgRatePlayer = 0;
 
@@ -97,14 +106,14 @@ public class PlayerScript : MonoBehaviour
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 
         if(Input.GetButtonDown("EngineDasher") && toogleBoolThree){
-            StartCoroutine(boostON(5));
+            StartCoroutine(boostON(0));
         }
         if(boost == false){
                 speed.x = oldSpeed.x;
                 speed.y = oldSpeed.y;
             }else if (boost == true && toogleBoolTwo == true){
-                speed.x += boostSpeed;
-                speed.y += boostSpeed;
+                speed.x += dashSpeed;
+                speed.y += dashSpeed;
                 toogleBoolTwo = false;
             }
         
@@ -215,7 +224,7 @@ public class PlayerScript : MonoBehaviour
         if(collider.gameObject.tag == "Enemy"){
 
             if(boost == true && Time.time > nextDMGPlayer){
-                collider.gameObject.GetComponent<HealthScript>().hp -= 2;
+                collider.gameObject.GetComponent<HealthScript>().hp -= dashDamage;
                 nextDMGPlayer = Time.time + dmgRatePlayer;
                 Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
                 }
@@ -237,12 +246,13 @@ public class PlayerScript : MonoBehaviour
     }
 
     IEnumerator boostON(float duration){
+        duration = dashDuration;
         toogleBoolThree = false;
         boost = true;
         toogleBoolTwo = true;
         yield return new WaitForSeconds(duration);
         boost = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(cooldownTime);
         toogleBoolThree = true;
     }
 

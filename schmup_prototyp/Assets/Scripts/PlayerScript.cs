@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
-        animatorWeapon = gameObject.transform.Find("Weapon 1").GetComponentInChildren<Animator>();
+        //animatorWeapon = gameObject.transform.Find("LightningPistolAir").GetComponentInChildren<Animator>();
 
         shild = GameObject.Find("Shild");
 
@@ -151,16 +151,16 @@ public class PlayerScript : MonoBehaviour
             {
                 //Debug.Log("Weapon 1 is shooting");
                 //Animation Weapon 1 start
-                animatorWeapon.SetBool("IsWeaponShooting", true);
+                //animatorWeapon.SetBool("IsWeaponShooting", true);
             }
 
             fShoot(CurrentWeapon);
         }
-        else
-        {
+        //else
+        //{
             //Animation Weapon 1 stops
-            animatorWeapon.SetBool("IsWeaponShooting", false);
-        }
+            //animatorWeapon.SetBool("IsWeaponShooting", false);
+        //}
 
         if (Input.GetButton("Weapon 1"))
         {

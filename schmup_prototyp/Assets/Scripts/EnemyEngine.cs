@@ -48,7 +48,7 @@ public struct FormationData
 }
 
 
-[InitializeOnLoad]
+
 public class EnemyEngine : MonoBehaviour
 {
     [Header("Enemy Spawn")]

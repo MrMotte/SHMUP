@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114129673473301682}
   - component: {fileID: 114832069374882944}
   m_Layer: 0
-  m_Name: Swarm
+  m_Name: Enemy1Swarm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,6 +382,8 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 2171588ae95f82a41a0cc8bc8a67dad9, type: 3}
   sprite2: {fileID: 21300000, guid: 50bef77fbfd2974469cef0d709ceedb6, type: 3}
   Healthbar: {fileID: 0}
+  GotHitted: {fileID: 0}
+  Dead: {fileID: 0}
   EnemyBox: {fileID: 61745352888520940}
   BlinkTimes: 10
   BlinkTime: 0
@@ -415,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4069199996186240, guid: 22f7b8c6c13dc88488d655e06677c6a4, type: 2}
   shootingRate: 1.8
+  ShootSound: {fileID: 0}
 --- !u!114 &114832069374882944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,7 +473,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212094684835161788
 SpriteRenderer:

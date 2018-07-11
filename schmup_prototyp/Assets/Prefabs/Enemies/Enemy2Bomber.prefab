@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114362031435538356}
   - component: {fileID: 114324091329500920}
   m_Layer: 0
-  m_Name: Bomber
+  m_Name: Enemy2Bomber
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,6 +424,8 @@ MonoBehaviour:
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   Healthbar: {fileID: 0}
+  GotHitted: {fileID: 0}
+  Dead: {fileID: 0}
   EnemyBox: {fileID: 61875813286512354}
   BlinkTimes: 10
   BlinkTime: 0
@@ -444,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4323335447133796, guid: 0c0f15eb72ffb0e4689f5f80caef2190, type: 2}
   shootingRate: 2.5
+  ShootSound: {fileID: 0}
 --- !u!114 &114460799112043712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,7 +503,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212153925255962768
 SpriteRenderer:

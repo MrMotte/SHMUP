@@ -59,7 +59,7 @@ public class MoveScript : MonoBehaviour {
 
             transform.rotation = new Quaternion (0,0,0,0);
 
-            direction.x = -1;
+            //direction.x = -1;
         }
             
     }

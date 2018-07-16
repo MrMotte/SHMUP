@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour
     private Animator animatorEngine;
     private Animator animatorWeapon;
 
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
     public bool boost = false;
 
     public float nextDMGPlayer = 0.1f;
@@ -247,11 +250,20 @@ public class PlayerScript : MonoBehaviour
                 Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
             }
         }
+        if(collider.gameObject.tag == "Endgate")
+        {
+            //Debug.Log("U WON!");
+            Time.timeScale = 0f;
+            winScreen.SetActive(true);
+        }
     }
 
     void OnDestroy()
     {
-        transform.parent.gameObject.AddComponent<GameOverScript>();
+        //transform.parent.gameObject.AddComponent<GameOverScript>();
+        //Debug.Log("U LOST");
+        Time.timeScale = 0f;
+        loseScreen.SetActive(true);
     }
 
     void fShoot(int mCurrentWeapon)

@@ -53,8 +53,8 @@ public class PlayerScript : MonoBehaviour
 
     float dmgRatePlayer = 0;
 
-	//Splash Prefab
-	public GameObject splashGO;
+    //Splash Prefab
+    public GameObject splashGO;
 
     // Update is called once per frame
 
@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
         oldSpeed.y = speed.y;
 
         //GetComponentInChildren<Animator>();
-		
+
     }
 
     void Update()
@@ -82,11 +82,11 @@ public class PlayerScript : MonoBehaviour
         if (inputY > 0)
         {
             //Debug.Log("über 0")
-            animatorEngine.SetBool("IsMovingUp", true);
+            //animatorEngine.SetBool("IsMovingUp", true);
         }
         else
         {
-            animatorEngine.SetBool("IsMovingUp", false);
+            //animatorEngine.SetBool("IsMovingUp", false);
         }
 
         // detect if player is currently underwater
@@ -94,30 +94,42 @@ public class PlayerScript : MonoBehaviour
         {
             if (!IsPlayerUnderwater)
             {
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = false;
                 CurrentWeapon++;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
                 // Call VFX, GUI and Sound
             }
-			//CHRISTIAN
-			//Instantiate Splash FX on WaterSurface
-			//	BEGIN
-			StopCoroutine("Splash");
-			StartCoroutine("Splash");
-			//	END	
-			IsPlayerUnderwater = true;
+
+
+
+
+            //CHRISTIAN
+            //Instantiate Splash FX on WaterSurface
+            //	BEGIN
+            StopCoroutine("Splash");
+            StartCoroutine("Splash");
+            //	END	
+            IsPlayerUnderwater = true;
         }
         else
         {
             if (IsPlayerUnderwater)
             {
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = false;
                 CurrentWeapon--;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true;
                 // Call VFX, GUI and Sound
             }
             IsPlayerUnderwater = false;
-			
-			//CHRISTIAN
-			//Instantiate Surface FX on WaterSurface (none yet)
-			//	BEGIN
-			//	END	
+
+            //CHRISTIAN
+            //Instantiate Surface FX on WaterSurface (none yet)
+            //	BEGIN
+            //	END	
         }
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
@@ -125,7 +137,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("EngineDasher") && toogleBoolThree)
         {
             StartCoroutine(boostON(0));
-            if(EngineDash != null)
+            if (EngineDash != null)
                 EngineDash.Play();
         }
         if (boost == false)
@@ -161,8 +173,8 @@ public class PlayerScript : MonoBehaviour
         }
         //else
         //{
-            //Animation Weapon 1 stops
-            //animatorWeapon.SetBool("IsWeaponShooting", false);
+        //Animation Weapon 1 stops
+        //animatorWeapon.SetBool("IsWeaponShooting", false);
         //}
 
         if (Input.GetButton("Weapon 1"))
@@ -291,7 +303,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (CurrentWeapon != RequestedWeapon)
         {
-            if(WeaponSwitch != null)
+            if (WeaponSwitch != null)
                 WeaponSwitch.Play();
 
             WeaponIsChanging = true;
@@ -300,27 +312,27 @@ public class PlayerScript : MonoBehaviour
             WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
             WeaponSpriteRenderer.enabled = false;
 
-                CurrentWeapon = RequestedWeapon;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
+            CurrentWeapon = RequestedWeapon;
+            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+            WeaponSpriteRenderer.enabled = true;
 
             Debug.Log("Changed Weapon to: " + CurrentWeapon);
             WeaponIsChanging = false;
         }
 
     }
-	
-	//Plays FX if player moves below Y_WaterBorder
-	IEnumerator Splash()
-	{	//is started once in Update before bool is set to true
-		// ---> only played once after change to water
-		if(!IsPlayerUnderwater)
-		{
-			if(splashGO!=null)
-			{
-				Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
-			}
-		}
-		yield return null;
-	}
+
+    //Plays FX if player moves below Y_WaterBorder
+    IEnumerator Splash()
+    {   //is started once in Update before bool is set to true
+        // ---> only played once after change to water
+        if (!IsPlayerUnderwater)
+        {
+            if (splashGO != null)
+            {
+                Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
+            }
+        }
+        yield return null;
+    }
 }

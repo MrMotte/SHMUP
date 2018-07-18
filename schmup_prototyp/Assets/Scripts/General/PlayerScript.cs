@@ -53,8 +53,14 @@ public class PlayerScript : MonoBehaviour
 
     float dmgRatePlayer = 0;
 
-    //Splash Prefab
+    //Splash, Drain, Bubbles, Thruster - Prefabs
+	[Header ("Movement FX  -  Air/Water Switch FX")]
     public GameObject splashGO;
+	public GameObject drainGO;
+	public GameObject bubbleSplashGO;
+	
+	public GameObject airThrusterGO;
+	public GameObject waterThrusterGO;
 
     // Update is called once per frame
 
@@ -110,6 +116,10 @@ public class PlayerScript : MonoBehaviour
             //	BEGIN
             StopCoroutine("Splash");
             StartCoroutine("Splash");
+			
+			airThrusterGO.SetActive(false);
+			waterThrusterGO.SetActive(true);
+			
             //	END	
             IsPlayerUnderwater = true;
         }
@@ -124,13 +134,21 @@ public class PlayerScript : MonoBehaviour
                 WeaponSpriteRenderer.enabled = true;
                 // Call VFX, GUI and Sound
             }
-            IsPlayerUnderwater = false;
+            
 
             //CHRISTIAN
-            //Instantiate Surface FX on WaterSurface (none yet)
+            //Activate Drain FX
             //	BEGIN
+			
+			StopCoroutine("Drain");
+			StartCoroutine("Drain");
+			
+			airThrusterGO.SetActive(true);
+			waterThrusterGO.SetActive(false);
+			
             //	END	
-        }
+			IsPlayerUnderwater = false;
+		}
 
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
 
@@ -331,8 +349,33 @@ public class PlayerScript : MonoBehaviour
             if (splashGO != null)
             {
                 Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
+				//Play BubbleSplashFX
+				if(bubbleSplashGO != null)
+				{
+					if(bubbleSplashGO.activeSelf == false)
+					{
+						bubbleSplashGO.SetActive(true);
+					}
+					bubbleSplashGO.GetComponent<ParticleSystem>().Clear();
+					bubbleSplashGO.GetComponent<ParticleSystem>().Play();
+				}
             }
         }
         yield return null;
     }
+	
+	//Plays FX if player moves above Y_WaterBorder
+	IEnumerator Drain(){
+		
+		if(IsPlayerUnderwater){
+			if(drainGO != null)
+			{
+				//FX is looped, that's why we activate it just for 1 second
+				drainGO.SetActive(true);
+				yield return new WaitForSeconds(1);
+				drainGO.SetActive(false);
+			}		
+		}
+		yield return null;
+	}
 }

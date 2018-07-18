@@ -12,6 +12,8 @@ public class MoveScript : MonoBehaviour {
 
     GameObject startTrans;
 
+    private bool Paralyzed;
+
     //public GameObject shotTyp;
 
     void Start (){
@@ -62,5 +64,15 @@ public class MoveScript : MonoBehaviour {
             //direction.x = -1;
         }
             
+    }
+
+
+    public IEnumerator Paralyze(float time)
+    {
+        Paralyzed = true;
+        Vector2 StoredSpeed = speed;
+        speed = new Vector2 (0,0);
+        yield return new WaitForSeconds(time);
+        speed = StoredSpeed;
     }
 }

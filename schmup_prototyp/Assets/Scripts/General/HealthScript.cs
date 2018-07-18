@@ -58,7 +58,7 @@ public class HealthScript : MonoBehaviour
         {
             if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
                 this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
-                Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
+                //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
                 Immunity = true;
                 StartCoroutine(fSpriteImmunityBlink());
                 if(Healthbar)

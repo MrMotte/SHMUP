@@ -6,10 +6,11 @@ public class BajonettScript : MonoBehaviour
 {
 
 
-    public Transform shotPrefab;
+    //public Transform shotPrefab;
     public float shootingRate = 0.25f;
     public float Damage;
     public float AttackTime;
+    public float ParalyzeTime;
 
     public AudioSource ShootSound;
 
@@ -32,10 +33,12 @@ public class BajonettScript : MonoBehaviour
 
     public void Attack(bool isEnemy)
     {
-
+        
         // Play Sound
         // Play Anim
         IsAttacking = true;
+        Debug.Log("IasAttacking = true");
+        StartCoroutine("BajonettActiveDelay");
 
     }
 
@@ -48,14 +51,18 @@ public class BajonettScript : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Colliding!");
         if (IsAttacking)
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
                 HealthScript healthScript = other.gameObject.GetComponent<HealthScript>();
                 healthScript.Damage(Damage);
+                MoveScript moveScript = other.gameObject.GetComponent<MoveScript>();
+                moveScript.StartCoroutine("Paralyze", ParalyzeTime);
+                Debug.Log("Hitted!");
             }
         }
     }
@@ -64,6 +71,7 @@ public class BajonettScript : MonoBehaviour
     {
         yield return new WaitForSeconds(AttackTime);
         IsAttacking = false;
+        Debug.Log("IsAttacking = false");
     }
 
 

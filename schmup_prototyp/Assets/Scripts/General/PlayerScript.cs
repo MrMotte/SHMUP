@@ -280,7 +280,7 @@ public class PlayerScript : MonoBehaviour
                 Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
             }
         }
-        if(collider.gameObject.tag == "Endgate")
+        if (collider.gameObject.tag == "Endgate")
         {
             //Debug.Log("U WON!");
             Time.timeScale = 0f;
@@ -302,6 +302,12 @@ public class PlayerScript : MonoBehaviour
         if (weapon != null)
         {
             weapon.Attack(false);
+        }
+
+        BajonettScript bajonett = Weapons[mCurrentWeapon].GetComponent<BajonettScript>();
+        if (bajonett != null)
+        {
+            bajonett.Attack(false);
         }
     }
 

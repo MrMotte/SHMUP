@@ -6,22 +6,22 @@ using UnityEngine.UI;
 public class HealthScript : MonoBehaviour
 {
 
-    public float dashBackDamage = 2; 
+    public float dashBackDamage = 2;
     public float hp = 2;
     public float maxHP;
 
-	public bool isEnemy = true;
-	public GameObject currencyPickup;
+    public bool isEnemy = true;
+    public GameObject currencyPickup;
 
     public Sprite sprite1; // Drag your first sprite here
     public Sprite sprite2; // Drag your second sprite here
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] spriteRendererChildren;
     public Image Healthbar;
-	
 
-	float delay = 1.0f;
-	//= 0.32f;
+
+    float delay = 1.0f;
+    //= 0.32f;
 
     public AudioSource GotHitted;
     public AudioSource Dead;
@@ -32,10 +32,10 @@ public class HealthScript : MonoBehaviour
     private bool Immunity = false;
     public int BlinkTimes = 10;
     public float BlinkTime;
-	
-	public Transform hitPosition;
-	public GameObject hitParticle;
-	public GameObject destroyParticle;
+
+    public Transform hitPosition;
+    public GameObject hitParticle;
+    public GameObject destroyParticle;
 
     GameObject shild;
 
@@ -44,37 +44,38 @@ public class HealthScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
 
-        
+
 
         ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
 
         if (hp <= 0)
-            {
-				DyingGO();
-            }
+        {
+            DyingGO();
+        }
 
 
         if (!Immunity)
         {
-            if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
+            if (collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false)
+            {
                 this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
                 //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
                 Immunity = true;
                 StartCoroutine(fSpriteImmunityBlink());
-                if(Healthbar)
-                    {
-                        Healthbar.fillAmount = (hp / maxHP);
-                    }
-        }
+                if (Healthbar)
+                {
+                    Healthbar.fillAmount = (hp / maxHP);
+                }
+            }
 
             if (shot != null)
             {
                 if (shot.isEnemyShot != isEnemy)
                 {
-                    if(GotHitted != null)
+                    if (GotHitted != null)
                         GotHitted.Play();
                     hp -= shot.damage;
-					if(Healthbar)
+                    if (Healthbar)
                     {
                         Healthbar.fillAmount = (hp / maxHP);
                     }
@@ -82,15 +83,15 @@ public class HealthScript : MonoBehaviour
 
                     if (!isEnemy)
                     {
-						//CHRISTIAN:
-						//	PLAY Damage FX
-						//		BEGIN
-						
-						if(hitParticle != null || hitPosition != null)
-							Instantiate(hitParticle, hitPosition);
-						//		END
-						
-						Immunity = true;
+                        //CHRISTIAN:
+                        //	PLAY Damage FX
+                        //		BEGIN
+
+                        if (hitParticle != null || hitPosition != null)
+                            Instantiate(hitParticle, hitPosition);
+                        //		END
+
+                        Immunity = true;
                         StartCoroutine(fSpriteImmunityBlink());
                     }
 
@@ -98,7 +99,7 @@ public class HealthScript : MonoBehaviour
 
                     if (hp < 1)
                     {
-						DyingGO();
+                        DyingGO();
                     }
 
 
@@ -128,13 +129,13 @@ public class HealthScript : MonoBehaviour
             spriteRenderer.enabled = false;
 
             //foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
-              //  mSpriteRenderer.enabled = false;
+            //  mSpriteRenderer.enabled = false;
 
             yield return new WaitForSeconds(BlinkTime);
             spriteRenderer.enabled = true;
 
             //foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
-              //  mSpriteRenderer.enabled = true;
+            //  mSpriteRenderer.enabled = true;
         }
         Immunity = false;
     }
@@ -151,7 +152,7 @@ public class HealthScript : MonoBehaviour
         maxHP = hp;
 
         shild = GameObject.Find("Shild");
-	}
+    }
 
     void ChangeTheDamnSprite()
     {
@@ -170,40 +171,46 @@ public class HealthScript : MonoBehaviour
         hp -= damageAmount;
         if (hp <= 0)
         {
-			DyingGO();
+            DyingGO();
         }
     }
-	
-	//CHRISTIAN
-	//	Defining the procedure of Death for player and enemies 
-	//		BEGIN
-	public void DyingGO()
-	{
-        if(Dead != null)
-		    Dead.Play();
-            
-		if(destroyParticle != null)
-		{
-				Instantiate(destroyParticle, transform.position, transform.rotation);
-		}
 
-		if (isEnemy)
-		{
-			Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
-			Score.scoreValue += 100;
-		}
-		
-		if(isEnemy)
-		{
-			ChangeTheDamnSprite(); // call method to change sprite
-		}
-		
-		Destroy(EnemyBox);
-		Destroy(gameObject, delay);
-	}
-	//		END
-	
-	void OnDestroy(){
-	
-	}
+    //CHRISTIAN
+    //	Defining the procedure of Death for player and enemies 
+    //		BEGIN
+    public void DyingGO()
+    {
+        if (Dead != null)
+            Dead.Play();
+
+        if (destroyParticle != null)
+        {
+            Instantiate(destroyParticle, transform.position, transform.rotation);
+        }
+        /* 
+                if (isEnemy)
+                {
+                    Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
+                    Score.scoreValue += 100;
+                }
+        */        
+        if (isEnemy)
+        {
+            ChangeTheDamnSprite(); // call method to change sprite
+        }
+
+        if (!isEnemy)
+        {
+            GetComponent<PlayerScript>().BeeingDestroyed();
+        }
+
+        Destroy(EnemyBox);
+        Destroy(gameObject, delay);
+    }
+    //		END
+
+    void OnDestroy()
+    {
+
+    }
 }

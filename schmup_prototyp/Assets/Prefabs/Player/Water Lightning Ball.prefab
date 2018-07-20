@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 198187936593053252}
   - component: {fileID: 199334255430888496}
   - component: {fileID: 114085277655998634}
-  - component: {fileID: 114885188986560352}
   - component: {fileID: 61082872266795540}
   - component: {fileID: 50759833427757786}
+  - component: {fileID: 114930917075915264}
   m_Layer: 8
   m_Name: Water Lightning Ball
   m_TagString: ParticleEffect
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   isEnemyShot: 0
---- !u!114 &114885188986560352
+--- !u!114 &114930917075915264
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,11 +111,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136060663290952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535f176a214cc6745932a47cf101d8a7, type: 3}
+  m_Script: {fileID: 11500000, guid: df3f7ca7313bcec418df5f5208a77200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 7, y: 7}
   direction: {x: 1, y: 0}
+  currentSpeed: 0
+  initialSpeed: 10
+  finalSpeed: 0
 --- !u!198 &198187936593053252
 ParticleSystem:
   m_ObjectHideFlags: 1

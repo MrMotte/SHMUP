@@ -4374,7 +4374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568046970920048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 4, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4350615352945378}
@@ -85617,6 +85617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
   loseScreen: {fileID: 0}
+  maxChargeTime: 1
   boost: 0
   nextDMGPlayer: 0.1
   dashSpeed: 10
@@ -85832,6 +85833,7 @@ MonoBehaviour:
     type: 2}
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
+  tickTime: 0.25
 --- !u!198 &198098613606179110
 ParticleSystem:
   m_ObjectHideFlags: 1

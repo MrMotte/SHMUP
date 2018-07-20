@@ -1568,9 +1568,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4981213471023298}
+  - component: {fileID: 70906429794159812}
   m_Layer: 0
   m_Name: Endgate
-  m_TagString: Untagged
+  m_TagString: Endgate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4373,7 +4374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568046970920048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.14, y: 2.79, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4350615352945378}
@@ -84652,6 +84653,21 @@ EdgeCollider2D:
   - {x: 0.7562988, y: 0.01999104}
   - {x: 1.063524, y: -0.16855621}
   - {x: 0.6070993, y: -0.49319428}
+--- !u!70 &70906429794159812
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372136821262288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 501.38983, y: 2.6338177}
+  m_Size: {x: 15.166992, y: 34.43916}
+  m_Direction: 0
 --- !u!82 &82088485443452480
 AudioSource:
   m_ObjectHideFlags: 1
@@ -85599,6 +85615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d4da05f7273584c8e0728846acd580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
   boost: 0
   nextDMGPlayer: 0.1
   dashSpeed: 10

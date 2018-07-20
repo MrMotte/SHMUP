@@ -258,7 +258,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+	void OnDestroy()
     {
         //transform.parent.gameObject.AddComponent<GameOverScript>();
         //Debug.Log("U LOST");

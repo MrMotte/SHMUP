@@ -10,7 +10,7 @@ public class PickupMoney : MonoBehaviour {
 
 	void Start()
 	{
-		script = GameObject.FindWithTag("GameController").GetComponent<Currency>();
+		// script = GameObject.FindWithTag("GameController").GetComponent<Currency>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D obj)

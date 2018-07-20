@@ -37,7 +37,10 @@ public class HealthScript : MonoBehaviour
 	public GameObject hitParticle;
 	public GameObject destroyParticle;
 
-    GameObject shild;
+	public float tickTime = 0.1f;
+	float realTickTime;
+
+	GameObject shild;
 
 
 
@@ -58,7 +61,7 @@ public class HealthScript : MonoBehaviour
         {
             if(collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false){
                 this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
-                Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
+                //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
                 Immunity = true;
                 StartCoroutine(fSpriteImmunityBlink());
                 if(Healthbar)
@@ -94,6 +97,7 @@ public class HealthScript : MonoBehaviour
                         StartCoroutine(fSpriteImmunityBlink());
                     }
 
+					if(shot.gameObject.layer != 8)
                     Destroy(shot.gameObject);
 
                     if (hp < 1)
@@ -118,8 +122,23 @@ public class HealthScript : MonoBehaviour
 
     }
 
-    // If we just got hitted enable/disable spriterenderer and prevent to get hitted again
-    IEnumerator fSpriteImmunityBlink()
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.layer == 8)
+		{
+			tickTime -= Time.deltaTime;
+
+			if(tickTime <= 0)
+			{
+				//Debug.Log("wtf is going on");
+				hp -= 1;
+				tickTime = realTickTime;
+			}
+		}
+	}
+
+	// If we just got hitted enable/disable spriterenderer and prevent to get hitted again
+	IEnumerator fSpriteImmunityBlink()
     {
 
         for (int i = 1; i <= BlinkTimes; i++)
@@ -151,6 +170,8 @@ public class HealthScript : MonoBehaviour
         maxHP = hp;
 
         shild = GameObject.Find("Shild");
+
+		realTickTime = tickTime;
 	}
 
     void ChangeTheDamnSprite()

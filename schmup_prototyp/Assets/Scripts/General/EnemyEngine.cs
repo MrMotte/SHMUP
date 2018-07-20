@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 
 // Holds data for every enemy wave
@@ -106,6 +107,7 @@ public class EnemyEngine : MonoBehaviour
     {
         for (int i = 0; i < FormationData.Length; i++)
         {
+            try{
             if (FormationData[i].AdvancedFormation == true && FormationData[i].EnemyClassAdvanced.Length != FormationData[i].FormationPattern.GetComponent<EnemyFormation>().SpawnOrder.Length)
             {
                 FormationData[i].EnemyClassAdvanced = new GameObject[FormationData[i].FormationPattern.GetComponent<EnemyFormation>().SpawnOrder.Length];  //FormationData[i].FormationPattern.GetComponent<EnemyFormation>().SpawnOrder.Length;
@@ -119,6 +121,8 @@ public class EnemyEngine : MonoBehaviour
             {
                 FormationData[i].EnemyClassAdvanced = null;
             }
+            }
+            catch(NullReferenceException e){}
         }
     }
 

@@ -5,9 +5,9 @@ using UnityEngine;
 public class MoveScript : MonoBehaviour
 {
 
-    public Vector2 speed = new Vector2(10, 10);
+    public Vector2 speed;// = new Vector2(10, 10);
 
-    public Vector2 direction = new Vector2(-1, 0);
+    public Vector2 direction;// = new Vector2(-1, 0);
 
     GameObject player;
 
@@ -29,12 +29,12 @@ public class MoveScript : MonoBehaviour
 
         Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
 
-        movement *= Time.deltaTime;
+        //movement *= Time.deltaTime;
 
-        transform.Translate(movement);
+        transform.Translate(movement * Time.deltaTime, Space.World);
+}
 
-
-
+/* 
         if (transform.position.x <= player.transform.position.x && transform.name == "Enemy2Gay" || transform.position.x <= player.transform.position.x && transform.name == "EnemyShotTargetPlayerPosition")
         { //Zwischen dem " " muss der name des Enemys drinne stehen, der die Gezielten schüsse auf den player macht.
 
@@ -60,8 +60,8 @@ public class MoveScript : MonoBehaviour
         else if (transform.name == "EnemyShotBomb(Clone)")
         {
 
-            direction.x = -1;
-            direction.y = 0;
+            //direction.x = -1;
+            //direction.y = 0;
         }
         else
         {
@@ -71,9 +71,9 @@ public class MoveScript : MonoBehaviour
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
             //direction.x = -1;
-        }
+        }*/
 
-    }
+    
 
 
     public IEnumerator Paralyze(float time)

@@ -12387,6 +12387,11 @@ Prefab:
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 235416517}
+    - target: {fileID: 114906153156177930, guid: 066ba3fb53ee8e34380fb55bcd9a5d24,
+        type: 2}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 235416517}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 066ba3fb53ee8e34380fb55bcd9a5d24, type: 2}
   m_IsPrefabParent: 0

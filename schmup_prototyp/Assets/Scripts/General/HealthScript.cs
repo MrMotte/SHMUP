@@ -130,8 +130,15 @@ public class HealthScript : MonoBehaviour
 
 			if(tickTime <= 0)
 			{
-				//Debug.Log("wtf is going on");
 				hp -= 1;
+				if (Healthbar)
+				{
+					Healthbar.fillAmount = (hp / maxHP);
+				}
+				if (hp < 1)
+				{
+					DyingGO();
+				}
 				tickTime = realTickTime;
 			}
 		}

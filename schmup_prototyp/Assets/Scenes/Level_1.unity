@@ -611,16 +611,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114866424324251088, guid: a20c9ca5f67b74940addda3ece5463b0,
-        type: 2}
-      propertyPath: shiftAir
-      value: 
-      objectReference: {fileID: 928862085}
-    - target: {fileID: 114866424324251088, guid: a20c9ca5f67b74940addda3ece5463b0,
-        type: 2}
-      propertyPath: shiftWater
-      value: 
-      objectReference: {fileID: 308550932}
     - target: {fileID: 114485756610881760, guid: a20c9ca5f67b74940addda3ece5463b0,
         type: 2}
       propertyPath: winScreen
@@ -631,19 +621,16 @@ Prefab:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 1620267466}
-    - target: {fileID: 4122194212862004, guid: a20c9ca5f67b74940addda3ece5463b0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122194212862004, guid: a20c9ca5f67b74940addda3ece5463b0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114983149284686006, guid: a20c9ca5f67b74940addda3ece5463b0,
+    - target: {fileID: 114866424324251088, guid: a20c9ca5f67b74940addda3ece5463b0,
         type: 2}
-      propertyPath: tickTime
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: shiftAir
+      value: 
+      objectReference: {fileID: 928862085}
+    - target: {fileID: 114866424324251088, guid: a20c9ca5f67b74940addda3ece5463b0,
+        type: 2}
+      propertyPath: shiftWater
+      value: 
+      objectReference: {fileID: 308550932}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a20c9ca5f67b74940addda3ece5463b0, type: 2}
   m_IsPrefabParent: 0

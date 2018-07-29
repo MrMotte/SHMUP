@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: BomberIdle
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: BonesBomber/ShellTopBone
+    localPosition: {x: -0.5066257, y: 1.9435966, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.117645785, w: -0.99305564}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/BomberTopBone
+    localPosition: {x: -2.2562163, y: 1.1431308, z: 0}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/HatchLeftBone
+    localPosition: {x: -1.5929723, y: -1.1553519, z: 0}
+    localRotation: {x: -0, y: -0, z: -0.85688466, w: 0.5155083}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/HatchRightBone
+    localPosition: {x: -0.24361467, y: -1.2010928, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.32889342, w: 0.9443671}
+    localScale: {x: 1.0000007, y: 1.0000007, z: 1}
+  - path: BonesBomber/LeftFin
+    localPosition: {x: -0.24734953, y: 0.6132895, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.60084516, w: 0.7993655}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone
+    localPosition: {x: 0.26149717, y: 0.000000044703484, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9679225, w: 0.25124922}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinUp1
+    localPosition: {x: 0.40496773, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.28464618, w: 0.95863265}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinUp1/FinUp2
+    localPosition: {x: 0.9340397, y: 0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.030293241, w: 0.99954104}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle1
+    localPosition: {x: 0.31936145, y: -0.06007892, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.44597277, w: 0.8950465}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle1/FinMiddle2
+    localPosition: {x: 0.76000077, y: 0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.042448934, w: 0.9990986}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle3
+    localPosition: {x: 0.21766746, y: -0.078443825, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.69942534, w: 0.7147057}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle3/FinMiddle4
+    localPosition: {x: 0.5500006, y: 0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.11635167, w: 0.9932081}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle5
+    localPosition: {x: 0.0037071146, y: -0.11275895, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.8814024, w: 0.4723663}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinMiddle5/FinMiddle6
+    localPosition: {x: 0.5800007, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.030862514, w: 0.99952364}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinDown1
+    localPosition: {x: -0.18371518, y: -0.12159991, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.90119755, w: 0.4334086}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/LeftFin/BaseBone/FinDown1/FinDown2
+    localPosition: {x: 1.0083632, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.30480304, w: 0.95241547}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin
+    localPosition: {x: 3.0679183, y: 0.58594143, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.4847308, w: 0.87466335}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone
+    localPosition: {x: 0.23000002, y: 0.000000014901161, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9480772, w: 0.31804037}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinUp1
+    localPosition: {x: 0.331413, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.3841401, w: 0.9232749}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinUp1/FinUp2
+    localPosition: {x: 0.4600004, y: 0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.08572869, w: 0.9963185}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinUp1/FinUp2/FinUp3
+    localPosition: {x: 0.6600006, y: 0.0000002994202, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.2639894, w: 0.96452564}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinMiddle1
+    localPosition: {x: 0.21311592, y: -0.079669744, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.5835288, w: 0.8120924}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinMiddle1/FinMiddle2
+    localPosition: {x: 0.58000004, y: 0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.1620304, w: 0.98678577}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinMiddle3
+    localPosition: {x: 0.09173003, y: -0.09045741, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.6887912, w: 0.7249598}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinMiddle3/FinMiddle4
+    localPosition: {x: 0.4100001, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.3375544, w: 0.94130605}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinMiddle3/FinMiddle4/FinMiddle5
+    localPosition: {x: 0.50000024, y: 0.00000008195639, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.17525451, w: 0.98452324}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinDown1
+    localPosition: {x: -0.021605775, y: -0.09268685, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.90340966, w: 0.42877862}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinDown1/FinDown2
+    localPosition: {x: 0.27000016, y: 0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.20699064, w: 0.97834295}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinDown1/FinDown2/FinDown3
+    localPosition: {x: 0.5600005, y: 0.0000001937151, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.15607122, w: 0.9877458}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinDown4
+    localPosition: {x: -0.084838584, y: -0.061765738, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.9922202, w: 0.12449545}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: BonesBomber/RightFin/BaseBone/FinDown4/FinDown5
+    localPosition: {x: 0.7208734, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.17809328, w: 0.9840137}
+    localScale: {x: 1, y: 1, z: 1}

@@ -15,6 +15,9 @@ public class MoveScript : MonoBehaviour
 
     private bool Paralyzed;
 
+    public float speedXThresholdForLPW;
+    public float speedDecelleration= 0.9f;
+
     //public GameObject shotTyp;
 
     void Start()
@@ -32,6 +35,11 @@ public class MoveScript : MonoBehaviour
         //movement *= Time.deltaTime;
 
         transform.Translate(movement * Time.deltaTime, Space.World);
+
+        if(speed.x >= speedXThresholdForLPW && this.gameObject.CompareTag("AOE") && Time.frameCount % 10 == 0)
+        {
+        speed.x = speed.x * speedDecelleration;
+        }
 }
 
 /* 

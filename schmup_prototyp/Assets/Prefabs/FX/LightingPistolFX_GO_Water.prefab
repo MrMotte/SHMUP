@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 50664421717999118}
   m_Layer: 0
   m_Name: LightingPistolFX_GO_Water
-  m_TagString: Untagged
+  m_TagString: AOE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,8 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f176a214cc6745932a47cf101d8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 7, y: 7}
+  speed: {x: 15, y: 7}
   direction: {x: 1, y: 0}
+  speedXThresholdForLPW: 0.1
+  speedDecelleration: 0.8
 --- !u!114 &114658711314801780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,6 +272,7 @@ MonoBehaviour:
   damage: 6
   Paralyze: 0
   ParalyzeTime: 0
+  DespawnTime: 15
   isEnemyShot: 0
 --- !u!198 &198156324325591578
 ParticleSystem:

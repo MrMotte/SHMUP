@@ -20,7 +20,7 @@ public class HealthScript : MonoBehaviour
     public Image Healthbar;
 
 
-    float delay = 1.0f;
+    public float delay = 0;
     //= 0.32f;
 
     public AudioSource GotHitted;
@@ -37,6 +37,8 @@ public class HealthScript : MonoBehaviour
     public GameObject hitParticle;
     public GameObject destroyParticle;
 
+    public bool healthEnabled = true;
+
     GameObject shild;
 
 
@@ -45,74 +47,80 @@ public class HealthScript : MonoBehaviour
     {
 
 
-
-        ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
-
-        if (hp <= 0)
+        if (healthEnabled)
         {
-            DyingGO();
-        }
+            ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
 
-
-        if (!Immunity)
-        {
-            if (collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false)
+            if (hp <= 0)
             {
-                this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
-                //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
-                Immunity = true;
-                StartCoroutine(fSpriteImmunityBlink());
-                if (Healthbar)
-                {
-                    Healthbar.fillAmount = (hp / maxHP);
-                }
+                DyingGO();
             }
 
-            if (shot != null)
+
+            if (!Immunity)
             {
-                if (shot.isEnemyShot != isEnemy)
+                if (collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false)
                 {
-                    if (GotHitted != null)
-                        GotHitted.Play();
-                    hp -= shot.damage;
+                    this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
+                    //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
+                    Immunity = true;
+                    StartCoroutine(fSpriteImmunityBlink());
                     if (Healthbar)
                     {
                         Healthbar.fillAmount = (hp / maxHP);
                     }
+                }
 
-
-                    if (!isEnemy)
+                if (shot != null)
+                {
+                    if (shot.isEnemyShot != isEnemy)
                     {
-                        //CHRISTIAN:
-                        //	PLAY Damage FX
-                        //		BEGIN
+                        if (GotHitted != null)
+                            GotHitted.Play();
+                        hp -= shot.damage;
+                        if (Healthbar)
+                        {
+                            Healthbar.fillAmount = (hp / maxHP);
+                        }
 
-                        if (hitParticle != null || hitPosition != null)
-                            Instantiate(hitParticle, hitPosition);
-                        //		END
 
-                        Immunity = true;
-                        StartCoroutine(fSpriteImmunityBlink());
+                        if (!isEnemy)
+                        {
+                            //CHRISTIAN:
+                            //	PLAY Damage FX
+                            //		BEGIN
+
+                            if (hitParticle != null || hitPosition != null)
+                                Instantiate(hitParticle, hitPosition);
+                            //		END
+
+                            Immunity = true;
+                            StartCoroutine(fSpriteImmunityBlink());
+                        }
+                        if (!shot.gameObject.CompareTag("AOE"))
+                        {
+                            Destroy(shot.gameObject);
+                        }
+                        if (hp < 1)
+                        {
+                            DyingGO();
+                        }
+
+
                     }
-
-                    Destroy(shot.gameObject);
-
-                    if (hp < 1)
-                    {
-                        DyingGO();
-                    }
-
-
                 }
             }
-        }
-        else
-        {
-            if (shot != null)
+            else
             {
-                if (shot.isEnemyShot != isEnemy)
+                if (shot != null)
                 {
-                    Destroy(shot.gameObject);
+                    if (shot.isEnemyShot != isEnemy)
+                    {
+                        if (!shot.gameObject.CompareTag("AOE"))
+                        {
+                            Destroy(shot.gameObject);
+                        }
+                    }
                 }
             }
         }
@@ -193,7 +201,7 @@ public class HealthScript : MonoBehaviour
                     Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
                     Score.scoreValue += 100;
                 }
-        */        
+        */
         if (isEnemy)
         {
             ChangeTheDamnSprite(); // call method to change sprite

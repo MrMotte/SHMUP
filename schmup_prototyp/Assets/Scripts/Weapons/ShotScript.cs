@@ -8,6 +8,7 @@ public class ShotScript : MonoBehaviour
     public int damage = 1;
     public bool Paralyze = false;
     public float ParalyzeTime;
+    public float DespawnTime = 5;
 
     [HideInInspector]
     public bool isEnemyShot = false;
@@ -16,7 +17,7 @@ public class ShotScript : MonoBehaviour
     void Start()
     {
 
-        Destroy(gameObject, 20);
+        Destroy(gameObject, DespawnTime);
 
     }
 

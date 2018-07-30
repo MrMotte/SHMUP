@@ -62,6 +62,7 @@ public class PlayerScript : MonoBehaviour
 	public GameObject airThrusterGO;
 	public GameObject waterThrusterGO;
 
+
     // Update is called once per frame
 
     private void Start()
@@ -258,7 +259,18 @@ public class PlayerScript : MonoBehaviour
         {
             toogleBool = !toogleBool;
             shild.GetComponent<Image>().enabled = toogleBool;
-            shild.GetComponent<EdgeCollider2D>().enabled = toogleBool;
+            shild.GetComponent<CapsuleCollider2D>().enabled = toogleBool;
+            
+
+        }
+        if(Time.frameCount % 20 == 0)
+        {
+        if(toogleBool && shild.GetComponent<Shild>().shildHP > 0)
+        {
+            this.gameObject.GetComponent<HealthScript>().healthEnabled = false;
+        }
+        else
+           this.gameObject.GetComponent<HealthScript>().healthEnabled = true;
         }
 
 

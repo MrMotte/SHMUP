@@ -86099,7 +86099,6 @@ MonoBehaviour:
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
   tickTime: 0.25
-<<<<<<< HEAD
 --- !u!120 &120067430904029658
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -86284,8 +86283,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
-=======
->>>>>>> VB_GATE3
 --- !u!198 &198098613606179110
 ParticleSystem:
   m_ObjectHideFlags: 1

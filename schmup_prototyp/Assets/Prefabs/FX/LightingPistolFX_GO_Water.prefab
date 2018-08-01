@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4164546949006518}
   - component: {fileID: 198455644039142818}
   - component: {fileID: 199676832925703624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PS_InnerShape
-  m_TagString: Untagged
+  m_TagString: AOE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114333441449257932}
   - component: {fileID: 61608997645776606}
   - component: {fileID: 50664421717999118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightingPistolFX_GO_Water
   m_TagString: AOE
   m_Icon: {fileID: 0}
@@ -91,9 +91,9 @@ GameObject:
   - component: {fileID: 4638891279618368}
   - component: {fileID: 198339237753789096}
   - component: {fileID: 199581829726594176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PS_OuterShape
-  m_TagString: Untagged
+  m_TagString: AOE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

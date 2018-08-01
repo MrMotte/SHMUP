@@ -187,8 +187,6 @@ public class HealthScript : MonoBehaviour
         maxHP = hp;
 
         shild = GameObject.Find("Shild");
-    }
-
 		realTickTime = tickTime;
 	}
 

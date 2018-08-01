@@ -20,12 +20,11 @@ public class HealthScript : MonoBehaviour
     public Image Healthbar;
 
 
-    public float delay = 0;
+    public float delay = 3;
     //= 0.32f;
 
     public AudioSource GotHitted;
     public AudioSource Dead;
-
 
     public BoxCollider2D EnemyBox;
 
@@ -33,16 +32,16 @@ public class HealthScript : MonoBehaviour
     public int BlinkTimes = 10;
     public float BlinkTime;
 
-	public float tickTime = 0.1f;
-	float realTickTime;
+    public float tickTime = 0.1f;
+    float realTickTime;
     public Transform hitPosition;
-    public GameObject hitParticle;
+    public ParticleSystem hitParticle;
     public GameObject destroyParticle;
 
     public bool healthEnabled = true;
 
 
-	GameObject shild;
+    GameObject shild;
 
 
 
@@ -80,23 +79,36 @@ public class HealthScript : MonoBehaviour
                     {
                         if (GotHitted != null)
                             GotHitted.Play();
+
                         hp -= shot.damage;
                         if (Healthbar)
                         {
                             Healthbar.fillAmount = (hp / maxHP);
                         }
 
-
+                        if (hitParticle != null /*|| hitPosition != null*/)
+                            //activate first time --> PS play on awake
+                            if (!hitParticle.gameObject.activeSelf)
+                            {
+                                hitParticle.gameObject.SetActive(true);
+                            }
+                            else
+                            {
+                                //reset PS
+                                hitParticle.Clear();
+                                hitParticle.Play();
+                            }
                         if (!isEnemy)
                         {
                             //CHRISTIAN:
                             //	PLAY Damage FX
                             //		BEGIN
 
-					if(shot.gameObject.layer != 8)
-                    Destroy(shot.gameObject);
-                            if (hitParticle != null || hitPosition != null)
-                                Instantiate(hitParticle, hitPosition);
+                            if (shot.gameObject.layer != 8)
+                                Destroy(shot.gameObject);
+
+
+                            //Instantiate(hitParticle, hitPosition);
                             //		END
 
                             Immunity = true;
@@ -132,30 +144,30 @@ public class HealthScript : MonoBehaviour
 
     }
 
-	private void OnTriggerStay2D(Collider2D other)
-	{
-		if (other.gameObject.layer == 8)
-		{
-			tickTime -= Time.deltaTime;
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            tickTime -= Time.deltaTime;
 
-			if(tickTime <= 0)
-			{
-				hp -= 1;
-				if (Healthbar)
-				{
-					Healthbar.fillAmount = (hp / maxHP);
-				}
-				if (hp < 1)
-				{
-					DyingGO();
-				}
-				tickTime = realTickTime;
-			}
-		}
-	}
+            if (tickTime <= 0)
+            {
+                hp -= 1;
+                if (Healthbar)
+                {
+                    Healthbar.fillAmount = (hp / maxHP);
+                }
+                if (hp < 1)
+                {
+                    DyingGO();
+                }
+                tickTime = realTickTime;
+            }
+        }
+    }
 
-	// If we just got hitted enable/disable spriterenderer and prevent to get hitted again
-	IEnumerator fSpriteImmunityBlink()
+    // If we just got hitted enable/disable spriterenderer and prevent to get hitted again
+    IEnumerator fSpriteImmunityBlink()
     {
 
         for (int i = 1; i <= BlinkTimes; i++)
@@ -187,8 +199,8 @@ public class HealthScript : MonoBehaviour
         maxHP = hp;
 
         shild = GameObject.Find("Shild");
-		realTickTime = tickTime;
-	}
+        realTickTime = tickTime;
+    }
 
     void ChangeTheDamnSprite()
     {
@@ -221,7 +233,7 @@ public class HealthScript : MonoBehaviour
 
         if (destroyParticle != null)
         {
-            Instantiate(destroyParticle, transform.position, transform.rotation);
+            destroyParticle.SetActive(true);
         }
         /* 
                 if (isEnemy)
@@ -233,20 +245,25 @@ public class HealthScript : MonoBehaviour
         if (isEnemy)
         {
             ChangeTheDamnSprite(); // call method to change sprite
+            Destroy(gameObject, delay);
         }
 
         if (!isEnemy)
         {
-            GetComponent<PlayerScript>().BeeingDestroyed();
+
+            StartCoroutine("DestroyPlayerObject");
         }
 
         Destroy(EnemyBox);
-        Destroy(gameObject, delay);
     }
     //		END
 
-    void OnDestroy()
+    IEnumerator DestroyPlayerObject()
     {
+
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+        GetComponent<PlayerScript>().BeeingDestroyed();
 
     }
 }

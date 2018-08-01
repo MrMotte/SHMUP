@@ -26,7 +26,7 @@ Mesh:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Steampunk Enemy Swarm Enemy_ Base psd
+  m_Name: Mesh_SwarmBase
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

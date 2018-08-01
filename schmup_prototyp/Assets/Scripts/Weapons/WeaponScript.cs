@@ -39,52 +39,52 @@ public class WeaponScript : MonoBehaviour {
         }
     }
 
-    //--------------------------------
-    // 3 - Shooting from another script
-    //--------------------------------
+	//--------------------------------
+	// 3 - Shooting from another script
+	//--------------------------------
 
-    /// <summary>
-    /// Create a new projectile if possible
-    /// </summary>
-    public void Attack(bool isEnemy)
-    {
-        if (CanAttack)
-        {
-            shootCooldown = shootingRate;
+	/// <summary>
+	/// Create a new projectile if possible
+	/// </summary>
+	public void Attack(bool isEnemy)
+	{
+		if (CanAttack)
+		{
+			shootCooldown = shootingRate;
 
-            // Create a new shot
-            var shotTransform = Instantiate(shotPrefab) as Transform;
-            if(ShootSound != null)
-                ShootSound.Play();
+			// Create a new shot
+			var shotTransform = Instantiate(shotPrefab) as Transform;
+			if (ShootSound != null)
+				ShootSound.Play();
 
-            // Assign position
-            if (isEnemy)
-            {
-                Vector3 bulletOffset = new Vector3(-1, 0, 0);
-                shotTransform.position = transform.position + bulletOffset;
-            }
-            else
-            {
-                Vector3 bulletOffset = new Vector3(1.5f, 0, 0);
-                shotTransform.position = transform.position + bulletOffset;
-            }
-            
+			// Assign position
+			if (isEnemy)
+			{
+				Vector3 bulletOffset = new Vector3(-1, 0, 0);
+				shotTransform.position = transform.position + bulletOffset;
+			}
+			else
+			{
+				Vector3 bulletOffset = new Vector3(1.5f, 0, 0);
+				shotTransform.position = transform.position + bulletOffset;
+			}
 
-            // The is enemy property
-            ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
-            if (shot != null)
-            {
-                shot.isEnemyShot = isEnemy;
-            }
 
-            // Make the weapon shot always towards it
-            MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-            if (move != null)
-            {
-                move.direction = this.transform.right; // towards in 2D space is the right of the sprite
-            }
-        }
-    }
+			// The is enemy property
+			ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
+			if (shot != null)
+			{
+				shot.isEnemyShot = isEnemy;
+			}
+
+			// Make the weapon shot always towards it
+			MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
+			if (move != null)
+			{
+				move.direction = this.transform.right; // towards in 2D space is the right of the sprite
+			}
+		}
+	}
 
     /// <summary>
     /// Is the weapon ready to create a new projectile?

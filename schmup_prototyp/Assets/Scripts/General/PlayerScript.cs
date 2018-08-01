@@ -12,7 +12,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
-    public bool boost = false;
+	private float chargeTimer = 0;
+	public float maxChargeTime = 1;
+
+	public bool boost = false;
 
     public float nextDMGPlayer = 0.1f;
     public float dashSpeed = 10f;
@@ -176,27 +179,45 @@ public class PlayerScript : MonoBehaviour
 
         transform.Translate(movement);
 
-        bool shoot = Input.GetButton("Fire4");
+		if(CurrentWeapon != 1)
+		{
+			bool shoot = Input.GetButton("Fire4");
+			#region Weapon change
+			if (shoot && !WeaponIsChanging)
+			{
+				if (CurrentWeapon == 0)
+				{
+					//Debug.Log("Weapon 1 is shooting");
+					//Animation Weapon 1 start
+					//animatorWeapon.SetBool("IsWeaponShooting", true);
+				}
 
-        #region Weapon change
-        if (shoot && !WeaponIsChanging)
-        {
-            if (CurrentWeapon == 0)
-            {
-                //Debug.Log("Weapon 1 is shooting");
-                //Animation Weapon 1 start
-                //animatorWeapon.SetBool("IsWeaponShooting", true);
-            }
+				fShoot(CurrentWeapon);
+			}
 
-            fShoot(CurrentWeapon);
-        }
-        //else
-        //{
-        //Animation Weapon 1 stops
-        //animatorWeapon.SetBool("IsWeaponShooting", false);
-        //}
+			//else
+			//{
+			//Animation Weapon 1 stops
+			//animatorWeapon.SetBool("IsWeaponShooting", false);
+			//}
+		}
 
-        if (Input.GetButton("Weapon 1"))
+		if (Input.GetKey(KeyCode.W) && CurrentWeapon == 1 && !WeaponIsChanging)
+		{
+			chargeTimer += Time.deltaTime;
+		}
+		if (Input.GetKeyUp(KeyCode.W) && (chargeTimer > maxChargeTime) && CurrentWeapon == 1 && !WeaponIsChanging)
+		{
+			fShoot(CurrentWeapon);
+			chargeTimer = 0;
+		}
+		if (Input.GetKeyUp(KeyCode.W) && (chargeTimer < maxChargeTime) && CurrentWeapon == 1 && !WeaponIsChanging)
+		{
+			chargeTimer = 0;
+		}
+
+
+		if (Input.GetButton("Weapon 1"))
         {
             if (IsPlayerUnderwater) { RequestedWeapon = 1; }
             else
@@ -323,7 +344,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    IEnumerator boostON(float duration)
+	IEnumerator boostON(float duration)
     {
         duration = dashDuration;
         toogleBoolThree = false;

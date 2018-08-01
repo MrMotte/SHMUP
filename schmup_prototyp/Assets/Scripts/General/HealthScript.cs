@@ -33,13 +33,16 @@ public class HealthScript : MonoBehaviour
     public int BlinkTimes = 10;
     public float BlinkTime;
 
+	public float tickTime = 0.1f;
+	float realTickTime;
     public Transform hitPosition;
     public GameObject hitParticle;
     public GameObject destroyParticle;
 
     public bool healthEnabled = true;
 
-    GameObject shild;
+
+	GameObject shild;
 
 
 
@@ -90,6 +93,8 @@ public class HealthScript : MonoBehaviour
                             //	PLAY Damage FX
                             //		BEGIN
 
+					if(shot.gameObject.layer != 8)
+                    Destroy(shot.gameObject);
                             if (hitParticle != null || hitPosition != null)
                                 Instantiate(hitParticle, hitPosition);
                             //		END
@@ -127,8 +132,30 @@ public class HealthScript : MonoBehaviour
 
     }
 
-    // If we just got hitted enable/disable spriterenderer and prevent to get hitted again
-    IEnumerator fSpriteImmunityBlink()
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.layer == 8)
+		{
+			tickTime -= Time.deltaTime;
+
+			if(tickTime <= 0)
+			{
+				hp -= 1;
+				if (Healthbar)
+				{
+					Healthbar.fillAmount = (hp / maxHP);
+				}
+				if (hp < 1)
+				{
+					DyingGO();
+				}
+				tickTime = realTickTime;
+			}
+		}
+	}
+
+	// If we just got hitted enable/disable spriterenderer and prevent to get hitted again
+	IEnumerator fSpriteImmunityBlink()
     {
 
         for (int i = 1; i <= BlinkTimes; i++)
@@ -161,6 +188,9 @@ public class HealthScript : MonoBehaviour
 
         shild = GameObject.Find("Shild");
     }
+
+		realTickTime = tickTime;
+	}
 
     void ChangeTheDamnSprite()
     {

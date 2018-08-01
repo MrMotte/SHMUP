@@ -594,7 +594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1612554968962872
 GameObject:
   m_ObjectHideFlags: 1
@@ -2807,6 +2807,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 3, y: 3}
   direction: {x: -1, y: 0}
+  speedXThresholdForLPW: 0
+  speedDecelleration: 0.9
 --- !u!114 &114707104826120154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3086,15 +3088,18 @@ MonoBehaviour:
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   Healthbar: {fileID: 0}
+  delay: 0
   GotHitted: {fileID: 0}
   Dead: {fileID: 0}
   EnemyBox: {fileID: 61073030236350948}
   BlinkTimes: 10
   BlinkTime: 0
+  tickTime: 0.1
   hitPosition: {fileID: 0}
   hitParticle: {fileID: 0}
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
+  healthEnabled: 1
 --- !u!137 &137018714272039934
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

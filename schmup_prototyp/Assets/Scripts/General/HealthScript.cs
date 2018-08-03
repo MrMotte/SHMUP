@@ -228,8 +228,7 @@ public class HealthScript : MonoBehaviour
     //		BEGIN
     public void DyingGO()
     {
-        if (Dead != null)
-            Dead.Play();
+PlayDeathSound();
 
         if (destroyParticle != null)
         {
@@ -266,4 +265,6 @@ public class HealthScript : MonoBehaviour
         GetComponent<PlayerScript>().BeeingDestroyed();
 
     }
+}
+}
 }

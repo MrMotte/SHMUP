@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     //for engine animation
-    private Animator animatorEngine;
-    private Animator animatorWeapon;
+    private Animator playerAnimator;
 
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -70,7 +69,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        animatorEngine = gameObject.transform.Find("Engine").GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
         //animatorWeapon = gameObject.transform.Find("LightningPistolAir").GetComponentInChildren<Animator>();
 
         shild = GameObject.Find("Shild");
@@ -104,11 +103,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (!IsPlayerUnderwater)
             {
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+              /*  WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
                 WeaponSpriteRenderer.enabled = false;
                 CurrentWeapon++;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true; */
                 // Call VFX, GUI and Sound
             }
 
@@ -131,11 +130,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (IsPlayerUnderwater)
             {
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
+              /*  WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
                 WeaponSpriteRenderer.enabled = false;
                 CurrentWeapon--;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true;
+                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
+                WeaponSpriteRenderer.enabled = true; */
                 // Call VFX, GUI and Sound
             }
             
@@ -185,15 +184,30 @@ public class PlayerScript : MonoBehaviour
 			#region Weapon change
 			if (shoot && !WeaponIsChanging)
 			{
-				if (CurrentWeapon == 0)
+				if (CurrentWeapon == 0 || CurrentWeapon == 1)
 				{
-					//Debug.Log("Weapon 1 is shooting");
-					//Animation Weapon 1 start
-					//animatorWeapon.SetBool("IsWeaponShooting", true);
-				}
+                    //Debug.Log("Weapon 1 is shooting");
+                    //Animation Weapon 1 start
+                    //animatorWeapon.SetBool("IsWeaponShooting", true);
+                    playerAnimator.SetBool("CanonBallActive", false);
+                    playerAnimator.SetBool("PistolAttack", true);
+                }
 
-				fShoot(CurrentWeapon);
+                if (CurrentWeapon == 2 || CurrentWeapon == 3)
+                {
+                    //Debug.Log("Weapon 1 is shooting");
+                    //Animation Weapon 1 start
+                    //animatorWeapon.SetBool("IsWeaponShooting", true);
+                    playerAnimator.SetBool("CanonBallActive", true);
+                }
+
+                
+                fShoot(CurrentWeapon);
 			}
+            else
+            {
+                playerAnimator.SetBool("PistolAttack", false);
+            }
 
 			//else
 			//{

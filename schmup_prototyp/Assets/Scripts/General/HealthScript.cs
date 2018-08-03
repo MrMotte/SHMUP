@@ -216,8 +216,7 @@ public class HealthScript : MonoBehaviour
     //		BEGIN
     public void DyingGO()
     {
-        if (Dead != null)
-            Dead.Play();
+PlayDeathSound();
 
         if (destroyParticle != null)
         {
@@ -245,8 +244,28 @@ public class HealthScript : MonoBehaviour
     }
     //		END
 
-    void OnDestroy()
+void PlayDeathSound()
+{
+        if (!isEnemy)
+        {
+            //Is Player
+            if(this.gameObject.transform.position.y < this.gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
+            {
+                //player is underwater, play Water Death sound
+            SoundList.soundList.Player_Death_Water.Play();
+            }
+            else {
+                // player is in air, play air death sound
+                 SoundList.soundList.Player_Death_Air.Play();
+            }
+        }
+        else
+{
+    // is Enemy
+    if(this.gameObject.transform.position.y < GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
     {
-
+// enemy is under water
     }
+}
+}
 }

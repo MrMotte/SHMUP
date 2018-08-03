@@ -68,7 +68,7 @@ public class SoundList : MonoBehaviour
     public AudioSource Shield_Activation;
     public AudioSource Shield_Deactivation;
 
-    private static SoundList soundList;
+    public static SoundList soundList;
 
 
     void Awake()

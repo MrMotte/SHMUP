@@ -228,7 +228,7 @@ public class HealthScript : MonoBehaviour
     //		BEGIN
     public void DyingGO()
     {
-PlayDeathSound();
+        //PlayDeathSound();
 
         if (destroyParticle != null)
         {
@@ -266,5 +266,5 @@ PlayDeathSound();
 
     }
 }
-}
-}
+
+

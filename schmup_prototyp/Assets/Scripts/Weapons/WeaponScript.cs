@@ -17,6 +17,9 @@ public class WeaponScript : MonoBehaviour {
     /// Cooldown in seconds between two shots
     /// </summary>
     public float shootingRate = 0.25f;
+	public bool randomRange =false;
+	public float rangeMin;
+	public float rangeMax;
 
     public AudioSource ShootSound;
 
@@ -37,6 +40,13 @@ public class WeaponScript : MonoBehaviour {
         {
             shootCooldown -= Time.deltaTime;
         }
+
+		if(Time.frameCount % 10 == 0 && randomRange)
+		{
+
+		Quaternion target = Quaternion.Euler(0, 0, Random.Range(rangeMin,rangeMax));
+			this.transform.rotation = target;
+		}
     }
 
 	//--------------------------------
@@ -51,11 +61,13 @@ public class WeaponScript : MonoBehaviour {
 		if (CanAttack)
 		{
 			shootCooldown = shootingRate;
-
 			// Create a new shot
-			var shotTransform = Instantiate(shotPrefab) as Transform;
+
+				var shotTransform = Instantiate(shotPrefab) as Transform;
+
 			if (ShootSound != null)
 				ShootSound.Play();
+
 
 			// Assign position
 			if (isEnemy)
@@ -67,6 +79,8 @@ public class WeaponScript : MonoBehaviour {
 			{
 				Vector3 bulletOffset = new Vector3(1.5f, 0, 0);
 				shotTransform.position = transform.position + bulletOffset;
+				if(randomRange)
+					shotTransform.rotation = shotTransform.rotation * Quaternion.Euler(0,0,Random.Range(-100,100));
 			}
 
 

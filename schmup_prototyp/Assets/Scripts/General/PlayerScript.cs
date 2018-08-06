@@ -345,13 +345,13 @@ public class PlayerScript : MonoBehaviour
 
     void fShoot(int mCurrentWeapon)
     {
-        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponent<WeaponScript>();
+        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponentInChildren<WeaponScript>();
         if (weapon != null)
         {
             weapon.Attack(false);
         }
 
-        BajonettScript bajonett = Weapons[mCurrentWeapon].GetComponent<BajonettScript>();
+        BajonettScript bajonett = Weapons[mCurrentWeapon].GetComponentInChildren<BajonettScript>();
         if (bajonett != null)
         {
             bajonett.Attack(false);

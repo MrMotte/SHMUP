@@ -11,10 +11,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
-	private float chargeTimer = 0;
-	public float maxChargeTime = 1;
+    private float chargeTimer = 0;
+    public float maxChargeTime = 1;
 
-	public bool boost = false;
+    public bool boost = false;
 
     public float nextDMGPlayer = 0.1f;
     public float dashSpeed = 10f;
@@ -56,13 +56,13 @@ public class PlayerScript : MonoBehaviour
     float dmgRatePlayer = 0;
 
     //Splash, Drain, Bubbles, Thruster - Prefabs
-	[Header ("Movement FX  -  Air/Water Switch FX")]
+    [Header("Movement FX  -  Air/Water Switch FX")]
     public GameObject splashGO;
-	public GameObject drainGO;
-	public GameObject bubbleSplashGO;
-	
-	public GameObject airThrusterGO;
-	public GameObject waterThrusterGO;
+    public GameObject drainGO;
+    public GameObject bubbleSplashGO;
+
+    public GameObject airThrusterGO;
+    public GameObject waterThrusterGO;
 
 
     // Update is called once per frame
@@ -70,15 +70,10 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
-        //animatorWeapon = gameObject.transform.Find("LightningPistolAir").GetComponentInChildren<Animator>();
-
         shild = GameObject.Find("Shild");
 
         oldSpeed.x = speed.x;
         oldSpeed.y = speed.y;
-
-        //GetComponentInChildren<Animator>();
-
     }
 
     void Update()
@@ -86,81 +81,13 @@ public class PlayerScript : MonoBehaviour
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-
-        //checks if moving up, for animation, sets bool
-        if (inputY > 0)
-        {
-            //Debug.Log("über 0")
-            //animatorEngine.SetBool("IsMovingUp", true);
-        }
-        else
-        {
-            //animatorEngine.SetBool("IsMovingUp", false);
-        }
-
-        // detect if player is currently underwater
-        if (this.transform.position.y < Y_WaterBorder)
-        {
-            if (!IsPlayerUnderwater)
-            {
-              /*  WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = false;
-                CurrentWeapon++;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true; */
-                // Call VFX, GUI and Sound
-            }
-
-
-
-
-            //CHRISTIAN
-            //Instantiate Splash FX on WaterSurface
-            //	BEGIN
-            StopCoroutine("Splash");
-            StartCoroutine("Splash");
-			
-			airThrusterGO.SetActive(false);
-			waterThrusterGO.SetActive(true);
-			
-            //	END	
-            IsPlayerUnderwater = true;
-        }
-        else
-        {
-            if (IsPlayerUnderwater)
-            {
-              /*  WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = false;
-                CurrentWeapon--;
-                WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentsInChildren<SpriteRenderer>();
-                WeaponSpriteRenderer.enabled = true; */
-                // Call VFX, GUI and Sound
-            }
-            
-
-            //CHRISTIAN
-            //Activate Drain FX
-            //	BEGIN
-			
-			StopCoroutine("Drain");
-			StartCoroutine("Drain");
-			
-			airThrusterGO.SetActive(true);
-			waterThrusterGO.SetActive(false);
-			
-            //	END	
-			IsPlayerUnderwater = false;
-		}
-
-        Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
-
         if (Input.GetButtonDown("EngineDasher") && toogleBoolThree)
         {
             StartCoroutine(boostON(0));
             if (EngineDash != null)
                 EngineDash.Play();
         }
+
         if (boost == false)
         {
             speed.x = oldSpeed.x;
@@ -173,97 +100,58 @@ public class PlayerScript : MonoBehaviour
             toogleBoolTwo = false;
         }
 
+        // detect if player is currently underwater
+        if (this.transform.position.y < Y_WaterBorder)
+        {
+            if (!IsPlayerUnderwater && boost == false)
+            {
+                Weapons[CurrentWeapon].SetActive(false);
+                CurrentWeapon++;
+                Weapons[CurrentWeapon].SetActive(true);
+            }
+            StopCoroutine("Splash");
+            StartCoroutine("Splash");
+            airThrusterGO.SetActive(false);
+            waterThrusterGO.SetActive(true);
+            IsPlayerUnderwater = true;
+        }
+        else
+        {
+            if (IsPlayerUnderwater && boost == false)
+            {
+                Weapons[CurrentWeapon].SetActive(false);
+                CurrentWeapon--;
+                Weapons[CurrentWeapon].SetActive(true);
+            }
+            StopCoroutine("Drain");
+            StartCoroutine("Drain");
 
+            airThrusterGO.SetActive(true);
+            waterThrusterGO.SetActive(false);
+            IsPlayerUnderwater = false;
+        }
+        Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
         movement *= Time.deltaTime;
-
         transform.Translate(movement);
-
-		if(CurrentWeapon != 1)
-		{
-			bool shoot = Input.GetButton("Fire4");
-			#region Weapon change
-			if (shoot && !WeaponIsChanging)
-			{
-				if (CurrentWeapon == 0 || CurrentWeapon == 1)
-				{
-                    //Debug.Log("Weapon 1 is shooting");
-                    //Animation Weapon 1 start
-                    //animatorWeapon.SetBool("IsWeaponShooting", true);
+        if (CurrentWeapon == 0 || CurrentWeapon == 1)
+        {
+            bool shoot = Input.GetButton("Fire4");
+            if (shoot)
+            {
+                if (CurrentWeapon == 0 || CurrentWeapon == 1)
+                {
                     playerAnimator.SetBool("CanonBallActive", false);
                     playerAnimator.SetBool("PistolAttack", true);
                 }
 
-                if (CurrentWeapon == 2 || CurrentWeapon == 3)
-                {
-                    //Debug.Log("Weapon 1 is shooting");
-                    //Animation Weapon 1 start
-                    //animatorWeapon.SetBool("IsWeaponShooting", true);
-                    playerAnimator.SetBool("CanonBallActive", true);
-                }
-
-                
                 fShoot(CurrentWeapon);
-			}
+            }
             else
             {
                 playerAnimator.SetBool("PistolAttack", false);
             }
 
-			//else
-			//{
-			//Animation Weapon 1 stops
-			//animatorWeapon.SetBool("IsWeaponShooting", false);
-			//}
-		}
-
-		if (Input.GetKey(KeyCode.W) && CurrentWeapon == 1 && !WeaponIsChanging)
-		{
-			chargeTimer += Time.deltaTime;
-		}
-		if (Input.GetKeyUp(KeyCode.W) && (chargeTimer > maxChargeTime) && CurrentWeapon == 1 && !WeaponIsChanging)
-		{
-			fShoot(CurrentWeapon);
-			chargeTimer = 0;
-		}
-		if (Input.GetKeyUp(KeyCode.W) && (chargeTimer < maxChargeTime) && CurrentWeapon == 1 && !WeaponIsChanging)
-		{
-			chargeTimer = 0;
-		}
-
-
-		if (Input.GetButton("Weapon 1"))
-        {
-            if (IsPlayerUnderwater) { RequestedWeapon = 1; }
-            else
-                RequestedWeapon = 0;
-            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
         }
-        if (Input.GetButton("Weapon 2"))
-        {
-            if (IsPlayerUnderwater) { RequestedWeapon = 3; }
-            else
-                RequestedWeapon = 2;
-            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
-        }
-        if (Input.GetButton("Weapon 3"))
-        {
-            if (IsPlayerUnderwater) { RequestedWeapon = 5; }
-            else
-                RequestedWeapon = 4;
-            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
-        }
-        if (Input.GetButton("Weapon 4"))
-        {
-            if (IsPlayerUnderwater) { RequestedWeapon = 6; }
-            else
-                RequestedWeapon = 5;
-            StartCoroutine(fChangeWeapon(WeaponChangingDelay));
-        }
-        #endregion
-        // ...
-
-        // 6 - Make sure we are not outside the camera bounds
-        #region camera bounds 
 
         var dist = (transform.position - Camera.main.transform.position).z;
 
@@ -288,29 +176,6 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
-
-
-        if (Input.GetButtonDown("ShildBatteringRam"))
-        {
-            toogleBool = !toogleBool;
-            shild.GetComponent<Image>().enabled = toogleBool;
-            shild.GetComponent<CapsuleCollider2D>().enabled = toogleBool;
-            
-
-        }
-        if(Time.frameCount % 20 == 0)
-        {
-        if(toogleBool && shild.GetComponent<Shild>().shildHP > 0)
-        {
-            this.gameObject.GetComponent<HealthScript>().healthEnabled = false;
-        }
-        else
-           this.gameObject.GetComponent<HealthScript>().healthEnabled = true;
-        }
-
-
-        #endregion
-
         // End of the update method
 
     }
@@ -324,7 +189,7 @@ public class PlayerScript : MonoBehaviour
             {
                 collider.gameObject.GetComponent<HealthScript>().hp -= dashDamage;
                 nextDMGPlayer = Time.time + dmgRatePlayer;
-                Debug.Log("AAAAAAAAAAAAAAAAAHHHHHHHHHHHHH");
+
             }
         }
         if (collider.gameObject.tag == "Endgate")
@@ -337,35 +202,51 @@ public class PlayerScript : MonoBehaviour
 
     public void BeeingDestroyed()
     {
-        //transform.parent.gameObject.AddComponent<GameOverScript>();
-        //Debug.Log("U LOST");
         Time.timeScale = 0f;
         loseScreen.SetActive(true);
     }
 
     void fShoot(int mCurrentWeapon)
     {
-        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponent<WeaponScript>();
+        WeaponScript weapon = Weapons[mCurrentWeapon].GetComponentInChildren<WeaponScript>();
         if (weapon != null)
         {
             weapon.Attack(false);
         }
 
-        BajonettScript bajonett = Weapons[mCurrentWeapon].GetComponent<BajonettScript>();
+        BajonettScript bajonett = Weapons[mCurrentWeapon].GetComponentInChildren<BajonettScript>();
         if (bajonett != null)
         {
             bajonett.Attack(false);
         }
     }
 
-	IEnumerator boostON(float duration)
+
+    IEnumerator boostON(float duration)
     {
         duration = dashDuration;
         toogleBoolThree = false;
         boost = true;
         toogleBoolTwo = true;
+        this.gameObject.GetComponent<HealthScript>().healthEnabled = false;
+        shild.GetComponent<Image>().enabled = true;
+        Weapons[CurrentWeapon].SetActive(false);
+        Weapons[2].SetActive(true);
+
+
         yield return new WaitForSeconds(duration);
         boost = false;
+        shild.GetComponent<Image>().enabled = false;
+        this.gameObject.GetComponent<HealthScript>().healthEnabled = true;
+        if (IsPlayerUnderwater)
+            CurrentWeapon = 1;
+        else
+            CurrentWeapon = 0;
+        Weapons[2].SetActive(false);
+        Weapons[CurrentWeapon].SetActive(true);
+
+
+
         yield return new WaitForSeconds(cooldownTime);
         toogleBoolThree = true;
     }
@@ -374,23 +255,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (CurrentWeapon != RequestedWeapon)
         {
-            if (WeaponSwitch != null)
-                WeaponSwitch.Play();
-
-            WeaponIsChanging = true;
-            yield return new WaitForSeconds(mWeaponChangingDelay);
-
-            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
-            WeaponSpriteRenderer.enabled = false;
-
+            yield return new WaitForSeconds(0);
+            Weapons[CurrentWeapon].SetActive(false);
             CurrentWeapon = RequestedWeapon;
-            WeaponSpriteRenderer = Weapons[CurrentWeapon].GetComponentInChildren<SpriteRenderer>();
-            WeaponSpriteRenderer.enabled = true;
-
-            Debug.Log("Changed Weapon to: " + CurrentWeapon);
+            Weapons[CurrentWeapon].SetActive(true);
             WeaponIsChanging = false;
         }
-
     }
 
     //Plays FX if player moves below Y_WaterBorder
@@ -402,33 +272,35 @@ public class PlayerScript : MonoBehaviour
             if (splashGO != null)
             {
                 Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
-				//Play BubbleSplashFX
-				if(bubbleSplashGO != null)
-				{
-					if(bubbleSplashGO.activeSelf == false)
-					{
-						bubbleSplashGO.SetActive(true);
-					}
-					bubbleSplashGO.GetComponent<ParticleSystem>().Clear();
-					bubbleSplashGO.GetComponent<ParticleSystem>().Play();
-				}
+                //Play BubbleSplashFX
+                if (bubbleSplashGO != null)
+                {
+                    if (bubbleSplashGO.activeSelf == false)
+                    {
+                        bubbleSplashGO.SetActive(true);
+                    }
+                    bubbleSplashGO.GetComponent<ParticleSystem>().Clear();
+                    bubbleSplashGO.GetComponent<ParticleSystem>().Play();
+                }
             }
         }
         yield return null;
     }
-	
-	//Plays FX if player moves above Y_WaterBorder
-	IEnumerator Drain(){
-		
-		if(IsPlayerUnderwater){
-			if(drainGO != null)
-			{
-				//FX is looped, that's why we activate it just for 1 second
-				drainGO.SetActive(true);
-				yield return new WaitForSeconds(1);
-				drainGO.SetActive(false);
-			}		
-		}
-		yield return null;
-	}
+
+    //Plays FX if player moves above Y_WaterBorder
+    IEnumerator Drain()
+    {
+
+        if (IsPlayerUnderwater)
+        {
+            if (drainGO != null)
+            {
+                //FX is looped, that's why we activate it just for 1 second
+                drainGO.SetActive(true);
+                yield return new WaitForSeconds(1);
+                drainGO.SetActive(false);
+            }
+        }
+        yield return null;
+    }
 }

@@ -15,7 +15,7 @@ public class ShootAtPlayerNoRotation : MonoBehaviour {
 
 		          //rotate to look at the player
          transform.LookAt(NewPos);
-         transform.Rotate(new Vector3(0,-90,180),Space.Self);//correcting the original rotation
+         transform.Rotate(new Vector3(0,90,0),Space.Self);//correcting the original rotation
      }
  
      void Update(){

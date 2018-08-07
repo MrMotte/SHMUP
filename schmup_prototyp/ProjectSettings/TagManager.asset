@@ -9,6 +9,7 @@ TagManager:
   - Endgate
   - Wall
   - AOE
+  - Bomber
   layers:
   - Default
   - TransparentFX

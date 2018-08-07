@@ -10,6 +10,9 @@ TagManager:
   - Wall
   - AOE
   - Bomber
+  - Chaser
+  - Air
+  - Water
   layers:
   - Default
   - TransparentFX

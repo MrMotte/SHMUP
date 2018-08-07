@@ -366,7 +366,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4891132511878230, guid: 58c3ec9e7d7b68a4dad0fc26988fc822, type: 2}
   shootingRate: 1.5
+  randomRange: 0
+  rangeMin: 0
+  rangeMax: 0
+  shootVolley: 0
+  volleyAmount: 0
+  volleyTimeDif: 0
   ShootSound: {fileID: 82164759035474262}
+  enemyAnimator: {fileID: 0}
 --- !u!114 &114910273484723624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,11 +400,13 @@ MonoBehaviour:
   EnemyBox: {fileID: 61665600217267698}
   BlinkTimes: 10
   BlinkTime: 0
+  tickTime: 0.1
   hitPosition: {fileID: 0}
   hitParticle: {fileID: 0}
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
   healthEnabled: 1
+  chaserCollisionDmgMul: 1
 --- !u!212 &212035315441198334
 SpriteRenderer:
   m_ObjectHideFlags: 1

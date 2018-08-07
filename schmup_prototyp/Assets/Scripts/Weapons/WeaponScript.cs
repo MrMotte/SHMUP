@@ -25,12 +25,12 @@ public class WeaponScript : MonoBehaviour
     public bool shootVolley;
     public int volleyAmount;
     public float volleyTimeDif;
-	private int volleyCounter;
+    private int volleyCounter;
 
-	private bool mIsEnemy;
+    private bool mIsEnemy;
 
     public AudioSource ShootSound;
-	public Animator enemyAnimator;
+    public Animator enemyAnimator;
 
     //--------------------------------
     // 2 - Cooldown
@@ -70,14 +70,14 @@ public class WeaponScript : MonoBehaviour
     {
         if (CanAttack)
         {
-			//mIsEnemy = isEnemy;
+            //mIsEnemy = isEnemy;
             StartCoroutine("ShootBullet", isEnemy);
-			if(gameObject.tag == "Bomber" && enemyAnimator != null)
-			{
-				enemyAnimator.SetTrigger("BomberAttack");
-				
-				Debug.Log("AnimationFired!");
-			}
+            if (gameObject.tag == "Bomber" && enemyAnimator != null)
+            {
+                enemyAnimator.SetTrigger("BomberAttack");
+
+                Debug.Log("AnimationFired!");
+            }
         }
     }
 
@@ -92,51 +92,57 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
+
+
     IEnumerator ShootBullet(bool isEnemy)
     {
-		volleyCounter = volleyAmount;
-		do{
-			
-        shootCooldown = shootingRate;
-        // Create a new shot
-
-        var shotTransform = Instantiate(shotPrefab) as Transform;
-
-        if (ShootSound != null)
-            ShootSound.Play();
-
-
-        // Assign position
-        if (isEnemy)
+        volleyCounter = volleyAmount;
+        do
         {
-            Vector3 bulletOffset = new Vector3(-1, 0, 0);
-            shotTransform.position = transform.position + bulletOffset;
-        }
-        else
-        {
-            Vector3 bulletOffset = new Vector3(1.5f, 0, 0);
-            shotTransform.position = transform.position + bulletOffset;
-            if (randomRange)
-                shotTransform.rotation = shotTransform.rotation * Quaternion.Euler(0, 0, Random.Range(-100, 100));
-        }
+
+            shootCooldown = shootingRate;
+            // Create a new shot
+
+            var shotTransform = Instantiate(shotPrefab) as Transform;
+
+            if (gameObject.CompareTag("Air"))
+                SoundList.soundList.Weapon_Lightning_Pistol_Shot_Air.Play();
+
+            if (gameObject.CompareTag("Water") && !SoundList.soundList.Weapon_Lightning_Pistol_Shot_Water.isPlaying)
+                SoundList.soundList.Weapon_Lightning_Pistol_Shot_Water.Play();
 
 
-        // The is enemy property
-        ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
-        if (shot != null)
-        {
-            shot.isEnemyShot = isEnemy;
-        }
+            // Assign position
+            if (isEnemy)
+            {
+                Vector3 bulletOffset = new Vector3(-1, 0, 0);
+                shotTransform.position = transform.position + bulletOffset;
+            }
+            else
+            {
+                Vector3 bulletOffset = new Vector3(1.5f, 0, 0);
+                shotTransform.position = transform.position + bulletOffset;
+                if (randomRange)
+                    shotTransform.rotation = shotTransform.rotation * Quaternion.Euler(0, 0, Random.Range(-100, 100));
+            }
 
-        // Make the weapon shot always towards it
-        MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-        if (move != null)
-        {
-            move.direction = this.transform.right; // towards in 2D space is the right of the sprite
-        }
 
-		volleyCounter--;
-		yield return new WaitForSeconds(volleyTimeDif);
-	}while(shootVolley && volleyCounter > 0);
+            // The is enemy property
+            ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
+            if (shot != null)
+            {
+                shot.isEnemyShot = isEnemy;
+            }
+
+            // Make the weapon shot always towards it
+            MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
+            if (move != null)
+            {
+                move.direction = this.transform.right; // towards in 2D space is the right of the sprite
+            }
+
+            volleyCounter--;
+            yield return new WaitForSeconds(volleyTimeDif);
+        } while (shootVolley && volleyCounter > 0);
     }
 }

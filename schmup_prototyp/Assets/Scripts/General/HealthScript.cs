@@ -40,13 +40,27 @@ public class HealthScript : MonoBehaviour
 
     public bool healthEnabled = true;
 
+    public float chaserCollisionDmgMul = 1;
+
 
     GameObject shild;
 
+    IEnumerator Boom()
+    {
+        yield return new WaitForSeconds(.1f);
+        for (int o = 0; o < spriteRendererChildren.Length; o++)
+        {
+            spriteRendererChildren[o].enabled = false;
+        }
 
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.CompareTag("Player") && this.gameObject.CompareTag("Chaser"))
+            DyingGO();
+
+
 
 
         if (healthEnabled)
@@ -61,9 +75,13 @@ public class HealthScript : MonoBehaviour
 
             if (!Immunity)
             {
-                if (collider.gameObject.tag == "Enemy" && shild.GetComponent<Image>().enabled == false)
+                if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "Bomber" || collider.gameObject.tag == "Chaser" && shild.GetComponent<Image>().enabled == false)
                 {
-                    this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
+                    if (collider.gameObject.tag == "Chaser")
+                        this.GetComponentInParent<HealthScript>().hp -= dashBackDamage * chaserCollisionDmgMul;
+                    else
+                        this.GetComponentInParent<HealthScript>().hp -= dashBackDamage;
+
                     //Debug.Log("IIIIIIIIIIIIIIIIIIIIIIIII");
                     Immunity = true;
                     StartCoroutine(fSpriteImmunityBlink());
@@ -72,7 +90,10 @@ public class HealthScript : MonoBehaviour
                         Healthbar.fillAmount = (hp / maxHP);
                     }
                 }
-
+                if (hp < 1)
+                {
+                    DyingGO();
+                }
                 if (shot != null)
                 {
                     if (shot.isEnemyShot != isEnemy)
@@ -81,6 +102,12 @@ public class HealthScript : MonoBehaviour
                             GotHitted.Play();
 
                         hp -= shot.damage;
+                        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                            SoundList.soundList.Enemy_Damage_Water.Play();
+
+                        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                            SoundList.soundList.Enemy_Damage_Air.Play();
+
                         if (Healthbar)
                         {
                             Healthbar.fillAmount = (hp / maxHP);
@@ -173,7 +200,7 @@ public class HealthScript : MonoBehaviour
         for (int i = 1; i <= BlinkTimes; i++)
         {
             yield return new WaitForSeconds(BlinkTime);
-           for(int c=0; c < spriteRendererChildren.Length; c++)
+            for (int c = 0; c < spriteRendererChildren.Length; c++)
             {
                 spriteRendererChildren[c].enabled = false;
                 Debug.Log("Blink startet");
@@ -183,11 +210,11 @@ public class HealthScript : MonoBehaviour
             //  mSpriteRenderer.enabled = false;
 
             yield return new WaitForSeconds(BlinkTime);
-            for(int c=0; c < spriteRendererChildren.Length; c++)
+            for (int c = 0; c < spriteRendererChildren.Length; c++)
             {
                 spriteRendererChildren[c].enabled = true;
             }
-            
+
 
             //foreach (SpriteRenderer mSpriteRenderer in spriteRendererChildren)
             //  mSpriteRenderer.enabled = true;
@@ -200,8 +227,8 @@ public class HealthScript : MonoBehaviour
     {
 
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
-        //if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-          //  spriteRenderer.sprite = sprite1; // set the sprite to sprite1
+                                                         //if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
+                                                         //  spriteRenderer.sprite = sprite1; // set the sprite to sprite1
 
         spriteRendererChildren = this.gameObject.GetComponentsInChildren<SpriteRenderer>();
         maxHP = hp;
@@ -236,11 +263,18 @@ public class HealthScript : MonoBehaviour
     //		BEGIN
     public void DyingGO()
     {
+        Debug.Log("Dying!");
         //PlayDeathSound();
+        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+            SoundList.soundList.Enemy_Death_Water.Play();
+
+        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+            SoundList.soundList.Enemy_Death_Air.Play();
 
         if (destroyParticle != null)
         {
             destroyParticle.SetActive(true);
+            //Instantiate(destroyParticle);
         }
         /* 
                 if (isEnemy)

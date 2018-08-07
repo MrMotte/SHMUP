@@ -10,6 +10,8 @@ public class MoveUpAndDown : MonoBehaviour
     public Transform BottomBound;
     private bool TopBottomSwitch = false;
 
+    public Animator sniperAnim;
+
 
     private SpriteRenderer rendererComponent;
     private bool IsVisible = false;
@@ -60,6 +62,9 @@ public class MoveUpAndDown : MonoBehaviour
         if (transform.position.y <= BottomBound.position.y)
             TopBottomSwitch = true;
 
+        if (sniperAnim != null)
+            sniperAnim.SetBool("MovingDirection", true);
+
     }
 
     void goup()
@@ -67,6 +72,9 @@ public class MoveUpAndDown : MonoBehaviour
         this.transform.position += Vector3.up * speed * Time.deltaTime;
         if (transform.position.y >= TopBound.position.y)
             TopBottomSwitch = false;
+
+        if (sniperAnim != null)
+            sniperAnim.SetBool("MovingDirection", false);
     }
 
     void FixOutOfScreenGlitch()

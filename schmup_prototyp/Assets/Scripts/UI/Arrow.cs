@@ -17,7 +17,7 @@ public class Arrow : MonoBehaviour {
 	{
 		if (player.transform.position.y >= player.GetComponent<PlayerScript>().Y_WaterBorder)
 		{
-			if (player.GetComponent<PlayerScript>().CurrentWeapon == 0)
+			/*if (player.GetComponent<PlayerScript>().CurrentWeapon == 0)
 			{
 				transform.localPosition = new Vector3(-370, -165, 0);
 				transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -31,11 +31,15 @@ public class Arrow : MonoBehaviour {
 			{
 				transform.localPosition = new Vector3(-340, -195, 0);
 				transform.localRotation = Quaternion.Euler(0, 0, 270);
-			}
+			}*/
+
+			transform.localPosition = new Vector3(-67, -217, 0);
+			transform.localRotation = Quaternion.Euler(0, 0, 315);
+
 		}
 		else if (player.transform.position.y <= player.GetComponent<PlayerScript>().Y_WaterBorder)
 		{
-			if (player.GetComponent<PlayerScript>().CurrentWeapon == 1)
+			/*if (player.GetComponent<PlayerScript>().CurrentWeapon == 1)
 			{
 				transform.localPosition = new Vector3(-340, 195, 0);
 				transform.localRotation = Quaternion.Euler(0, 0, 270);
@@ -49,7 +53,10 @@ public class Arrow : MonoBehaviour {
 			{
 				transform.localPosition = new Vector3(-370, 165, 0);
 				transform.localRotation = Quaternion.Euler(0, 0, 180);
-			}
+			}*/
+
+			transform.localPosition = new Vector3(-84, -217, 0);
+			transform.localRotation = Quaternion.Euler(0, 0, 45);
 		}
 
 

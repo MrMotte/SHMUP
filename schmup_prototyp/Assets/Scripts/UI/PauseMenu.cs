@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour {
 			}
 		}
 
-		if (player.transform.position.y >= player.GetComponent<PlayerScript>().Y_WaterBorder)
+	/*	if (player.transform.position.y >= player.GetComponent<PlayerScript>().Y_WaterBorder)
 		{
 			air_GUI.SetActive(true);
 			water_GUI.SetActive(false);
@@ -55,7 +55,7 @@ public class PauseMenu : MonoBehaviour {
 		}else if(player.GetComponent<PlayerScript>().toogleBoolThree == false){
 			spaceAir.sprite = spaceOFF;
 			spaceWater.sprite = spaceOFF;
-		}
+		} */
 	}
 
 	public void Resume()

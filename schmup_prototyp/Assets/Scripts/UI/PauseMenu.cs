@@ -12,13 +12,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public GameObject player;
 
-	public GameObject air_GUI;
-	public GameObject water_GUI;
-
-	public Sprite spaceON;
-	public Sprite spaceOFF;
-	public Image spaceAir;
-	public Image spaceWater;
+	public Image cononball;
 
 	void Start()
 	{
@@ -48,14 +42,12 @@ public class PauseMenu : MonoBehaviour {
 			air_GUI.SetActive(false);
 			water_GUI.SetActive(true);
 		}
-
+		*/
 		if(player.GetComponent<PlayerScript>().toogleBoolThree == true){
-			spaceAir.sprite = spaceON;
-			spaceWater.sprite = spaceON;
+			cononball.enabled = true;
 		}else if(player.GetComponent<PlayerScript>().toogleBoolThree == false){
-			spaceAir.sprite = spaceOFF;
-			spaceWater.sprite = spaceOFF;
-		} */
+			cononball.enabled = false;
+		} 
 	}
 
 	public void Resume()

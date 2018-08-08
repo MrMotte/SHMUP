@@ -23,7 +23,7 @@ public class Blinking : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (( player.GetComponent<HealthScript>().hp <= 4) && (jaNein == false)){
+		if (( player.GetComponent<HealthScript>().hp < 4) && (jaNein == false)){
 			jaNein = true;
 			StartCoroutine(fSpriteImmunityBlink());
 		}

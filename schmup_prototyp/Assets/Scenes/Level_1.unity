@@ -3718,11 +3718,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114980468453123968, guid: dd3c20fb266ca1c41b9bc0597e28a305,
-        type: 2}
-      propertyPath: Ingame_Music
-      value: 
-      objectReference: {fileID: 2035721750}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd3c20fb266ca1c41b9bc0597e28a305, type: 2}
   m_IsPrefabParent: 0
@@ -19420,11 +19415,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!82 &2035721750 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82146901114521894, guid: dd3c20fb266ca1c41b9bc0597e28a305,
-    type: 2}
-  m_PrefabInternal: {fileID: 369236592}
 --- !u!1 &2038725603
 GameObject:
   m_ObjectHideFlags: 0

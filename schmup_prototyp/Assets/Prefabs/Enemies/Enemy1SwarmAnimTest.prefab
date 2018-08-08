@@ -1811,6 +1811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4275616588446788, guid: 32923ef7b31e56342a986bea97f4638a, type: 2}
+  bulletXoffset: 0
+  bulletYoffset: 0
   shootingRate: 1.8
   randomRange: 0
   rangeMin: 0

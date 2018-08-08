@@ -139,6 +139,7 @@ public class HealthScript : MonoBehaviour
                             //		END
 
                             Immunity = true;
+                            Immunity = true;
                             StartCoroutine(fSpriteImmunityBlink());
                         }
                         if (!shot.gameObject.CompareTag("AOE"))
@@ -273,6 +274,12 @@ public class HealthScript : MonoBehaviour
 
         if (destroyParticle != null)
         {
+			//Destroy Chaser with "Cold Explosion FX"
+			if(gameObject.tag == "Chaser")
+			{
+				Instantiate(destroyParticle, transform);
+			}
+			else
             destroyParticle.SetActive(true);
             //Instantiate(destroyParticle);
         }

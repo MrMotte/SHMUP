@@ -9,7 +9,7 @@ public class Arrow : MonoBehaviour {
 	void Start () 
 	{
 
-		player = GameObject.Find("PlayerAnimTest");
+		player = GameObject.Find("Player");
 
 	}
 	

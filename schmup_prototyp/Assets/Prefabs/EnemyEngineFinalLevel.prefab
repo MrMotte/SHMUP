@@ -83,7 +83,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 38.9
+    XToNextSpawn: 35.4
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 379.3
+    XToNextSpawn: 386.6
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
       type: 2}
-    XToNextSpawn: 385.9
+    XToNextSpawn: 393.57
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 392
+    XToNextSpawn: 412.63
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 400.9
+    XToNextSpawn: 418.32
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 410.7
+    XToNextSpawn: 433.67
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 414.6
+    XToNextSpawn: 437.57
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 422.3
+    XToNextSpawn: 445.27
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
       type: 2}
-    XToNextSpawn: 426
+    XToNextSpawn: 448.97
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 441.13
+    XToNextSpawn: 464.1
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 450.51
+    XToNextSpawn: 473.48
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
       type: 2}
-    XToNextSpawn: 457.4
+    XToNextSpawn: 480.37
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 462.58
+    XToNextSpawn: 486.02
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 470
+    XToNextSpawn: 493.44
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 479.6
+    XToNextSpawn: 503.04
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
       type: 2}
-    XToNextSpawn: 486.4
+    XToNextSpawn: 516.84
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
       type: 2}
-    XToNextSpawn: 503.84
+    XToNextSpawn: 527.28
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
       type: 2}
-    XToNextSpawn: 503.9
+    XToNextSpawn: 527.34
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -425,34 +425,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
       type: 2}
-    XToNextSpawn: 515.88
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
-      type: 2}
-    XToNextSpawn: 519.9
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
-      type: 2}
-    XToNextSpawn: 528.96
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
-      type: 2}
-    XToNextSpawn: 530.45
+    XToNextSpawn: 532.52
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -461,7 +434,61 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
       type: 2}
-    XToNextSpawn: 0
+    XToNextSpawn: 540.83
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 543.68
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 544.85
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 549.16
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 555.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 566.41
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 578.41
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -470,42 +497,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
       type: 2}
-    XToNextSpawn: 0
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
-      type: 2}
-    XToNextSpawn: 0
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
-      type: 2}
-    XToNextSpawn: 0
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
-      type: 2}
-    XToNextSpawn: 0
-    AdvancedFormation: 0
-    EnemyClassAdvanced: []
-    MirrorFormation: 0
-    UsePositionOffset: 0
-    SpawnOffset: {x: 0, y: 0, z: 0}
-  - FormationPattern: {fileID: 0}
-    EnemyClass: {fileID: 0}
-    XToNextSpawn: 0
+    XToNextSpawn: 584.99
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -514,7 +506,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
       type: 2}
-    XToNextSpawn: 0
+    XToNextSpawn: 591.5
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -523,7 +515,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 0
+    XToNextSpawn: 605
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0
@@ -532,7 +524,7 @@ MonoBehaviour:
   - FormationPattern: {fileID: 0}
     EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
       type: 2}
-    XToNextSpawn: 0
+    XToNextSpawn: 608.7
     AdvancedFormation: 0
     EnemyClassAdvanced: []
     MirrorFormation: 0

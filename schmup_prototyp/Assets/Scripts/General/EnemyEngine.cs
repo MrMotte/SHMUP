@@ -192,6 +192,7 @@ public class EnemyEngine : MonoBehaviour
     void fSPawnFormation()
     {
         newFormation = Instantiate(FormationData[iFormationCounter].FormationPattern, SpawnPosition, SpawnRotation) as GameObject;
+        SoundList.soundList.Enemy_Formation_Appears.Play();
     }
 
     // function to edit spawn position with an offset

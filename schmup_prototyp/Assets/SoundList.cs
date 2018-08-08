@@ -12,9 +12,10 @@ public class SoundList : MonoBehaviour
     public AudioSource Enemy_Damage_Air;
     public AudioSource Enemy_Damage_Water;
     public AudioSource Enemy_Bomber_Drop;
-    public AudioSource Enemy_Chaser_Rocket;
-    public AudioSource Enemy_Sniper_Beam_Load;
-    public AudioSource Enemy_Treasure_Teleport;
+    public AudioSource Enemy_Chaser_Speed_Movement;
+    public AudioSource Enemy_Chaser_Explosion;
+    public AudioSource Enemy_Chaser_Proximity;
+    public AudioSource Enemy_Sniper_Energie_Suchrakete;
 
     [Header("Level")]
     public AudioSource End_Gate_opens;
@@ -36,11 +37,10 @@ public class SoundList : MonoBehaviour
     [Header("Engine")]
     public AudioSource Player_Engine_Air;
     public AudioSource Player_Engine_Water;
-    public AudioSource Player_Engine_Dash_Start;
-    public AudioSource Player_Engine_Dash_on;
 
     [Header("Stats")]
-    public AudioSource Player_Bullet_Damage;
+    public AudioSource Player_Bullet_Damage_Air;
+    public AudioSource Player_Bullet_Damage_Water;
     public AudioSource Player_Collision_Damage;
     public AudioSource Player_Death_Air;
     public AudioSource Player_Death_Water;
@@ -53,20 +53,12 @@ public class SoundList : MonoBehaviour
     public AudioSource Weapon_Switch;
     public AudioSource Weapon_Lightning_Pistol_Shot_Air;
     public AudioSource Weapon_Lightning_Pistol_Shot_Water;
-    public AudioSource Weapon_Lightning_Pistol_AOE_Water_Damage;
-    public AudioSource Weapon_Bayonet_Attack_Air;
-    public AudioSource Weapon_Bayonet_Enemy_Hit_Stun;
-    public AudioSource Weapon_Bayonet_Fire_Substance;
-    public AudioSource Weapon_Bayonet_Holddown_Water;
-    public AudioSource Weapon_Bayonet_Fire_whole_Bayonet;
-    public AudioSource Weapon_Bayonet_loaded;
 
-    [Header("Shield")]
-    public AudioSource Shield_Damage;
-    public AudioSource Shield_Destroy;
-    public AudioSource Shield_Cracks;
-    public AudioSource Shield_Activation;
-    public AudioSource Shield_Deactivation;
+    [Header("Ability")]
+    public AudioSource Activation;
+    public AudioSource Deactivation;
+    public AudioSource DurationFeedback;
+    public AudioSource CooldownOver;
 
     public static SoundList soundList;
 

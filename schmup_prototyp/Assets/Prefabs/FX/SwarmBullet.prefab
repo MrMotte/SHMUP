@@ -203,7 +203,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198138622775352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 535f176a214cc6745932a47cf101d8a7, type: 3}
   m_Name: 
@@ -9574,7 +9574,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.15294115, g: 0.972549, b: 0.89568657, a: 1}
+      maxColor: {r: 0.15659486, g: 0.6509434, b: 0.40427735, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

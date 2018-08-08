@@ -773,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1751346322450734
 GameObject:
   m_ObjectHideFlags: 1
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34caf3a8c42aced459372ead783b30c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 2, y: 1}
+  speed: {x: 4, y: 3}
   direction: {x: 1, y: 0}
   isLinkedToCamera: 1
   isLooping: 0
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fa2aaa3aa9f84b9399a4921457bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashBackDamage: 5
+  dashBackDamage: 2
   hp: 20
   maxHP: 0
   isEnemy: 0
@@ -2972,7 +2972,7 @@ MonoBehaviour:
   hitParticle: {fileID: 198280653732098170}
   destroyParticle: {fileID: 1454952061809654}
   healthEnabled: 1
-  chaserCollisionDmgMul: 3
+  chaserCollisionDmgMul: 2
 --- !u!114 &114967567801810576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3001,9 +3001,9 @@ MonoBehaviour:
   boost: 0
   nextDMGPlayer: 0.1
   dashSpeed: 10
-  dashDuration: 15
+  dashDuration: 6
   cooldownTime: 5
-  dashDamage: 2
+  dashDamage: 3
   speed: {x: 10, y: 10}
   oldSpeed: {x: 10, y: 10}
   Weapons:

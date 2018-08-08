@@ -210,7 +210,7 @@ MonoBehaviour:
   damage: 2
   Paralyze: 0
   ParalyzeTime: 0
-  DespawnTime: 2
+  DespawnTime: 3.5
   isEnemyShot: 0
 --- !u!198 &198111684578975784
 ParticleSystem:

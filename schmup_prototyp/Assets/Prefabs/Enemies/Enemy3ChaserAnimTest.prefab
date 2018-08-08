@@ -1232,7 +1232,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4770189710224674}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4083363006434530
 Transform:
@@ -1962,6 +1962,7 @@ Transform:
   - {fileID: 4732465706803224}
   - {fileID: 4176084790967754}
   - {fileID: 4611494949871552}
+  - {fileID: 4039145436311130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

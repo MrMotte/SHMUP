@@ -108,10 +108,10 @@ public class HealthScript : MonoBehaviour
                         if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
                             SoundList.soundList.Enemy_Damage_Air.Play();
 
-                        if (this.gameObject.CompareTag("Player") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                        if (this.gameObject.CompareTag("Player") && this.transform.position.y > this.gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
                             SoundList.soundList.Player_Bullet_Damage_Air.Play();
 
-                        if (this.gameObject.CompareTag("Player") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                        if (this.gameObject.CompareTag("Player") && this.transform.position.y < this.gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
                             SoundList.soundList.Player_Bullet_Damage_Water.Play();
 
                         if (Healthbar)
@@ -284,10 +284,10 @@ public class HealthScript : MonoBehaviour
             if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
                 SoundList.soundList.Enemy_Death_Air.Play();
 
-            if (this.gameObject.CompareTag("Player") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+            if (this.gameObject.CompareTag("Player") && this.transform.position.y < this.gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
                 SoundList.soundList.Player_Death_Air.Play();
 
-            if (this.gameObject.CompareTag("Player") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+            if (this.gameObject.CompareTag("Player") && this.transform.position.y > this.gameObject.GetComponent<PlayerScript>().Y_WaterBorder)
                 SoundList.soundList.Player_Death_Water.Play();
         }
 
@@ -329,8 +329,8 @@ public class HealthScript : MonoBehaviour
     {
 
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
         GetComponent<PlayerScript>().BeeingDestroyed();
+        Destroy(gameObject);
 
     }
 }

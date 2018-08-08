@@ -64,7 +64,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject airThrusterGO;
     public GameObject waterThrusterGO;
 
-
+	public GameObject airBoostThrusterGO;
+	public GameObject waterBoostThrusterGO;
+	public GameObject boostImpactGO;
+	public GameObject boostWeaponGlowGO;
     // Update is called once per frame
 
     private void Start()
@@ -93,6 +96,7 @@ public class PlayerScript : MonoBehaviour
             speed.x = oldSpeed.x;
             speed.y = oldSpeed.y;
         }
+		//Hier wird der Boost / Canonball aktiviert
         else if (boost == true && toogleBoolTwo == true)
         {
             speed.x += dashSpeed;
@@ -111,9 +115,23 @@ public class PlayerScript : MonoBehaviour
             }
             StopCoroutine("Splash");
             StartCoroutine("Splash");
-            airThrusterGO.SetActive(false);
-            waterThrusterGO.SetActive(true);
+			
+			if(!boost)
+			{
+				airThrusterGO.SetActive(false);
+				waterThrusterGO.SetActive(true);
+				airBoostThrusterGO.SetActive(false);
+				waterBoostThrusterGO.SetActive(false);
+			}
+			else
+			{
+				airBoostThrusterGO.SetActive(false);
+				waterBoostThrusterGO.SetActive(true);
+				airThrusterGO.SetActive(false);
+				waterThrusterGO.SetActive(false);
+			}
             IsPlayerUnderwater = true;
+			
         }
         else
         {
@@ -125,10 +143,22 @@ public class PlayerScript : MonoBehaviour
             }
             StopCoroutine("Drain");
             StartCoroutine("Drain");
-
-            airThrusterGO.SetActive(true);
-            waterThrusterGO.SetActive(false);
-            IsPlayerUnderwater = false;
+			
+			if(!boost)
+			{
+				airThrusterGO.SetActive(true);
+				waterThrusterGO.SetActive(false);
+				airBoostThrusterGO.SetActive(false);
+				waterBoostThrusterGO.SetActive(false);
+            }
+			else
+			{
+				airBoostThrusterGO.SetActive(true);
+				waterBoostThrusterGO.SetActive(false);
+				airThrusterGO.SetActive(false);
+				waterThrusterGO.SetActive(false);
+			}
+			IsPlayerUnderwater = false;
         }
         Vector3 movement = new Vector3(inputX * speed.x, inputY * speed.y, 0);
         movement *= Time.deltaTime;
@@ -221,7 +251,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
+	//Canonball FX
     IEnumerator boostON(float duration)
     {
         duration = dashDuration;
@@ -232,7 +262,9 @@ public class PlayerScript : MonoBehaviour
         shild.GetComponent<Image>().enabled = true;
         Weapons[CurrentWeapon].SetActive(false);
         Weapons[2].SetActive(true);
+		boostWeaponGlowGO.SetActive(true);
 
+		
 
         yield return new WaitForSeconds(duration);
         boost = false;
@@ -244,7 +276,7 @@ public class PlayerScript : MonoBehaviour
             CurrentWeapon = 0;
         Weapons[2].SetActive(false);
         Weapons[CurrentWeapon].SetActive(true);
-
+		boostWeaponGlowGO.SetActive(false);
 
 
         yield return new WaitForSeconds(cooldownTime);
@@ -271,7 +303,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (splashGO != null)
             {
-                Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder), transform.rotation);
+                Instantiate(splashGO, new Vector2(transform.position.x, Y_WaterBorder - 0.2f), transform.rotation);
                 //Play BubbleSplashFX
                 if (bubbleSplashGO != null)
                 {

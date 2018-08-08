@@ -28,7 +28,11 @@ public class BajonettScript : MonoBehaviour
     private bool IsAttacking;
     private float shootCooldown;
     private bool shootPoisonIsRunning;
-
+	
+	[Header("Used Impact for hitting an Enemy")]
+	public GameObject impactGO;
+	
+	
     void Start()
     {
         shootCooldown = 0f;
@@ -61,14 +65,29 @@ public class BajonettScript : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
+				StopCoroutine("Impact");
+				StartCoroutine("Impact");
+				
                 HealthScript healthScript = other.gameObject.GetComponent<HealthScript>();
                 healthScript.Damage(Damage);
+				
                 //MoveScript moveScript = other.gameObject.GetComponent<MoveScript>();
                 //moveScript.StartCoroutine("Paralyze", ParalyzeTime);
             }
         }
     }
 
+	IEnumerator Impact() {
+		
+		if(impactGO != null)
+		{	
+			impactGO.SetActive(true);
+			yield return new WaitForSeconds(1);
+			impactGO.SetActive(false);
+		}
+		yield return null;
+	}
+	
     IEnumerator BajonettActiveDelay()
     {
         yield return new WaitForSeconds(100);

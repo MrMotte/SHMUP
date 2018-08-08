@@ -77,7 +77,8 @@ public class PlayerScript : MonoBehaviour
 
         oldSpeed.x = speed.x;
         oldSpeed.y = speed.y;
-        SoundList.soundList.Ingame_Music.Play();
+
+        playerAnimator.speed = 4.5f;
     }
 
     void Update()
@@ -112,7 +113,9 @@ public class PlayerScript : MonoBehaviour
             {
                 Weapons[CurrentWeapon].SetActive(false);
                 CurrentWeapon++;
+                
                 Weapons[CurrentWeapon].SetActive(true);
+                playerAnimator.speed = 0.68f;
             }
             StopCoroutine("Splash");
             StartCoroutine("Splash");
@@ -141,6 +144,7 @@ public class PlayerScript : MonoBehaviour
                 Weapons[CurrentWeapon].SetActive(false);
                 CurrentWeapon--;
                 Weapons[CurrentWeapon].SetActive(true);
+                playerAnimator.speed = 4.5f;
             }
             StopCoroutine("Drain");
             StartCoroutine("Drain");

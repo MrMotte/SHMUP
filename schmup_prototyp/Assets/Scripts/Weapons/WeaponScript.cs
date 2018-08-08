@@ -14,6 +14,9 @@ public class WeaponScript : MonoBehaviour
     /// </summary>
     public Transform shotPrefab;
 
+	public float bulletXoffset = 0.0f;
+	public float bulletYoffset = 0.0f;
+	
     /// <summary>
     /// Cooldown in seconds between two shots
     /// </summary>
@@ -115,8 +118,16 @@ public class WeaponScript : MonoBehaviour
             // Assign position
             if (isEnemy)
             {
-                Vector3 bulletOffset = new Vector3(-1, 0, 0);
-                shotTransform.position = transform.position + bulletOffset;
+				if(bulletXoffset != 0.0f || bulletYoffset != 0.0f)
+				{
+					Vector3 bulletOffset = new Vector3((-1 + bulletXoffset), (0 + bulletYoffset), 0);
+					shotTransform.position = transform.position + bulletOffset;
+				}
+				else
+				{
+					Vector3 bulletOffset = new Vector3(-1, 0, 0);
+					shotTransform.position = transform.position + bulletOffset;
+				}
             }
             else
             {

@@ -234,13 +234,13 @@ public class HealthScript : MonoBehaviour
         {
             destroyParticle.SetActive(true);
         }
-        /* 
+         
                 if (isEnemy)
                 {
                     Instantiate(currencyPickup, this.transform.position, Quaternion.identity);
                     Score.scoreValue += 100;
                 }
-        */
+        
         if (isEnemy)
         {
             ChangeTheDamnSprite(); // call method to change sprite

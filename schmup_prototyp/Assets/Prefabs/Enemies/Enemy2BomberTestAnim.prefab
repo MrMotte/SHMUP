@@ -3107,6 +3107,7 @@ MonoBehaviour:
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
   healthEnabled: 1
+  chaserCollisionDmgMul: 1
 --- !u!137 &137018714272039934
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

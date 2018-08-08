@@ -2070,6 +2070,7 @@ MonoBehaviour:
   hitParticle: {fileID: 198800134135802952}
   destroyParticle: {fileID: 1490571652886742}
   healthEnabled: 1
+  chaserCollisionDmgMul: 1
 --- !u!114 &114903616127325850
 MonoBehaviour:
   m_ObjectHideFlags: 1

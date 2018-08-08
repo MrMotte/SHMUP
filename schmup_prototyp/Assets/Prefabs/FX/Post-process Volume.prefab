@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4115756295323990}
   - component: {fileID: 65162144560212040}
   - component: {fileID: 114850911921586880}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Post-process Volume
-  m_TagString: Untagged
+  m_TagString: ParticleEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -102,11 +102,17 @@ public class HealthScript : MonoBehaviour
                             GotHitted.Play();
 
                         hp -= shot.damage;
-                        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                        if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
                             SoundList.soundList.Enemy_Damage_Water.Play();
 
-                        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                        if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
                             SoundList.soundList.Enemy_Damage_Air.Play();
+
+                        if (this.gameObject.CompareTag("Player") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                            SoundList.soundList.Player_Bullet_Damage_Air.Play();
+
+                        if (this.gameObject.CompareTag("Player") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                            SoundList.soundList.Player_Bullet_Damage_Water.Play();
 
                         if (Healthbar)
                         {
@@ -266,21 +272,34 @@ public class HealthScript : MonoBehaviour
     {
         Debug.Log("Dying!");
         //PlayDeathSound();
-        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
-            SoundList.soundList.Enemy_Death_Water.Play();
+        if (this.gameObject.CompareTag("Chaser"))
+        {
+            SoundList.soundList.Enemy_Chaser_Explosion.Play();
+        }
+        else
+        {
+            if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                SoundList.soundList.Enemy_Death_Water.Play();
 
-        if (this.gameObject.CompareTag("Enemy") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
-            SoundList.soundList.Enemy_Death_Air.Play();
+            if (this.gameObject.CompareTag("Enemy") || this.gameObject.CompareTag("Bomber") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                SoundList.soundList.Enemy_Death_Air.Play();
+
+            if (this.gameObject.CompareTag("Player") && this.transform.position.y < GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                SoundList.soundList.Player_Death_Air.Play();
+
+            if (this.gameObject.CompareTag("Player") && this.transform.position.y > GameObject.FindWithTag("Player").GetComponent<PlayerScript>().Y_WaterBorder)
+                SoundList.soundList.Player_Death_Water.Play();
+        }
 
         if (destroyParticle != null)
         {
-			//Destroy Chaser with "Cold Explosion FX"
-			if(gameObject.tag == "Chaser")
-			{
-				Instantiate(destroyParticle, transform);
-			}
-			else
-            destroyParticle.SetActive(true);
+            //Destroy Chaser with "Cold Explosion FX"
+            if (gameObject.tag == "Chaser")
+            {
+                Instantiate(destroyParticle, transform);
+            }
+            else
+                destroyParticle.SetActive(true);
             //Instantiate(destroyParticle);
         }
         /* 

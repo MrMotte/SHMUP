@@ -2505,7 +2505,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1506390269
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
 --- !u!33 &33503910723768530
 MeshFilter:
@@ -3292,6 +3292,7 @@ MonoBehaviour:
   destroyParticle: {fileID: 1409380022435754, guid: cbc0a1cdea7dbd740a5aa54f50bfaa16,
     type: 2}
   healthEnabled: 1
+  chaserCollisionDmgMul: 1
 --- !u!114 &114499299806738364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3716,8 +3717,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4891132511878230, guid: 58c3ec9e7d7b68a4dad0fc26988fc822, type: 2}
+  bulletXoffset: 0
+  bulletYoffset: 0
   shootingRate: 1.5
+  randomRange: 0
+  rangeMin: 0
+  rangeMax: 0
+  shootVolley: 0
+  volleyAmount: 0
+  volleyTimeDif: 0
   ShootSound: {fileID: 0}
+  enemyAnimator: {fileID: 0}
 --- !u!114 &114662267470344598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4267,7 +4277,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1506390269
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 3
   serializedVersion: 2
   m_Quality: 0
@@ -4382,7 +4392,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1506390269
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4450,7 +4460,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1506390269
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0

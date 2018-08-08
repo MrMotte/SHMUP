@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1332377928182974}
+  m_RootGameObject: {fileID: 1748968220384846}
   m_IsPrefabParent: 1
---- !u!1 &1332377928182974
+--- !u!1 &1748968220384846
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4282003779632336}
-  - component: {fileID: 114462208221127992}
-  - component: {fileID: 114822807325542168}
-  - component: {fileID: 114023681515478766}
+  - component: {fileID: 4862311358508580}
+  - component: {fileID: 114936533319590688}
+  - component: {fileID: 114843837931407084}
+  - component: {fileID: 114239273261502888}
   m_Layer: 0
   m_Name: EnemyEngineFinalLevel
   m_TagString: Untagged
@@ -29,50 +29,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4282003779632336
+--- !u!4 &4862311358508580
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332377928182974}
+  m_GameObject: {fileID: 1748968220384846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 4.07, z: 0}
+  m_LocalPosition: {x: -0.1, y: 2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114023681515478766
+--- !u!114 &114239273261502888
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332377928182974}
+  m_GameObject: {fileID: 1748968220384846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ffe2e50f4800b408189843267ba896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114462208221127992
+--- !u!114 &114843837931407084
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332377928182974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03025b3e5012e94d8c495c466b6ed79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FormationData: []
-  FinishLineDelayAfterLastEnemy: 3
-  Finishline: {fileID: 1635667698892192, guid: 85e50cf647286bd4b95cecb405604f41, type: 2}
---- !u!114 &114822807325542168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332377928182974}
+  m_GameObject: {fileID: 1748968220384846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34caf3a8c42aced459372ead783b30c5, type: 3}
@@ -82,3 +68,467 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   isLinkedToCamera: 0
   isLooping: 0
+--- !u!114 &114936533319590688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748968220384846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03025b3e5012e94d8c495c466b6ed79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FormationData:
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 35.4
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 65.3
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 83.9
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 91.5
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 111.3
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 116.5
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 134.3
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 141.5
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 158.3
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 171.4
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 176.3
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 184
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 201.1
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 223.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 247.4
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 267.1
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 289.7
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 313.2
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 334.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 353.2
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 363.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 386.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 393.57
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 412.63
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 418.32
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 433.67
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 437.57
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 445.27
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 448.97
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 464.1
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 473.48
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 480.37
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 486.02
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 493.44
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 503.04
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 516.84
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 527.28
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1581170371003998, guid: b157bebc98b18be478f58407156f4329,
+      type: 2}
+    XToNextSpawn: 527.34
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 532.52
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 540.83
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 543.68
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 544.85
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 549.16
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 555.6
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1460940180986236, guid: 619fa2b3a141d7e49834caae028413be,
+      type: 2}
+    XToNextSpawn: 566.41
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 578.41
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 584.99
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1035831565578688, guid: b1abf4981a2ca1148b54bff9ab9bf427,
+      type: 2}
+    XToNextSpawn: 591.5
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 605
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - FormationPattern: {fileID: 0}
+    EnemyClass: {fileID: 1640182564082480, guid: 340a63eb6d3d57e4aa2882590c46317a,
+      type: 2}
+    XToNextSpawn: 608.7
+    AdvancedFormation: 0
+    EnemyClassAdvanced: []
+    MirrorFormation: 0
+    UsePositionOffset: 0
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  FinishLineDelayAfterLastEnemy: 3
+  Finishline: {fileID: 1635667698892192, guid: 85e50cf647286bd4b95cecb405604f41, type: 2}

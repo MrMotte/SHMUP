@@ -77,6 +77,7 @@ public class PlayerScript : MonoBehaviour
 
         oldSpeed.x = speed.x;
         oldSpeed.y = speed.y;
+        SoundList.soundList.Ingame_Music.Play();
     }
 
     void Update()

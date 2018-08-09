@@ -578,7 +578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4115756295323990, guid: 008ab03edb857ae47bc57e5b115d2145, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 114850911921586880, guid: 008ab03edb857ae47bc57e5b115d2145,
         type: 2}
@@ -792,6 +792,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 114980468453123968, guid: dd3c20fb266ca1c41b9bc0597e28a305,
+        type: 2}
+      propertyPath: Enemy_Chaser_Explosion
+      value: 
+      objectReference: {fileID: 1013322770}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd3c20fb266ca1c41b9bc0597e28a305, type: 2}
   m_IsPrefabParent: 0
@@ -878,7 +883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4018815287119722, guid: a4c162128e2e89c4392c4ba94a29bef2, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 137290921545138578, guid: a4c162128e2e89c4392c4ba94a29bef2,
         type: 2}
@@ -920,6 +925,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4171557337205728, guid: a4c162128e2e89c4392c4ba94a29bef2,
     type: 2}
   m_PrefabInternal: {fileID: 1012207096}
+--- !u!82 &1013322770 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82828002519757466, guid: dd3c20fb266ca1c41b9bc0597e28a305,
+    type: 2}
+  m_PrefabInternal: {fileID: 943250633}
 --- !u!1 &1128555632
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1159335322
 Prefab:
@@ -3724,6 +3734,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 114534360904170914, guid: 7fc4cf03fdf55764aa99e89686191f25,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114400805684154766, guid: 7fc4cf03fdf55764aa99e89686191f25,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461923666603946, guid: 7fc4cf03fdf55764aa99e89686191f25,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092754334430272, guid: 7fc4cf03fdf55764aa99e89686191f25,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fc4cf03fdf55764aa99e89686191f25, type: 2}
   m_IsPrefabParent: 0
@@ -3841,7 +3871,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1732766408
 Prefab:

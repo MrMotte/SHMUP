@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f176a214cc6745932a47cf101d8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 12, y: 12}
+  speed: {x: 17, y: 17}
   direction: {x: 1, y: 0}
   speedXThresholdForLPW: 0
   speedDecelleration: 0.9
